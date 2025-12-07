@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzeria Prosto z Pieca</title>
+    <style>
+        body {
+            font-family: "Georgia", serif;
+            margin: 0;
+            background-color: #f7f3ec;
+            color: #2c2c2c;
+        }
+        header {
+            background-color: #8b0000;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        nav {
+            background-color: #5c0000;
+            text-align: center;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            border-bottom: 2px solid #8b0000;
+            padding-bottom: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #b3b3b3;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #8b0000;
+            color: white;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://images.unsplash.com/photo-1599938576691-5c7d679de5f0" alt="Logo Pizzerii" style="width:160px; display:block; margin:0 auto 20px auto; border-radius:50%; box-shadow:0 0 10px rgba(0,0,0,0.3);">
+        <img src="https://images.unsplash.com/photo-1601924928585-6e1b3f4c1b5d" alt="Pizzeria" style="width:100%; max-height:400px; object-fit:cover;">
+        <h1>Pizzeria "Prosto z Pieca"</h1>
+        <p>Elegancja i klasyka w każdym kawałku</p>
+    </header>
+
+    <section style="position:relative; text-align:center; margin-bottom:40px;">
+        <img src="https://images.unsplash.com/photo-1548365328-76bc3997d9ea" alt="Pizza Hero" style="width:100%; max-height:480px; object-fit:cover; filter:brightness(80%); border-bottom:4px solid #8b0000;">
+        <h1 style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); color:white; font-size:48px; text-shadow:2px 2px 8px rgba(0,0,0,0.7); font-family:Georgia, serif;">
+            Najlepsza Pizza Prosto z Pieca
+        </h1>
+    </section>
+
+    <nav>
+        <a href="#menu">Menu</a>
+        <a href="#kontakt">Kontakt</a>
+    </nav>
+
+    <div class="container" id="menu">
+        <h2>Menu</h2>
+        <table>
+            <tr>
+                <th>Pizza</th>
+                <th>Składniki</th>
+                <th>Cena</th>
+            </tr>
+            <tr>
+                <td>Margherita</td>
+                <td>Sos pomidorowy, mozzarella, bazylia</td>
+                <td>24 zł</td>
+            </tr>
+            <tr>
+                <td>Capricciosa</td>
+                <td>Szynka, pieczarki, mozzarella</td>
+                <td>29 zł</td>
+            </tr>
+            <tr>
+                <td>Diavola</td>
+                <td>Salami pikantne, mozzarella, papryczki</td>
+                <td>31 zł</td>
+            </tr>
+            <tr>
+                <td>Prosciutto</td>
+                <td>Szynka parmeńska, rukola, parmezan</td>
+                <td>34 zł</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="container" id="opinie">
+        <h2>Opinie naszych gości</h2>
+        <p><em>"Najlepsza pizza w mieście! Ciasto idealne, składniki świeże, a klimat niesamowity."</em> – Maria K.</p>
+        <p><em>"Elegancja, klasa i smak prosto z Włoch. Polecam każdemu!"</em> – Tomasz P.</p>
+        <p><em>"Obsługa na najwyższym poziomie, pizza jeszcze lepsza. Wrócimy na pewno!"</em> – Karolina i Michał</p>
+    </div>
+
+    <div class="container" id="premium">
+        <h2>Dlaczego warto wybrać naszą pizzerię?</h2>
+        <ul style="line-height:1.8; font-size:18px;">
+            <li>✔ Ręcznie wyrabiane ciasto dojrzewające 48 godzin</li>
+            <li>✔ Najwyższej jakości włoskie składniki sprowadzane prosto z Neapolu</li>
+            <li>✔ Piec opalany drewnem dębowym – smak nie do podrobienia</li>
+            <li>✔ Możliwość rezerwacji VIP – prywatna sala, obsługa premium</li>
+            <li>✔ Profesjonalna dostawa w pudełkach termoizolacyjnych</li>
+        </ul>
+    </div>
+
+    <div class="container" id="kontakt">
+        <h2>Kontakt</h2>
+        <p><strong>Telefon:</strong> 555 987 321</p>
+        <p><strong>Email:</strong> kontakt@prostozpieca.pl</p>
+        <p><strong>Adres:</strong> ul. Włoska 12, 00-123 Warszawa</p>
+    </div>
+
+    <footer>
+        &copy; 2025 Pizzeria "Prosto z Pieca" – Wszystkie prawa zastrzeżone.
+    </footer>
+</body>
+</html>
