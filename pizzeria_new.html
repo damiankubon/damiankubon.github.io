@@ -102,32 +102,30 @@ h1 {
   width: 100%;
   border-radius: 12px;
   margin-bottom: 12px;
+  cursor: pointer;
 }
 
-/* OPINIE */
-.reviews {
-  background: white;
-  padding: 30px;
+/* ---------- LIGHTBOX ---------- */
+
+#lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+#lightbox img {
+  max-width: 90%;
+  max-height: 90%;
   border-radius: 14px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 0 20px rgba(255,255,255,0.4);
 }
 
-.review {
-  margin-bottom: 20px;
-  border-left: 4px solid #e63946;
-  padding-left: 14px;
-  font-size: 17px;
-}
-
-/* FOOTER */
-
-footer {
-  background: #111;
-  color: #aaa;
-  text-align: center;
-  padding: 25px;
-  margin-top: 60px;
-  font-size: 14px;
+#lightbox.close-area {
+  cursor: pointer;
 }
 
 </style>
@@ -187,45 +185,38 @@ footer {
 </div>
 
 
-<!-- OPINIE -->
-<div class="section">
-  <h2>⭐ Opinie klientów</h2>
-  <div class="reviews">
-
-    <div class="review">
-      <strong>Karolina</strong><br>
-      „Najlepsza pizza w Tarnowie! Ciasto jak z Neapolu.”
-    </div>
-
-    <div class="review">
-      <strong>Bartek</strong><br>
-      „Szybka dostawa, świetne składniki. Zdecydowanie polecam!”
-    </div>
-
-    <div class="review">
-      <strong>Ola</strong><br>
-      „Diavola to sztos. Ostra, świeża i idealna!”
-    </div>
-
-  </div>
+<!-- LIGHTBOX POPUP -->
+<div id="lightbox" class="close-area">
+  <img id="lightbox-img" src="">
 </div>
 
 
-<!-- KONTAKT -->
-<div class="section">
-  <h2>📍 Kontakt</h2>
-  <p><strong>Adres:</strong> ul. Krakowska 81, Tarnów</p>
-  <p><strong>Email:</strong> kontakt@lafiamma.pl</p>
-  <p><strong>Telefon:</strong> +48 736 552 948</p>
-  <p><strong>Godziny otwarcia:</strong> 11:00–22:00</p>
-</div>
+<!-- JAVASCRIPT DO OTWIERANIA ZDJĘĆ -->
+<script>
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+
+document.querySelectorAll(".pizza-card img").forEach(img => {
+  img.addEventListener("click", () => {
+    lightbox.style.display = "flex";
+    lightboxImg.src = img.src;
+  });
+});
+
+lightbox.addEventListener("click", () => {
+  lightbox.style.display = "none";
+});
+</script>
+
 
 <footer>
   © 2025 • Pizzeria La Fiamma • Projekt demo wykonany przez Damiana
 </footer>
 
 </body>
-</html>  
+</html>
+
+
 
 
 
