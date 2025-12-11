@@ -10,221 +10,214 @@
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
-            background-color: #faf7f4;
+            background-color: #f4f0e8;
             color: #333;
         }
 
         /* HEADER */
         header {
-            height: 450px;
-            background: url('https://images.unsplash.com/photo-1588776814546-c1b0ed62f3e1?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+            position: relative;
+            height: 350px;
+            background: url('https://images.pexels.com/photos/3998425/pexels-photo-3998425.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
             color: white;
-            flex-direction: column;
-            padding: 0 10px;
+            text-align: center;
         }
+        header * { margin-top: 0; }
 
         header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 56px;
-            text-shadow: 2px 2px 12px rgba(0,0,0,0.8);
-            margin-bottom: 0;
+            font-size: 52px;
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.8);
+            margin-bottom: 5px;
         }
-
         header p {
-            font-size: 22px;
-            margin-top: 10px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            font-size: 20px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
         }
 
         /* MENU */
         nav {
-            background-color: #7a3e2f;
-            padding: 15px;
+            background-color: #8B3E2F;
             text-align: center;
+            padding: 14px;
         }
-
         nav a {
-            text-decoration: none;
             color: white;
-            margin: 0 25px;
-            font-size: 18px;
+            margin: 0 20px;
             font-weight: bold;
-            transition: 0.4s;
+            font-size: 18px;
+            text-decoration: none;
         }
+        nav a:hover { color: #FFD28A; }
 
-        nav a:hover {
-            color: #ffcb74;
-        }
-
-        /* CONTENT BOX */
+        /* SEKCJE */
         .container {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 40px auto;
-            background: white;
-            padding: 35px;
+            padding: 30px;
+            background-color: #fff;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
-
         h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            margin-bottom: 20px;
-            border-left: 6px solid #d2691e;
+            border-left: 8px solid #c27b45;
             padding-left: 12px;
+            font-family: 'Playfair Display', serif;
         }
 
         /* GALERIA */
         .galeria {
+            margin-top: 25px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
         }
-
         .galeria img {
             width: 100%;
             height: 220px;
             object-fit: cover;
             border-radius: 12px;
-            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
         }
-
         .galeria img:hover {
             transform: scale(1.05);
         }
 
-        /* USŁUGI */
+        /* TABELA USŁUG */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 15px;
+            margin-top: 20px;
         }
-
         th, td {
             padding: 14px;
             border: 1px solid #ddd;
         }
-
         th {
-            background-color: #f5ede4;
-            font-weight: bold;
+            background-color: #f1e1d2;
         }
 
         /* OPINIE */
         .opinie p {
-            background: #f7f1ea;
-            padding: 15px;
-            border-left: 5px solid #d2691e;
-            border-radius: 8px;
             font-style: italic;
-            margin-bottom: 18px;
+            font-size: 18px;
+            margin-bottom: 15px;
+            border-left: 4px solid #c27b45;
+            padding-left: 15px;
+        }
+
+        /* STOPKA */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #8B3E2F;
+            color: white;
+            margin-top: 40px;
         }
 
         /* MAPA */
         iframe {
             width: 100%;
             height: 350px;
-            border: 0;
-            border-radius: 12px;
+            border: none;
+            border-radius: 15px;
             margin-top: 20px;
-        }
-
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 25px;
-            background-color: #7a3e2f;
-            color: white;
-            margin-top: 50px;
-            font-size: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Salon Fryzjerski Bella</h1>
-    <p>Profesjonalizm • Styl • Jakość</p>
-</header>
+    <header>
+        <h1>Salon Fryzjerski Bella</h1>
+        <p>Profesjonalizm • Styl • Jakość</p>
+    </header>
 
-<nav>
-    <a href="#galeria">Galeria</a>
-    <a href="#uslugi">Usługi</a>
-    <a href="#opinie">Opinie</a>
-    <a href="#kontakt">Kontakt</a>
-</nav>
+    <nav>
+        <a href="#galeria">Galeria</a>
+        <a href="#uslugi">Usługi</a>
+        <a href="#opinie">Opinie</a>
+        <a href="#kontakt">Kontakt</a>
+    </nav>
 
-<div class="container" id="galeria">
-    <h2>Galeria</h2>
-    <div class="galeria">
-        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80">
-        <img src="https://images.unsplash.com/photo-1519415943484-9fa1873496b2?auto=format&fit=crop&w=800&q=80">
-        <img src="https://images.unsplash.com/photo-1593702295094-c6462c0d7ec3?auto=format&fit=crop&w=800&q=80">
-        <img src="https://images.unsplash.com/photo-1600861194942-843b99f7d69f?auto=format&fit=crop&w=800&q=80">
+    <!-- GALERIA -->
+    <div class="container" id="galeria">
+        <h2>Galeria</h2>
+
+        <div class="galeria">
+            <img src="https://images.pexels.com/photos/3998421/pexels-photo-3998421.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Barber 1">
+            <img src="https://images.pexels.com/photos/3998427/pexels-photo-3998427.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Barber 2">
+            <img src="https://images.pexels.com/photos/3998425/pexels-photo-3998425.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Barber 3">
+            <img src="https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Barber 4">
+        </div>
     </div>
-</div>
 
-<div class="container" id="uslugi">
-    <h2>Usługi</h2>
-    <table>
-        <tr>
-            <th>Usługa</th>
-            <th>Opis</th>
-            <th>Cena</th>
-        </tr>
-        <tr>
-            <td>Strzyżenie damskie</td>
-            <td>Stylizowane cięcie dopasowane do typu urody</td>
-            <td>90 zł</td>
-        </tr>
-        <tr>
-            <td>Strzyżenie męskie</td>
-            <td>Klasyczne, nowoczesne i barber fade</td>
-            <td>60 zł</td>
-        </tr>
-        <tr>
-            <td>Koloryzacja premium</td>
-            <td>Profesjonalne farbowanie z doborem kolorysty</td>
-            <td>150–350 zł</td>
-        </tr>
-        <tr>
-            <td>Modelowanie i stylizacja</td>
-            <td>Fryzury na co dzień i na specjalne okazje</td>
-            <td>80–180 zł</td>
-        </tr>
-    </table>
-</div>
+    <!-- USŁUGI -->
+    <div class="container" id="uslugi">
+        <h2>Usługi</h2>
 
-<div class="container" id="opinie">
-    <h2>Opinie klientów</h2>
-    <div class="opinie">
-        <p>„Najlepszy salon w Tarnowie! Efekt zawsze perfekcyjny.” – Anna K.</p>
-        <p>„Polecam, super atmosfera i pełen profesjonalizm.” – Mateusz S.</p>
-        <p>„Świetne cięcie, zawsze wracam zadowolona!” – Karolina W.</p>
+        <table>
+            <tr>
+                <th>Usługa</th>
+                <th>Opis</th>
+                <th>Cena</th>
+            </tr>
+            <tr>
+                <td>Strzyżenie damskie</td>
+                <td>Stylizacja dopasowana do rysów twarzy</td>
+                <td>80–120 zł</td>
+            </tr>
+            <tr>
+                <td>Strzyżenie męskie</td>
+                <td>Klasyczne i nowoczesne cięcia</td>
+                <td>50 zł</td>
+            </tr>
+            <tr>
+                <td>Koloryzacja</td>
+                <td>Farby premium, trwały efekt</td>
+                <td>150–300 zł</td>
+            </tr>
+            <tr>
+                <td>Upięcia okolicznościowe</td>
+                <td>Fryzury ślubne, wieczorowe, okazjonalne</td>
+                <td>150–250 zł</td>
+            </tr>
+        </table>
     </div>
-</div>
 
-<div class="container" id="kontakt">
-    <h2>Kontakt</h2>
-    <p><strong>Telefon:</strong> 14 556 21 90</p>
-    <p><strong>Email:</strong> kontakt@bella-salon.pl</p>
-    <p><strong>Adres:</strong> ul. Kwiatowa 22, 33-100 Tarnów</p>
+    <!-- OPINIE -->
+    <div class="container" id="opinie">
+        <h2>Opinie klientów</h2>
 
-    <h3>Mapa</h3>
-    <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2560.8032867441713!2d20.986479615718445!3d50.01234567950005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473d85e1e50eaaab%3A0x123456789abcdef!2sTarn%C3%B3w!5e0!3m2!1spl!2spl!4v1690000000000"
-        allowfullscreen="">
-    </iframe>
-</div>
+        <div class="opinie">
+            <p>“Najlepszy salon w mieście! Profesjonalizm na każdym kroku.” – Anna M.</p>
+            <p>“Świetna atmosfera i perfekcyjne cięcie. Polecam!” – Piotr K.</p>
+            <p>“Za każdym razem wychodzę zachwycona.” – Katarzyna W.</p>
+        </div>
+    </div>
 
-<footer>
-    © 2025 Salon Fryzjerski Bella – Wszystkie prawa zastrzeżone.
-</footer>
+    <!-- KONTAKT -->
+    <div class="container" id="kontakt">
+        <h2>Kontakt</h2>
+
+        <p><strong>Telefon:</strong> 14 555 123 456</p>
+        <p><strong>Email:</strong> kontakt@bella-salon.pl</p>
+        <p><strong>Adres:</strong> ul. Główna 45, 33-100 Tarnów</p>
+
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2563.448013829994!2d20.986375!3d50.012345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4715bd123456789%3A0xabcdef123456789!2sTarnów!5e0!3m2!1spl!2spl!4v1700000000000">
+        </iframe>
+    </div>
+
+    <footer>
+        © 2025 Salon Fryzjerski Bella – Wszystkie prawa zastrzeżone.
+    </footer>
 
 </body>
 </html>
-
+ 
