@@ -22,21 +22,14 @@
 body{
   margin:0;
   font-family:'Inter',sans-serif;
-  background:radial-gradient(1200px 600px at 10% -10%,#1f2937,#0b0d10);
+  background:
+    radial-gradient(900px 500px at 50% -10%, #e0e7ff, transparent),
+    radial-gradient(1200px 700px at 20% 0%, #22d3ee22, transparent),
+    #0b0d10;
   color:var(--light);
-  overflow-x:hidden;
 }
 
-/* ===== GLOBAL ===== */
-.container{
-  max-width:1200px;
-  margin:0 auto;
-  padding:120px 24px;
-}
-
-h1,h2,h3,h4{margin:0}
-p{color:var(--muted);line-height:1.7}
-
+/* ===== REVEAL ===== */
 .reveal{
   opacity:0;
   transform:translateY(60px);
@@ -54,64 +47,57 @@ header{
   align-items:center;
   justify-content:center;
   text-align:center;
-  position:relative;
-}
-
-header::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(600px 300px at 50% 0%,rgba(99,102,241,.25),transparent),
-    radial-gradient(500px 300px at 80% 40%,rgba(34,211,238,.2),transparent);
-  z-index:0;
+  padding:40px;
 }
 
 .hero{
-  position:relative;
-  z-index:1;
   max-width:900px;
 }
 
 .hero h1{
-  font-size:clamp(42px,6vw,68px);
+  font-size:clamp(42px,6vw,70px);
   font-weight:800;
   letter-spacing:-1px;
 }
 
+.hero span{
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
 .hero p{
-  margin:24px auto 40px;
+  margin:28px auto 42px;
   font-size:20px;
-  max-width:700px;
+  color:#dbeafe;
 }
 
 .hero a{
-  display:inline-flex;
-  gap:12px;
-  align-items:center;
-  padding:18px 36px;
+  display:inline-block;
+  padding:18px 40px;
   background:linear-gradient(135deg,var(--accent),var(--accent2));
   color:#fff;
-  border-radius:16px;
+  border-radius:18px;
   font-weight:700;
   text-decoration:none;
   transition:.4s;
 }
 .hero a:hover{
-  transform:translateY(-4px) scale(1.03);
-  box-shadow:0 25px 60px rgba(99,102,241,.4);
+  transform:translateY(-4px) scale(1.05);
+  box-shadow:0 30px 80px rgba(99,102,241,.5);
 }
 
-/* ===== SECTION TITLE ===== */
+/* ===== CONTAINER ===== */
+.container{
+  max-width:1200px;
+  margin:0 auto;
+  padding:120px 24px;
+}
+
 .section-title{
   font-size:38px;
   font-weight:800;
   margin-bottom:70px;
-}
-.section-title span{
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  -webkit-background-clip:text;
-  color:transparent;
 }
 
 /* ===== PROJECTS ===== */
@@ -122,52 +108,52 @@ header::before{
 }
 
 .project{
-  background:linear-gradient(180deg,rgba(255,255,255,.04),transparent);
+  background:linear-gradient(180deg,rgba(255,255,255,.05),transparent);
   border:1px solid rgba(255,255,255,.08);
-  border-radius:24px;
+  border-radius:26px;
   padding:36px;
-  backdrop-filter:blur(12px);
-  transition:.6s cubic-bezier(.19,1,.22,1);
-  position:relative;
-  overflow:hidden;
-}
-
-.project::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:radial-gradient(300px 200px at 100% 0%,rgba(99,102,241,.15),transparent);
-  opacity:0;
   transition:.6s;
+  cursor:pointer;
 }
 
 .project:hover{
   transform:translateY(-12px);
-}
-.project:hover::after{
-  opacity:1;
+  box-shadow:0 40px 100px rgba(0,0,0,.6);
 }
 
-.project h3{
-  font-size:22px;
-  margin-bottom:10px;
+.project h3{margin-bottom:12px}
+
+/* ===== MODAL ===== */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
 }
-.project a{
+
+.modal.active{display:flex}
+
+.modal-box{
+  background:#0f172a;
+  border-radius:26px;
+  padding:40px;
+  max-width:700px;
+  width:90%;
+}
+
+.modal-box h3{margin-top:0}
+.close{
+  margin-top:30px;
   display:inline-block;
-  margin-top:24px;
-  padding:14px 26px;
-  border-radius:12px;
-  background:#fff;
-  color:#000;
+  color:#fff;
+  cursor:pointer;
   font-weight:700;
-  text-decoration:none;
-  transition:.3s;
-}
-.project a:hover{
-  transform:scale(1.05);
 }
 
-/* ===== WHY ===== */
+/* ===== FEATURES ===== */
 .features{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -179,16 +165,6 @@ header::before{
   border-radius:24px;
   background:linear-gradient(180deg,rgba(255,255,255,.05),transparent);
   border:1px solid rgba(255,255,255,.08);
-  transition:.5s;
-}
-.feature:hover{
-  transform:translateY(-8px);
-  box-shadow:0 30px 80px rgba(0,0,0,.6);
-}
-
-.feature h4{
-  font-size:18px;
-  margin-bottom:12px;
 }
 
 /* ===== CONTACT ===== */
@@ -197,24 +173,12 @@ header::before{
   border-radius:32px;
   padding:80px 30px;
   text-align:center;
-  color:#fff;
-}
-.contact p{
-  color:#eef;
-  font-size:20px;
 }
 
-/* ===== FOOTER ===== */
 footer{
   padding:50px;
   text-align:center;
-  color:#6b7280;
-  font-size:14px;
-}
-
-/* ===== MOBILE ===== */
-@media(max-width:600px){
-  .container{padding:90px 20px}
+  color:#9ca3af;
 }
 </style>
 </head>
@@ -223,56 +187,44 @@ footer{
 
 <header>
   <div class="hero reveal">
-    <h1>Nowoczesne strony,<br>które <span style="color:#a5b4fc">sprzedają</span></h1>
-    <p>Projektuję premium strony internetowe dla firm, które chcą się wyróżnić, budować markę i zdobywać klientów.</p>
-    <a href="#kontakt">Skontaktuj się</a>
+    <h1>Tworzę strony,<br>które <span>robią pieniądze</span></h1>
+    <p>Premium web design dla firm, które chcą się wyróżnić i sprzedawać więcej.</p>
+    <a href="#projekty">Zobacz realizacje</a>
   </div>
 </header>
 
-<section class="container">
-  <h2 class="section-title reveal">Wybrane <span>realizacje</span></h2>
+<section class="container" id="projekty">
+  <h2 class="section-title reveal">Wybrane realizacje</h2>
+
   <div class="projects">
-    <div class="project reveal">
+    <div class="trainer.html" onclick="openModal('trener')">
       <h3>🏋️ Trener Personalny</h3>
-      <p>Landing sprzedażowy z ofertą, pakietami i CTA.</p>
-      <a href="#">Zobacz projekt</a>
+      <p>Strona sprzedażowa z pakietami i CTA.</p>
     </div>
-    <div class="project reveal">
+
+    <div class="pizzeria_new.html" onclick="openModal('pizza')">
       <h3>🍕 Pizzeria</h3>
-      <p>Strona restauracji z menu i szybkim kontaktem.</p>
-      <a href="#">Zobacz projekt</a>
+      <p>Menu, godziny, szybki kontakt.</p>
     </div>
-    <div class="project reveal">
+
+    <div class="barber_new.html" onclick="openModal('barber')">
       <h3>💈 Barber</h3>
-      <p>Premium strona barberska z opiniami klientów.</p>
-      <a href="#">Zobacz projekt</a>
+      <p>Premium branding + opinie.</p>
     </div>
   </div>
 </section>
 
 <section class="container">
-  <h2 class="section-title reveal">Dlaczego <span>ja?</span></h2>
+  <h2 class="section-title reveal">Dlaczego warto?</h2>
   <div class="features">
-    <div class="feature reveal">
-      <h4>🚀 Szybkość</h4>
-      <p>Perfekcyjna wydajność i SEO.</p>
-    </div>
-    <div class="feature reveal">
-      <h4>📱 Responsywność</h4>
-      <p>Mobile-first bez kompromisów.</p>
-    </div>
-    <div class="feature reveal">
-      <h4>🎯 Konwersja</h4>
-      <p>Strony projektowane pod sprzedaż.</p>
-    </div>
-    <div class="feature reveal">
-      <h4>🤝 Współpraca</h4>
-      <p>Jasne zasady, szybkie poprawki.</p>
-    </div>
+    <div class="feature reveal"><h4>🚀 Szybkość</h4><p>Top performance i SEO.</p></div>
+    <div class="feature reveal"><h4>📱 Mobile</h4><p>Perfekcyjnie na telefonach.</p></div>
+    <div class="feature reveal"><h4>🎯 Konwersja</h4><p>Projekt pod sprzedaż.</p></div>
+    <div class="feature reveal"><h4>🤝 Support</h4><p>Pełna opieka.</p></div>
   </div>
 </section>
 
-<section class="container" id="kontakt">
+<section class="container">
   <div class="contact reveal">
     <h2>Kontakt</h2>
     <p>📞 729 623 364</p>
@@ -281,21 +233,40 @@ footer{
 </section>
 
 <footer>
-  © 2025 Damian Kuboń • Premium Web Design
+© 2025 Damian Kuboń — Premium Web Design
 </footer>
 
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-box" id="modalContent"></div>
+</div>
+
 <script>
-const reveals=document.querySelectorAll('.reveal');
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.classList.add('visible');
-      obs.unobserve(e.target);
+const content={
+  trener:`<h3>Trener Personalny</h3><p>Landing sprzedażowy z pakietami, opiniami i CTA. Projekt pod konwersję.</p><span class="close" onclick="closeModal()">Zamknij</span>`,
+  pizza:`<h3>Pizzeria</h3><p>Nowoczesna strona restauracji z menu i szybkim kontaktem.</p><span class="close" onclick="closeModal()">Zamknij</span>`,
+  barber:`<h3>Barber</h3><p>Premium strona barberska w ciemnym klimacie.</p><span class="close" onclick="closeModal()">Zamknij</span>`
+}
+
+function openModal(type){
+  document.getElementById('modalContent').innerHTML=content[type];
+  document.getElementById('modal').classList.add('active');
+}
+function closeModal(){
+  document.getElementById('modal').classList.remove('active');
+}
+
+const obs=new IntersectionObserver(e=>{
+  e.forEach(x=>{
+    if(x.isIntersecting){
+      x.target.classList.add('visible');
+      obs.unobserve(x.target);
     }
-  });
+  })
 },{threshold:.2});
-reveals.forEach(r=>obs.observe(r));
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
 
 </body>
 </html>
+ 
