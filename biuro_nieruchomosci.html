@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
@@ -9,12 +9,14 @@
 
 <style>
 :root{
-  --primary:#0f172a;
-  --accent:#c9a24d;
-  --light:#f8fafc;
+  --primary:#0b3c5d;
+  --secondary:#328cc1;
+  --accent:#d9b310;
+  --light:#f5f7fa;
 }
 
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
   margin:0;
   font-family:Inter,sans-serif;
@@ -26,12 +28,11 @@ body{
 nav{
   position:fixed;
   top:0;left:0;width:100%;
-  background:rgba(15,23,42,.9);
-  backdrop-filter:blur(8px);
+  background:rgba(11,60,93,.95);
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:20px 60px;
+  padding:18px 60px;
   z-index:1000;
 }
 nav a{
@@ -40,12 +41,13 @@ nav a{
   margin-left:25px;
   font-weight:500;
 }
+nav a:hover{color:var(--accent)}
 
 /* HERO */
 .hero{
   height:100vh;
   background:
-    linear-gradient(rgba(15,23,42,.55),rgba(15,23,42,.55)),
+    linear-gradient(rgba(11,60,93,.7),rgba(11,60,93,.7)),
     url("https://images.unsplash.com/photo-1560518883-ce09059eeffa");
   background-size:cover;
   background-position:center;
@@ -54,34 +56,28 @@ nav a{
   padding:0 80px;
   color:white;
 }
-.hero h1{
-  font-size:56px;
-  max-width:700px;
-}
-.hero p{
-  font-size:20px;
-  max-width:600px;
-  margin:20px 0;
-}
+.hero h1{font-size:56px}
+.hero p{font-size:20px;max-width:600px}
 .btn{
   display:inline-block;
   background:var(--accent);
   color:#000;
-  padding:16px 36px;
+  padding:15px 35px;
   border-radius:10px;
   font-weight:600;
+  margin-top:20px;
   text-decoration:none;
-  transition:.3s;
 }
-.btn:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(201,162,77,.5)}
 
 /* SECTIONS */
-section{
-  padding:120px 80px;
-}
-h2{
-  font-size:40px;
-  margin-bottom:40px;
+section{padding:120px 80px}
+h2{font-size:38px;margin-bottom:30px}
+
+/* ABOUT */
+.about{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
 }
 
 /* SEARCH */
@@ -92,12 +88,12 @@ h2{
   display:grid;
   grid-template-columns:1fr 1fr 1fr auto;
   gap:20px;
-  box-shadow:0 30px 60px rgba(0,0,0,.1);
+  box-shadow:0 25px 50px rgba(0,0,0,.1);
 }
 .search input,.search select{
   padding:14px;
   border-radius:10px;
-  border:1px solid #e5e7eb;
+  border:1px solid #ccc;
 }
 .search button{
   background:var(--primary);
@@ -119,26 +115,29 @@ h2{
   background:white;
   border-radius:20px;
   overflow:hidden;
-  box-shadow:0 30px 60px rgba(0,0,0,.12);
+  box-shadow:0 25px 50px rgba(0,0,0,.15);
   cursor:pointer;
-  transition:.4s;
+  transition:.3s;
 }
 .card:hover{transform:translateY(-8px)}
-.card img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
+.card img{width:100%;height:220px;object-fit:cover}
+.card .c{padding:20px}
+.price{color:var(--secondary);font-weight:700}
+
+/* OPINIONS */
+.opinions{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
 }
-.card .c{
-  padding:20px;
-}
-.price{
-  color:var(--accent);
-  font-weight:700;
-  margin-top:10px;
+.opinion{
+  background:white;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 20px 40px rgba(0,0,0,.1);
 }
 
-/* GALLERY LIGHTBOX */
+/* LIGHTBOX */
 #lightbox{
   position:fixed;
   inset:0;
@@ -148,34 +147,25 @@ h2{
   justify-content:center;
   z-index:2000;
 }
-#lightbox img{
-  max-width:90%;
-  max-height:90%;
-}
+#lightbox img{max-width:90%;max-height:90%}
 
 /* ANIM */
-.fade{
-  opacity:0;
-  transform:translateY(40px);
-  transition:1s;
-}
-.fade.show{
-  opacity:1;
-  transform:none;
-}
+.fade{opacity:0;transform:translateY(40px);transition:1s}
+.fade.show{opacity:1;transform:none}
 
 /* FOOTER */
 footer{
-  background:#020617;
+  background:#061826;
   color:#94a3b8;
   text-align:center;
   padding:40px;
 }
 
 @media(max-width:900px){
-  nav{padding:20px}
+  nav{padding:15px}
   section{padding:80px 20px}
   .hero{padding:20px}
+  .about{grid-template-columns:1fr}
   .search{grid-template-columns:1fr}
 }
 </style>
@@ -186,7 +176,6 @@ footer{
 <nav>
   <strong style="color:white">AMBROZIAK</strong>
   <div>
-    <a href="#galeria">Galeria</a>
     <a href="#onas">O nas</a>
     <a href="#oferta">Oferta</a>
     <a href="#uslugi">Usługi</a>
@@ -197,33 +186,41 @@ footer{
 
 <div class="hero">
   <div class="fade">
-    <h1>Nowoczesne Biuro Nieruchomości</h1>
-    <p>Sprzedaż, zakup i wynajem nieruchomości premium z pełną obsługą.</p>
-    <a href="#oferta" class="btn">Zobacz oferty</a>
+    <h1>Ambroziak Nieruchomości</h1>
+    <p>Profesjonalna sprzedaż i wynajem nieruchomości na najwyższym poziomie.</p>
+    <a href="#oferta" class="btn">Sprawdź oferty</a>
   </div>
 </div>
 
-<section class="fade">
-  <h2>Wyszukaj nieruchomość</h2>
-  <div class="search">
-    <input id="city" placeholder="Miasto">
-    <select id="type">
-      <option value="">Typ</option>
-      <option>Dom</option>
-      <option>Mieszkanie</option>
-    </select>
-    <select id="price">
-      <option value="">Cena max</option>
-      <option value="600000">600 000 zł</option>
-      <option value="900000">900 000 zł</option>
-    </select>
-    <button onclick="search()">Szukaj</button>
+<section id="onas" class="fade">
+  <h2>O nas</h2>
+  <div class="about">
+    <p>Jesteśmy nowoczesnym biurem nieruchomości, które stawia na jakość, zaufanie i skuteczność.</p>
+    <p>Łączymy doświadczenie z nowoczesnym marketingiem i technologią.</p>
   </div>
 </section>
 
-<section id="oferta">
-  <h2 class="fade">Wybrane oferty</h2>
+<section id="uslugi" class="fade">
+  <h2>Usługi</h2>
+  <ul>
+    <li>Sprzedaż nieruchomości</li>
+    <li>Wynajem</li>
+    <li>Profesjonalne prezentacje</li>
+    <li>Marketing premium</li>
+  </ul>
+</section>
+
+<section id="oferta" class="fade">
+  <h2>Oferty</h2>
   <div class="offers" id="offers"></div>
+</section>
+
+<section id="opinie" class="fade">
+  <h2>Opinie klientów</h2>
+  <div class="opinions">
+    <div class="opinion">⭐⭐⭐⭐⭐<br>Świetna współpraca i szybka sprzedaż.</div>
+    <div class="opinion">⭐⭐⭐⭐⭐<br>Profesjonalizm i pełne wsparcie.</div>
+  </div>
 </section>
 
 <div id="lightbox" onclick="this.style.display='none'">
@@ -236,55 +233,36 @@ footer{
 
 <script>
 const data=[
- {img:"https://images.unsplash.com/photo-1568605114967-8130f3a36994",title:"Dom 140m²",city:"Warszawa",price:850000,type:"Dom"},
- {img:"https://images.unsplash.com/photo-1502673530728-f79b4cab31b1",title:"Apartament 60m²",city:"Kraków",price:620000,type:"Mieszkanie"}
+ {img:"https://images.unsplash.com/photo-1568605114967-8130f3a36994",title:"Dom 140m²",city:"Warszawa",price:850000},
+ {img:"https://images.unsplash.com/photo-1502673530728-f79b4cab31b1",title:"Apartament 60m²",city:"Kraków",price:620000}
 ];
 
 const box=document.getElementById("offers");
-function render(arr){
- box.innerHTML="";
- arr.forEach(o=>{
-  box.innerHTML+=`
-   <div class="card fade" onclick="openImg('${o.img}')">
-    <img src="${o.img}">
-    <div class="c">
-      <h3>${o.title}</h3>
-      <p>${o.city}</p>
-      <div class="price">${o.price.toLocaleString()} zł</div>
-    </div>
-   </div>`;
- });
- observe();
-}
-render(data);
-
-function search(){
- const c=city.value.toLowerCase();
- const t=type.value;
- const p=price.value;
- render(data.filter(o=>
-  (!c||o.city.toLowerCase().includes(c)) &&
-  (!t||o.type==t) &&
-  (!p||o.price<=p)
- ));
-}
+data.forEach(o=>{
+ box.innerHTML+=`
+  <div class="card fade" onclick="openImg('${o.img}')">
+   <img src="${o.img}">
+   <div class="c">
+    <h3>${o.title}</h3>
+    <p>${o.city}</p>
+    <div class="price">${o.price.toLocaleString()} zł</div>
+   </div>
+  </div>`;
+});
 
 function openImg(src){
  lightImg.src=src;
  lightbox.style.display="flex";
 }
 
-/* ANIM OBSERVER */
-function observe(){
- document.querySelectorAll(".fade").forEach(el=>{
-  new IntersectionObserver(e=>{
-   if(e[0].isIntersecting) el.classList.add("show");
-  }).observe(el);
- });
-}
-observe();
+/* SCROLL ANIM */
+const obs=new IntersectionObserver(e=>{
+ e.forEach(el=>el.isIntersecting&&el.target.classList.add("show"));
+});
+document.querySelectorAll(".fade").forEach(el=>obs.observe(el));
 </script>
 
 </body>
 </html>
+  
 
