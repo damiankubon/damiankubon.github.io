@@ -3,178 +3,205 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Damian Kuboń – Nowoczesne Strony WWW</title>
+<title>Damian Kuboń – Strony, które sprzedają</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --bg:#f6f7fb;
-  --dark:#0f172a;
-  --card:#ffffff;
-  --muted:#64748b;
+  --bg:#0b1020;
+  --card:#11162b;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
 
-  --grad1: linear-gradient(135deg,#6366f1,#8b5cf6);
-  --grad2: linear-gradient(135deg,#22d3ee,#38bdf8);
-  --grad3: linear-gradient(135deg,#f472b6,#fb7185);
+  --gold:#d4af37;
+  --gold-soft:#f5e6a8;
+  --blue:#1e3a8a;
+
+  --radius:26px;
 }
 
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 
 body{
   margin:0;
   font-family:'Inter',sans-serif;
-  color:var(--dark);
+  color:var(--text);
   background:
-    radial-gradient(700px 400px at 10% -10%, #e0e7ff, transparent),
-    radial-gradient(600px 300px at 90% 10%, #dbeafe, transparent),
+    radial-gradient(800px 400px at 20% -10%, rgba(30,58,138,.35), transparent),
+    radial-gradient(600px 300px at 90% 10%, rgba(212,175,55,.25), transparent),
     var(--bg);
 }
 
-/* ===== ANIM ===== */
+/* ===== REVEAL ===== */
 .reveal{
   opacity:0;
-  transform:translateY(50px);
-  transition:1s cubic-bezier(.19,1,.22,1);
+  transform:translateY(60px);
+  transition:1.1s cubic-bezier(.19,1,.22,1);
 }
-.reveal.visible{opacity:1;transform:none}
+.reveal.visible{
+  opacity:1;
+  transform:none;
+}
 
 /* ===== HERO ===== */
 header{
-  padding:130px 20px 110px;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   text-align:center;
+  padding:120px 24px;
+  background:
+    linear-gradient(rgba(11,16,32,.75),rgba(11,16,32,.75)),
+    url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80");
+  background-size:cover;
+  background-position:center;
 }
 
 header h1{
-  font-size:clamp(42px,6vw,66px);
-  font-weight:800;
+  font-size:clamp(44px,6vw,74px);
+  font-weight:900;
   margin-bottom:20px;
+  line-height:1.05;
 }
 
 header span{
-  background:var(--grad1);
+  background:linear-gradient(135deg,var(--gold),var(--gold-soft));
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
 
 header p{
-  max-width:760px;
-  margin:0 auto 42px;
+  max-width:820px;
+  margin:0 auto 46px;
   font-size:20px;
-  color:var(--muted);
+  color:#cbd5f5;
 }
 
 .cta-main{
   display:inline-block;
-  padding:18px 42px;
-  background:var(--grad1);
-  color:#fff;
-  border-radius:16px;
-  font-weight:700;
+  padding:20px 52px;
+  border-radius:18px;
+  font-weight:800;
+  letter-spacing:.3px;
   text-decoration:none;
+  color:#0b1020;
+  background:linear-gradient(135deg,var(--gold),var(--gold-soft));
+  box-shadow:0 30px 80px rgba(212,175,55,.45);
   transition:.35s;
 }
 .cta-main:hover{
-  transform:translateY(-4px);
-  box-shadow:0 25px 60px rgba(99,102,241,.45);
+  transform:translateY(-5px);
+  box-shadow:0 40px 120px rgba(212,175,55,.6);
 }
 
 /* ===== CONTAINER ===== */
 .container{
   max-width:1200px;
   margin:0 auto;
-  padding:90px 24px;
+  padding:120px 24px;
 }
 
 .section-title{
-  font-size:38px;
-  font-weight:800;
-  margin-bottom:60px;
+  font-size:42px;
+  font-weight:900;
+  margin-bottom:70px;
 }
 
 /* ===== PROJECTS ===== */
 .projects{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:34px;
+  gap:36px;
 }
 
 .project{
   background:var(--card);
-  padding:36px;
-  border-radius:26px;
-  box-shadow:0 20px 60px rgba(15,23,42,.08);
+  padding:42px;
+  border-radius:var(--radius);
+  box-shadow:0 25px 80px rgba(0,0,0,.45);
+  transition:.45s;
   position:relative;
-  transition:.4s;
 }
 
-.project::before{
+.project::after{
   content:"";
   position:absolute;
-  inset:-1px;
-  border-radius:26px;
-  background:var(--grad2);
-  opacity:.0;
-  z-index:-1;
-  transition:.4s;
+  inset:0;
+  border-radius:var(--radius);
+  background:linear-gradient(135deg,rgba(212,175,55,.25),transparent);
+  opacity:0;
+  transition:.45s;
 }
 
-.project:hover::before{opacity:.35}
+.project:hover::after{opacity:1}
 .project:hover{
-  transform:translateY(-10px);
+  transform:translateY(-12px);
 }
 
-.project h3{margin-top:0}
-.project p{color:var(--muted);margin-bottom:24px}
+.project h3{margin-top:0;font-size:22px}
+.project p{color:var(--muted);margin-bottom:26px}
 
 .project a{
   display:inline-block;
-  padding:13px 28px;
-  background:var(--dark);
-  color:#fff;
+  padding:14px 30px;
+  background:linear-gradient(135deg,var(--blue),#2563eb);
+  color:white;
   border-radius:14px;
   text-decoration:none;
-  font-weight:600;
+  font-weight:700;
 }
 
-/* ===== WHY ===== */
-.features{
+/* ===== WHY ME ===== */
+.why{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:30px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:34px;
 }
 
-.feature{
+.why-box{
   background:var(--card);
-  padding:38px;
-  border-radius:26px;
-  box-shadow:0 20px 60px rgba(15,23,42,.08);
-  transition:.35s;
+  padding:44px;
+  border-radius:var(--radius);
+  box-shadow:0 25px 80px rgba(0,0,0,.45);
+  transition:.4s;
 }
 
-.feature:hover{
-  transform:translateY(-6px);
+.why-box:hover{
+  transform:translateY(-8px);
 }
 
-.feature h4{margin-top:0;margin-bottom:10px}
-.feature p{color:var(--muted);line-height:1.6}
+.why-box h4{
+  margin-top:0;
+  color:var(--gold);
+}
 
 /* ===== CONTACT ===== */
 .contact{
-  background:var(--grad1);
-  color:white;
-  border-radius:34px;
-  padding:90px 30px;
+  background:linear-gradient(135deg,#1e293b,#020617);
+  border-radius:40px;
+  padding:100px 30px;
   text-align:center;
+  box-shadow:0 40px 120px rgba(0,0,0,.6);
 }
 
-.contact p{font-size:18px;margin:10px 0}
+.contact h2{
+  font-size:40px;
+  margin-bottom:20px;
+}
+
+.contact p{
+  font-size:20px;
+  color:#cbd5f5;
+}
 
 /* ===== FOOTER ===== */
 footer{
-  padding:40px;
+  padding:50px;
   text-align:center;
-  color:#64748b;
+  color:#9ca3af;
 }
 </style>
 </head>
@@ -182,9 +209,11 @@ footer{
 <body>
 
 <header class="reveal">
-  <h1>Projektuję strony, które <span>sprzedają</span></h1>
-  <p>Nowoczesne, dopracowane strony WWW dla firm, które chcą wyglądać profesjonalnie i zdobywać realnych klientów.</p>
-  <a href="#projekty" class="cta-main">Zobacz realizacje</a>
+  <div>
+    <h1>Projektuję strony,<br> które <span>sprzedają</span></h1>
+    <p>Tworzę nowoczesne strony WWW dla firm, które chcą wyglądać jak liderzy rynku i realnie pozyskiwać klientów — nie tylko „być w internecie”.</p>
+    <a href="#projekty" class="cta-main">Zobacz realizacje</a>
+  </div>
 </header>
 
 <section class="container" id="projekty">
@@ -193,75 +222,75 @@ footer{
   <div class="projects">
     <div class="project reveal">
       <h3>🏋️ Trener Personalny</h3>
-      <p>Landing sprzedażowy z ofertą, pakietami i CTA zaprojektowanym pod konwersję.</p>
+      <p>Landing sprzedażowy zaprojektowany pod konwersję, leady i szybkie decyzje.</p>
       <a href="trainer.html">Zobacz projekt</a>
     </div>
 
     <div class="project reveal">
       <h3>🍕 Pizzeria</h3>
-      <p>Strona restauracji z menu, godzinami otwarcia i szybkim kontaktem mobilnym.</p>
+      <p>Strona, która zamienia wejścia w telefony i zamówienia mobilne.</p>
       <a href="pizzeria_new.html">Zobacz projekt</a>
     </div>
 
     <div class="project reveal">
       <h3>💈 Barber</h3>
-      <p>Premium strona barberska z brandingiem, opiniami i mocnym CTA.</p>
+      <p>Premium branding, opinie i UX, który buduje zaufanie od pierwszej sekundy.</p>
       <a href="barber_new.html">Zobacz projekt</a>
     </div>
   </div>
 </section>
 
 <section class="container">
-  <h2 class="section-title reveal">Dlaczego warto?</h2>
+  <h2 class="section-title reveal">Dlaczego ja?</h2>
 
-  <div class="features">
-    <div class="feature reveal">
-      <h4>🚀 Wydajność & SEO</h4>
-      <p>Strony szybkie, lekkie i zoptymalizowane pod Google oraz konwersję.</p>
+  <div class="why">
+    <div class="why-box reveal">
+      <h4>Nie robię „ładnych stron”</h4>
+      <p>Projektuję narzędzia sprzedaży. Każdy element ma konkretny cel biznesowy.</p>
     </div>
 
-    <div class="feature reveal">
-      <h4>📱 Mobile-first</h4>
-      <p>Projektuję od telefonu – idealny UX na każdym urządzeniu.</p>
+    <div class="why-box reveal">
+      <h4>Myślę jak właściciel firmy</h4>
+      <p>Patrzę na Twoją stronę jak na inwestycję, nie koszt.</p>
     </div>
 
-    <div class="feature reveal">
-      <h4>🎯 Skupienie na sprzedaży</h4>
-      <p>Każdy element ma sens i prowadzi użytkownika do kontaktu.</p>
+    <div class="why-box reveal">
+      <h4>Premium bez agencji</h4>
+      <p>Dostajesz jakość agencji 30k+, bez korporacyjnego chaosu.</p>
     </div>
 
-    <div class="feature reveal">
-      <h4>🤝 Partnerska współpraca</h4>
-      <p>Stały kontakt, szybkie poprawki i realne wsparcie po wdrożeniu.</p>
+    <div class="why-box reveal">
+      <h4>Wizerunek + konwersja</h4>
+      <p>Strona ma wyglądać drogo i sprzedawać — jedno bez drugiego nie działa.</p>
     </div>
   </div>
 </section>
 
 <section class="container">
   <div class="contact reveal">
-    <h2>Kontakt</h2>
+    <h2>Porozmawiajmy</h2>
     <p>📞 729 623 364</p>
     <p>✉️ kubondamian@gmail.com</p>
   </div>
 </section>
 
 <footer>
-© 2025 Damian Kuboń — Nowoczesne strony internetowe
+© 2026 Damian Kuboń — Strony, które sprzedają
 </footer>
 
 <script>
-const obs=new IntersectionObserver(e=>{
-  e.forEach(x=>{
-    if(x.isIntersecting){
-      x.target.classList.add('visible');
-      obs.unobserve(x.target);
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add("visible");
+      observer.unobserve(e.target);
     }
-  })
+  });
 },{threshold:.2});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 </script>
 
 </body>
 </html>
-  
  
