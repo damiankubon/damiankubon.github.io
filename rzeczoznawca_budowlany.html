@@ -5,58 +5,171 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rzeczoznawca Budowlany – Ekspertyzy i Opinie Techniczne</title>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
 body{
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
     margin:0;
     color:#222;
     line-height:1.6;
+    background-color: #f8fafc;
+}
+.hero-bg {
+    background-image: linear-gradient(rgba(31,41,55,0.8), rgba(37,99,235,0.6)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 header{
-    background:#1f2937;
+    background: transparent;
     color:white;
-    padding:80px 20px;
+    padding:100px 20px;
     text-align:center;
+    position: relative;
+}
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    z-index: -1;
 }
 header h1{
-    font-size:42px;
+    font-size:48px;
     margin-bottom:10px;
+    font-weight:700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+header p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    font-weight: 300;
 }
 .btn{
     display:inline-block;
     margin-top:20px;
-    padding:14px 28px;
-    background:#2563eb;
+    padding:16px 32px;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
     color:white;
     text-decoration:none;
-    border-radius:8px;
+    border-radius:12px;
+    font-weight:500;
+    box-shadow: 0 4px 15px rgba(37,99,235,0.4);
+    transition: all 0.3s ease;
+}
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37,99,235,0.5);
 }
 section{
-    padding:70px 20px;
-    max-width:1100px;
+    padding:80px 20px;
+    max-width:1200px;
     margin:auto;
+}
+h2 {
+    font-size: 36px;
+    text-align: center;
+    color: #1e40af;
+    margin-bottom: 50px;
+    font-weight: 700;
 }
 .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:40px;
 }
 .card{
-    border:1px solid #eee;
-    padding:25px;
-    border-radius:12px;
+    border:1px solid #e2e8f0;
+    padding:35px;
+    border-radius:16px;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(37,99,235,0.15);
+}
+.card h3 {
+    color: #2563eb;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+ul li {
+    background: white;
+    margin: 15px 0;
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    font-size: 18px;
+    position: relative;
+    padding-left: 60px;
+    transition: all 0.3s ease;
+}
+ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #10b981;
+    font-size: 24px;
+    font-weight: bold;
+}
+ul li:hover {
+    background: #eff6ff;
+    transform: translateX(10px);
+}
+#kontakt {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    border-radius: 20px;
+    margin: 40px auto;
+    text-align: center;
+}
+#kontakt h2 {
+    color: #1e40af;
+}
+#kontakt p {
+    font-size: 20px;
+    margin: 20px 0;
+    background: white;
+    padding: 15px 30px;
+    border-radius: 12px;
+    display: inline-block;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 footer{
-    background:#111;
-    color:#ccc;
+    background: linear-gradient(135deg, #1f2937 0%, #111 100%);
+    color:#d1d5db;
     text-align:center;
-    padding:30px;
+    padding:40px 20px;
+    font-size: 16px;
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    header h1 { font-size: 36px; }
+    header p { font-size: 18px; }
+    h2 { font-size: 28px; }
+    .grid { grid-template-columns: 1fr; }
+    ul li { font-size: 16px; padding: 15px 25px 15px 50px; }
 }
 </style>
 </head>
 
 <body>
 
-<header>
+<header class="hero-bg">
 <h1>Rzeczoznawca Budowlany</h1>
 <p>Ekspertyzy techniczne • Opinie budowlane • Doradztwo inwestycyjne</p>
 <a class="btn" href="#kontakt">Umów konsultację</a>
@@ -67,15 +180,15 @@ footer{
 <div class="grid">
 <div class="card">
 <h3>Ekspertyzy budowlane</h3>
-<p>Szczegółowa analiza stanu technicznego budynków i konstrukcji.</p>
+<p>Szczegółowa analiza stanu technicznego budynków i konstrukcji. Profesjonalne raporty z badaniami i pomiarami.</p>
 </div>
 <div class="card">
 <h3>Opinie techniczne</h3>
-<p>Dokumentacja techniczna do spraw sądowych i inwestycyjnych.</p>
+<p>Dokumentacja techniczna do spraw sądowych i inwestycyjnych. Solidne podstawy dla Twoich decyzji prawnych.</p>
 </div>
 <div class="card">
 <h3>Doradztwo inwestycyjne</h3>
-<p>Wsparcie techniczne podczas zakupu lub realizacji inwestycji.</p>
+<p>Wsparcie techniczne podczas zakupu lub realizacji inwestycji. Minimalizuj ryzyka i maksymalizuj zyski.</p>
 </div>
 </div>
 </section>
@@ -83,22 +196,24 @@ footer{
 <section>
 <h2>Dlaczego warto nam zaufać</h2>
 <ul>
-<li>Wieloletnie doświadczenie w branży</li>
-<li>Terminowe realizacje ekspertyz</li>
-<li>Dokumentacja zgodna z wymaganiami urzędów i sądów</li>
+<li>Wieloletnie doświadczenie w branży budowlanej – setki udanych ekspertyz.</li>
+<li>Terminowe realizacje ekspertyz – zawsze w uzgodnionym terminie.</li>
+<li>Dokumentacja zgodna z wymaganiami urzędów i sądów – bezproblemowa akceptacja.</li>
 </ul>
 </section>
 
 <section id="kontakt">
 <h2>Kontakt</h2>
-<p>Telefon: 000 000 000</p>
-<p>Email: kontakt@firma.pl</p>
-<p>Obszar działania: cała Polska</p>
+<p>📞 Telefon:601 057 666</p>
+<p>✉️ Email: kontakt@firma.pl</p>
+<p>📍 Obszar działania: cała Polska</p>
+<a class="btn" href="mailto:kontakt@firma.pl">Wyślij wiadomość</a>
 </section>
 
 <footer>
-© 2026 Rzeczoznawca Budowlany
+© 2026 Rzeczoznawca Budowlany. Wszelkie prawa zastrzeżone.
 </footer>
 
 </body>
 </html>
+
