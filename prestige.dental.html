@@ -1,29 +1,76 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prestige Dental - Klinika Stomatologiczna Warszawa | Profesjonalne Leczenie Zębów</title>
-    <meta name="description" content="Prestige Dental - najlepsza klinika stomatologiczna w Warszawie. Implanty, ortodoncja, stomatologia estetyczna. Tel: 506 350 590. Umów wizytę już dziś!">
-    <meta name="keywords" content="klinika stomatologiczna Warszawa, dentysta Warszawa, implanty zębowe, wybielanie zębów">
+    <title>Prestige Dental - Klinika Stomatologiczna Warszawa | Tel: 506 350 590</title>
+    <meta name="description" content="Prestige Dental Warszawa - implanty, ortodoncja, stomatologia estetyczna. Profesjonalna opieka. Zadzwoń: 506 350 590">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
+        :root {
+            --turkus: #00A8CC;
+            --zloto: #D4AF37;
+            --zloto-ciemne: #B8942F;
+            --bialy: #F8F9FA;
+            --szary: #6C757D;
+        }
         body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; }
-        .hero { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1920x1080/007bff/ffffff?text=Zdjęcie+Kliniki') center/cover; color: white; padding: 150px 0; text-align: center; }
-        .service-card { transition: transform 0.3s; }
-        .service-card:hover { transform: translateY(-10px); }
-        .contact-info { background: #f8f9fa; padding: 50px 0; }
-        footer { background: #343a40; color: white; padding: 30px 0; }
-        .btn-tel { background: #28a745; border: none; font-size: 1.2em; padding: 15px 30px; }
+        
+        /* Nawigacja */
+        .navbar { background: rgba(255,255,255,0.95) !important; backdrop-filter: blur(10px); }
+        .navbar-brand { color: var(--turkus) !important; font-weight: bold; }
+        .nav-link { color: #333 !important; transition: all 0.3s; }
+        .nav-link:hover { color: var(--turkus) !important; }
+        
+        /* Hero */
+        .hero { 
+            background: linear-gradient(rgba(0,168,204,0.8), rgba(212,175,55,0.3)), 
+                        url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover; 
+            color: white; padding: 200px 0; text-align: center; 
+        }
+        .hero h1 { text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        
+        /* Przyciski */
+        .btn-turkus { background: var(--turkus); border-color: var(--turkus); color: white; }
+        .btn-turkus:hover { background: var(--zloto); border-color: var(--zloto); transform: translateY(-2px); }
+        .btn-zloto { background: var(--zloto); border-color: var(--zloto); color: white; }
+        .btn-zloto:hover { background: var(--turkus); border-color: var(--turkus); }
+        
+        /* Sekcje */
+        .section-bg { background: linear-gradient(135deg, var(--turkus), var(--zloto)); color: white; }
+        .service-card { 
+            border: none; 
+            box-shadow: 0 10px 30px rgba(0,168,204,0.2); 
+            transition: all 0.4s; 
+            border-top: 4px solid var(--zloto);
+        }
+        .service-card:hover { transform: translateY(-15px); box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+        
+        /* Galeria */
+        .gallery-img { cursor: pointer; transition: transform 0.3s; }
+        .gallery-img:hover { transform: scale(1.05); }
+        .modal-content { border-radius: 15px; }
+        
+        /* Cennik */
+        .price-table { background: var(--bialy); border-radius: 15px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        .price-table thead { background: linear-gradient(45deg, var(--turkus), var(--zloto)); color: white; }
+        .price-highlight { background: var(--zloto) !important; font-weight: bold; color: white !important; }
+        
+        /* Footer */
+        footer { background: linear-gradient(135deg, #1a1a1a, #2d2d2d); }
+        
+        /* Animacje */
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in-up { animation: fadeInUp 1s ease-out; }
     </style>
 </head>
 <body>
 
     <!-- Nawigacja -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3">
         <div class="container">
-            <a class="navbar-brand fw-bold fs-3 text-primary" href="#home">
+            <a class="navbar-brand fs-3" href="#home">
                 <i class="fas fa-tooth me-2"></i>Prestige Dental
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -32,55 +79,85 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#home">Strona główna</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#uslugi">Usługi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#zabiegi">Zabiegi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#cennik">Cennik</a></li>
                     <li class="nav-item"><a class="nav-link" href="#o-nas">O nas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#galeria">Galeria</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
                     <li class="nav-item"><a class="nav-link" href="#kontakt">Kontakt</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section id="home" class="hero">
-        <div class="container">
-            <h1 class="display-4 fw-bold mb-4">Witamy w Prestige Dental</h1>
-            <p class="lead mb-5">Najlepsza klinika stomatologiczna w Warszawie. Zdrowy i piękny uśmiech w rękach ekspertów.</p>
-            <a href="tel:506350590" class="btn btn-tel btn-lg text-white me-3"><i class="fas fa-phone me-2"></i>Zadzwoń: 506 350 590</a>
-            <a href="#kontakt" class="btn btn-outline-light btn-lg">Umów wizytę</a>
+        <div class="container fade-in-up">
+            <h1 class="display-3 fw-bold mb-4">Prestige Dental Warszawa</h1>
+            <p class="lead fs-4 mb-5">Profesjonalna stomatologia • Nowoczesne technologie • Idealny uśmiech</p>
+            <div class="mb-5">
+                <a href="tel:506350590" class="btn btn-turkus btn-lg fs-5 me-4 px-5 py-3">
+                    <i class="fas fa-phone me-2"></i>506 350 590
+                </a>
+                <a href="#kontakt" class="btn btn-zloto btn-lg fs-5 px-5 py-3">Umów wizytę</a>
+            </div>
         </div>
     </section>
 
-    <!-- Usługi -->
-    <section id="uslugi" class="py-5">
+    <!-- Zabiegi -->
+    <section id="zabiegi" class="py-5">
         <div class="container">
-            <h2 class="text-center mb-5">Nasze Usługi</h2>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="card service-card h-100 shadow">
-                        <div class="card-body text-center">
-                            <i class="fas fa-crown fa-3x text-primary mb-3"></i>
-                            <h5>Stomatologia Estetyczna</h5>
-                            <p>Wybielanie, licówki, korony – perfekcyjny uśmiech.</p>
-                        </div>
+            <h2 class="text-center mb-5 fade-in-up">Nasze Zabiegi</h2>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card service-card h-100 text-center p-4">
+                        <i class="fas fa-crown fa-4x text-warning mb-4"></i>
+                        <h4>Licówki i Korony</h4>
+                        <p>Perfekcyjny uśmiech w 2 wizyty. Naturalny efekt Hollywood.</p>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card service-card h-100 shadow">
-                        <div class="card-body text-center">
-                            <i class="fas fa-tools fa-3x text-primary mb-3"></i>
-                            <h5>Implanty i Protetyka</h5>
-                            <p>Trwałe i naturalne uzupełnienia brakujących zębów.</p>
-                        </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card service-card h-100 text-center p-4">
+                        <i class="fas fa-syringe fa-4x text-warning mb-4"></i>
+                        <h4>Implanty Zębowe</h4>
+                        <p>Trwałe rozwiązanie na całe życie. 98% skuteczności.</p>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card service-card h-100 shadow">
-                        <div class="card-body text-center">
-                            <i class="fas fa-child fa-3x text-primary mb-3"></i>
-                            <h5>Ortodoncja i Stomatologia Dziecięca</h5>
-                            <p>Proste zęby i zdrowy uśmiech dla całej rodziny.</p>
-                        </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card service-card h-100 text-center p-4">
+                        <i class="fas fa-magic fa-4x text-warning mb-4"></i>
+                        <h4>Wybielanie Laserowe</h4>
+                        <p>Bielszy uśmiech w 1 godzinę. Bezpieczne dla szkliwa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cennik -->
+    <section id="cennik" class="py-5 section-bg">
+        <div class="container">
+            <h2 class="text-center mb-5 fade-in-up">Cennik Usług</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <table class="table table-responsive price-table">
+                        <thead>
+                            <tr>
+                                <th>Zabieg</th>
+                                <th>Cena</th>
+                                <th>Czas</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Konsultacja wstępna</td><td>0 zł</td><td>30 min</td></tr>
+                            <tr class="price-highlight"><td>Piaskowanie + skaling</td><td>250 zł</td><td>45 min</td></tr>
+                            <tr><td>Wybielanie nakładkowe</td><td>890 zł</td><td>1 tydzień</td></tr>
+                            <tr><td>Licówka porcelanowa</td><td>1800 zł/szt.</td><td>2 wizyty</td></tr>
+                            <tr class="price-highlight"><td>Implant + korona</td><td>4500 zł</td><td>3 miesiące</td></tr>
+                            <tr><td>RTG pantomograficzne</td><td>120 zł</td><td>15 min</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="text-center mt-4">
+                        <p class="fs-5">Raty 0% • Pakiety rabatowe • Bezpłatna konsultacja</p>
                     </div>
                 </div>
             </div>
@@ -91,58 +168,132 @@
     <section id="o-nas" class="py-5 bg-light">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-6">
-                    <h2 class="mb-4">Dlaczego Prestige Dental?</h2>
-                    <ul class="list-unstyled">
-                        <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Doświadczeni specjaliści z certyfikatami międzynarodowymi</li>
-                        <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Nowoczesny sprzęt i bezbolesne zabiegi</li>
-                        <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Indywidualne podejście i elastyczne terminy</li>
-                        <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Pozytywne opinie pacjentów (ponad 500 zadowolonych klientów)</li>
-                    </ul>
+                <div class="col-lg-6">
+                    <h2 class="mb-4 fade-in-up">O Prestige Dental</h2>
+                    <p class="lead mb-4">Ponad 10 lat doświadczenia w centrum Warszawy. Nasz zespół to lekarze z certyfikatami z USA i Niemiec.</p>
+                    <div class="row text-center">
+                        <div class="col-4"><div class="fs-1 text-warning"><i class="fas fa-user-md"></i></div><div>15+ lekarzy</div></div>
+                        <div class="col-4"><div class="fs-1 text-warning"><i class="fas fa-smile"></i></div><div>5000+ pacjentów</div></div>
+                        <div class="col-4"><div class="fs-1 text-warning"><i class="fas fa-award"></i></div><div>98% satysfakcji</div></div>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <img src="https://via.placeholder.com/500x400/007bff/ffffff?text=Zespół+Lekarzy" class="img-fluid rounded shadow" alt="Zespół Prestige Dental">
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1586750555184-6b4d4401a951?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="img-fluid rounded shadow-lg" alt="Zespół lekarzy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog -->
+    <section id="blog" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 fade-in-up">Blog Stomatologiczny</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 shadow">
+                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&w=400" class="card-img-top" alt="Wybielanie">
+                        <div class="card-body">
+                            <h5>Jak skutecznie wybielić zęby w domu?</h5>
+                            <p class="card-text">5 sprawdzonych metod + czego unikać.</p>
+                            <small class="text-muted">15.02.2026</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow">
+                        <img src="https://images.unsplash.com/photo-1510988031780-78bee3dfcfcb?ixlib=rb-4.0.3&w=400" class="card-img-top" alt="Implanty">
+                        <div class="card-body">
+                            <h5>Implanty – ile naprawdę kosztują?</h5>
+                            <p class="card-text">Pełny przewodnik po cenach 2026.</p>
+                            <small class="text-muted">10.02.2026</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow">
+                        <img src="https://images.unsplash.com/photo-1565199947733-51f814b8b7f2?ixlib=rb-4.0.3&w=400" class="card-img-top" alt="Paradontoza">
+                        <div class="card-body">
+                            <h5>Paradontoza – pierwsze objawy</h5>
+                            <p class="card-text">Jak zatrzymać proces w 30 dni?</p>
+                            <small class="text-muted">05.02.2026</small>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Galeria -->
-    <section id="galeria" class="py-5">
+    <section id="galeria" class="py-5 section-bg">
         <div class="container">
-            <h2 class="text-center mb-5">Galeria</h2>
-            <div class="row">
-                <div class="col-md-4 mb-4"><img src="https://via.placeholder.com/400x300/e9ecef/6c757d?text=Gabinet+1" class="img-fluid rounded shadow" alt="Gabinet stomatologiczny"></div>
-                <div class="col-md-4 mb-4"><img src="https://via.placeholder.com/400x300/e9ecef/6c757d?text=Przed/Po" class="img-fluid rounded shadow" alt="Efekty leczenia"></div>
-                <div class="col-md-4 mb-4"><img src="https://via.placeholder.com/400x300/e9ecef/6c757d?text=Sprzęt" class="img-fluid rounded shadow" alt="Nowoczesny sprzęt"></div>
+            <h2 class="text-center mb-5 fade-in-up">Galeria Prac</h2>
+            <div class="row g-3">
+                <div class="col-md-3 col-sm-6">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&w=400" class="img-fluid gallery-img rounded shadow" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&w=1200">
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <img src="https://images.unsplash.com/photo-1586750555184-6b4d4401a951?ixlib=rb-4.0.3&w=400" class="img-fluid gallery-img rounded shadow" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="https://images.unsplash.com/photo-1586750555184-6b4d4401a951?ixlib=rb-4.0.3&w=1200">
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <img src="https://images.unsplash.com/photo-1510988031780-78bee3dfcfcb?ixlib=rb-4.0.3&w=400" class="img-fluid gallery-img rounded shadow" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="https://images.unsplash.com/photo-1510988031780-78bee3dfcfcb?ixlib=rb-4.0.3&w=1200">
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <img src="https://images.unsplash.com/photo-1565199947733-51f814b8b7f2?ixlib=rb-4.0.3&w=400" class="img-fluid gallery-img rounded shadow" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="https://images.unsplash.com/photo-1565199947733-51f814b8b7f2?ixlib=rb-4.0.3&w=1200">
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Modal Galeria -->
+    <div class="modal fade" id="galleryModal" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <img id="modalImg" src="" class="img-fluid" style="max-height: 80vh; width: 100%; object-fit: contain;">
+                <button type="button" class="btn-close position-absolute top-0 end-0 m-4" data-bs-dismiss="modal"></button>
+            </div>
+        </div>
+    </div>
+
     <!-- Kontakt -->
-    <section id="kontakt" class="contact-info">
+    <section id="kontakt" class="py-5">
         <div class="container">
-            <h2 class="text-center mb-5">Skontaktuj się z nami</h2>
             <div class="row">
-                <div class="col-md-6">
-                    <h5><i class="fas fa-map-marker-alt me-2 text-primary"></i>Adres</h5>
-                    <p>Warszawa, Śródmieście<br>ul. Example 123, 00-001 Warszawa</p>
-                    <h5><i class="fas fa-phone me-2 text-primary"></i>Telefon</h5>
-                    <p><a href="tel:506350590" class="text-decoration-none">506 350 590</a></p>
-                    <h5><i class="fas fa-envelope me-2 text-primary"></i>Email</h5>
-                    <p>kontakt@prestigedental.pl</p>
-                </div>
-                <div class="col-md-6">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2293.123456789!2d21.012228!3d52.229675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTLCsDEzJzQ2LjgiTiAyMcKwMDAnNDQuMyJF!5e0!3m2!1spl!2spl!4v1234567890" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="mb-5 fade-in-up">Umów się na wizytę</h2>
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="card border-0 h-100 text-center p-4 shadow">
+                                <i class="fas fa-phone fa-3x text-turkus mb-3"></i>
+                                <h5>Telefon</h5>
+                                <a href="tel:506350590" class="fs-3 text-decoration-none fw-bold text-turkus">506 350 590</a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card border-0 h-100 text-center p-4 shadow">
+                                <i class="fas fa-envelope fa-3x text-turkus mb-3"></i>
+                                <h5>Email</h5>
+                                <p>kontakt@prestigedental.pl</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card border-0 h-100 text-center p-4 shadow">
+                                <i class="fas fa-calendar-check fa-3x text-turkus mb-3"></i>
+                                <h5>Godziny otwarcia</h5>
+                                <p>Pn-Pt: 8:00-20:00<br>Sob: 9:00-15:00</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Stopka -->
-    <footer>
-        <div class="container text-center">
-            <p>&copy; 2026 Prestige Dental. Wszelkie prawa zastrzeżone. | <a href="#home" class="text-white">Polityka prywatności</a></p>
+    <footer class="text-center py-4">
+        <div class="container">
+            <p class="mb-2">&copy; 2026 Prestige Dental Warszawa | Wszelkie prawa zastrzeżone</p>
+            <p><a href="#" class="text-white text-decoration-none me-3">Polityka prywatności</a>
+               <a href="#" class="text-white text-decoration-none">Regulamin</a></p>
         </div>
     </footer>
 
@@ -152,8 +303,29 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
             });
+        });
+
+        // Galeria modal
+        document.querySelectorAll('.gallery-img').forEach(img => {
+            img.addEventListener('click', function() {
+                const modalImg = document.getElementById('modalImg');
+                modalImg.src = this.dataset.img;
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(255,255,255,0.98)';
+            } else {
+                navbar.style.background = 'rgba(255,255,255,0.95)';
+            }
         });
     </script>
 </body>
