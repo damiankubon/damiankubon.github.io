@@ -1,122 +1,120 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prestige Dental | Stomatologia Premium Warszawa</title>
+    <title>Prestige Dental | Excellence in Dentistry</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --primary: #1E40AF;
-            --accent: #F59E0B;
+            --primary: #0f172a;
+            --accent: #d4af37; /* Królewskie złoto */
+            --blue: #2563eb;
             --light: #f8fafc;
         }
 
-        body { font-family: 'Inter', sans-serif; background-color: var(--light); overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; background: white; color: var(--primary); }
+        h1, h2, h3, .navbar-brand { font-family: 'Playfair Display', serif; }
 
-        /* Nawigacja */
+        /* Ulepszona Nawigacja */
         .navbar {
-            background: rgba(30, 64, 175, 0.98) !important;
+            transition: all 0.4s;
+            padding: 20px 0;
+            background: transparent;
+        }
+        .navbar.scrolled {
+            background: rgba(15, 23, 42, 0.95) !important;
             backdrop-filter: blur(10px);
-            border-bottom: 3px solid var(--accent);
+            padding: 10px 0;
+            border-bottom: 2px solid var(--accent);
         }
 
         /* Mechanizm Podstron */
         .page-section {
-            display: none; /* Domyślnie ukryte */
-            animation: fadeIn 0.5s ease-in-out;
-            padding-top: 100px;
-            min-height: 100vh;
+            display: none;
+            animation: pageTransition 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .page-section.active { display: block; }
+
+        @keyframes pageTransition {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
         }
 
-        .page-section.active {
-            display: block; /* Pokaż aktywną "podstronę" */
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Hero (tylko na startowej) */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2070') center/cover;
-            height: 80vh;
+        /* Hero */
+        .hero-v2 {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070') center/cover;
             display: flex;
             align-items: center;
+            justify-content: center;
             color: white;
-            border-radius: 0 0 50px 50px;
+            text-align: center;
         }
 
-        /* Karty Zespołu i Usług */
-        .premium-card {
+        /* Nowoczesne Karty */
+        .service-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 2px; /* Elegancki, ostry design premium */
+            padding: 40px;
+            transition: 0.4s;
             background: white;
-            border: none;
-            border-radius: 20px;
-            transition: 0.3s;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            height: 100%;
+        }
+        .service-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
         }
 
-        .premium-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        .doctor-card img {
+            filter: grayscale(100%);
+            transition: 0.5s;
         }
-
-        .member-img {
-            height: 350px;
-            object-fit: cover;
-            width: 100%;
-        }
+        .doctor-card:hover img { filter: grayscale(0%); }
 
         /* Przyciski */
-        .btn-premium {
-            background: linear-gradient(45deg, var(--accent), #fbbf24);
-            border: none; color: white; padding: 12px 30px;
-            border-radius: 50px; font-weight: 700; text-transform: uppercase;
-        }
-
-        /* Galeria 100% */
-        .gallery-thumb {
-            cursor: pointer;
-            border-radius: 15px;
+        .btn-gold {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-weight: 600;
+            letter-spacing: 1px;
             transition: 0.3s;
-            height: 250px;
-            width: 100%;
-            object-fit: cover;
         }
+        .btn-gold:hover { background: #b8962d; color: white; transform: translateY(-2px); }
 
-        .gallery-thumb:hover { filter: brightness(0.8); }
-
+        /* Modal Galeria */
+        .full-screen-img {
+            width: 100%;
+            height: auto;
+            max-height: 85vh;
+            object-fit: contain;
+        }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="javascript:void(0)" onclick="showPage('home')">
-                <i class="fas fa-tooth me-2"></i>PRESTIGE DENTAL
-            </a>
-            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <a class="navbar-brand fs-3" href="javascript:void(0)" onclick="showPage('home')">PRESTIGE<span class="text-warning">.</span></a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="nav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="javascript:void(0)" onclick="showPage('home')">Start</a></li>
-                    <li class="nav-item"><a class="nav-link" href="javascript:void(0)" onclick="showPage('onas')">O nas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="javascript:void(0)" onclick="showPage('uslugi')">Usługi</a></li>
-                    <li class="nav-item"><a class="nav-link" href="javascript:void(0)" onclick="showPage('zespol')">Zespół</a></li>
-                    <li class="nav-item"><a class="nav-link" href="javascript:void(0)" onclick="showPage('cennik')">Cennik</a></li>
-                    <li class="nav-item"><a class="nav-link" href="javascript:void(0)" onclick="showPage('blog')">Blog</a></li>
-                    <li class="nav-item ms-lg-3">
-                        <a class="btn btn-warning fw-bold rounded-pill px-4" href="tel:506350590">
-                            <i class="fas fa-calendar-check me-2"></i>Umów wizytę
-                        </a>
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link px-3" href="javascript:void(0)" onclick="showPage('home')">Start</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="javascript:void(0)" onclick="showPage('onas')">O klinice</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="javascript:void(0)" onclick="showPage('uslugi')">Usługi</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="javascript:void(0)" onclick="showPage('zespol')">Zespół</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="javascript:void(0)" onclick="showPage('cennik')">Cennik</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="javascript:void(0)" onclick="showPage('blog')">Wiedza</a></li>
+                    <li class="nav-item ms-lg-4">
+                        <a class="btn btn-gold" href="tel:506350590">REZERWACJA</a>
                     </li>
                 </ul>
             </div>
@@ -124,196 +122,222 @@
     </nav>
 
     <main id="home" class="page-section active">
-        <header class="hero">
-            <div class="container text-center">
-                <h1 class="display-2 fw-800 mb-4">Uśmiech, który zachwyca</h1>
-                <p class="lead fs-3 mb-5">Najnowocześniejsza stomatologia w Warszawie.</p>
-                <button class="btn-premium btn-lg" onclick="showPage('uslugi')">Sprawdź co robimy</button>
-            </div>
-        </header>
-        <div class="container py-5 text-center">
-            <h2 class="mb-5">Nasza Galeria</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=800" class="gallery-thumb" onclick="openFullImg(this.src, 'Nowoczesny Gabinet')">
-                </div>
-                <div class="col-md-4">
-                    <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=800" class="gallery-thumb" onclick="openFullImg(this.src, 'Praca Specjalisty')">
-                </div>
-                <div class="col-md-4">
-                    <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?q=80&w=800" class="gallery-thumb" onclick="openFullImg(this.src, 'Efekt końcowy')">
+        <div class="hero-v2">
+            <div class="container">
+                <h4 class="text-uppercase mb-3" style="letter-spacing: 5px;">Warszawa Śródmieście</h4>
+                <h1 class="display-1 mb-4">Stomatologia Jutra</h1>
+                <p class="lead mb-5 opacity-75">Odkryj standard opieki, na który zasługujesz. Precyzja, estetyka, komfort.</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <button class="btn btn-outline-light btn-lg px-5" onclick="showPage('uslugi')">Oferta</button>
+                    <button class="btn btn-gold btn-lg px-5" onclick="showPage('onas')">Poznaj nas</button>
                 </div>
             </div>
         </div>
+        
+        <section class="py-5">
+            <div class="container py-5">
+                <div class="row g-4 text-center">
+                    <div class="col-md-4">
+                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800" class="img-fluid mb-3 shadow" onclick="openFullImg(this.src, 'Nasze Wnętrza')">
+                        <h5>Luksusowe wnętrza</h5>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?q=80&w=800" class="img-fluid mb-3 shadow" onclick="openFullImg(this.src, 'Technologia 3D')">
+                        <h5>Diagnostyka 3D</h5>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?q=80&w=800" class="img-fluid mb-3 shadow" onclick="openFullImg(this.src, 'Komfort pacjenta')">
+                        <h5>Bezstresowe leczenie</h5>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <section id="onas" class="page-section">
+    <section id="uslugi" class="page-section py-5 mt-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-4">Specjalizacje</h2>
+                <div class="mx-auto bg-warning" style="height: 3px; width: 60px;"></div>
+            </div>
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <span class="text-muted">01.</span>
+                        <h3 class="mt-3">Implantologia</h3>
+                        <p class="mt-4">Najbardziej naturalny sposób na odbudowę brakujących zębów. Pracujemy na systemach Straumann i Nobel Biocare.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <span class="text-muted">02.</span>
+                        <h3 class="mt-3">Smile Design</h3>
+                        <p class="mt-4">Cyfrowe projektowanie uśmiechu. Zobacz swój nowy uśmiech, zanim jeszcze rozpoczniemy leczenie.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <span class="text-muted">03.</span>
+                        <h3 class="mt-3">Endodoncja</h3>
+                        <p class="mt-4">Precyzyjne leczenie kanałowe pod mikroskopem Zeiss. Ratujemy zęby, które inni skazali na usunięcie.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="onas" class="page-section py-5 mt-5">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h2 class="display-4 fw-bold text-primary">Ponad 15 lat doświadczenia</h2>
-                    <p class="lead mt-4">Prestige Dental to nie tylko klinika, to miejsce gdzie łączymy pasję do medycyny z najnowszymi technologiami. Naszą misją jest bezstresowe leczenie w komfortowych warunkach.</p>
+                <div class="col-lg-5">
+                    <h2 class="display-3 mb-4">Gdzie nauka spotyka sztukę</h2>
+                    <p>Prestige Dental to owoc marzeń o stworzeniu miejsca, w którym pacjent czuje się jak w pięciogwiazdkowym hotelu, a lekarz dysponuje narzędziami z NASA.</p>
+                    <div class="row mt-5">
+                        <div class="col-6">
+                            <h2 class="text-warning">12k+</h2>
+                            <p class="text-uppercase small">Uśmiechów</p>
+                        </div>
+                        <div class="col-6">
+                            <h2 class="text-warning">25</h2>
+                            <p class="text-uppercase small">Nagród branżowych</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-6 text-center">
-                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1000" class="img-fluid rounded-5 shadow" alt="Klinika">
+                <div class="col-lg-7">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1200" class="img-fluid rounded shadow-lg">
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="uslugi" class="page-section">
+    <section id="zespol" class="page-section py-5 mt-5">
+        <div class="container text-center">
+            <h2 class="mb-5">Mistrzowie Precyzji</h2>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="doctor-card">
+                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=400" class="img-fluid mb-3">
+                        <h6>dr n. med. Adam Nowak</h6>
+                        <p class="small text-muted text-uppercase">Chirurg Szczękowy</p>
+                    </div>
+                </div>
+                </div>
+        </div>
+    </section>
+
+    <section id="blog" class="page-section py-5 mt-5">
         <div class="container">
-            <h2 class="text-center display-4 fw-bold mb-5">Nasze Usługi</h2>
+            <h2 class="mb-5">Centrum Wiedzy</h2>
             <div class="row g-4">
                 <div class="col-md-4">
-                    <div class="premium-card p-4 text-center">
-                        <i class="fas fa-tooth fa-3x text-primary mb-3"></i>
-                        <h4>Implantologia</h4>
-                        <p>Trwałe rozwiązania zastępujące brakujące zęby przy użyciu systemów premium.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="premium-card p-4 text-center">
-                        <i class="fas fa-magic fa-3x text-primary mb-3"></i>
-                        <h4>Estetyka</h4>
-                        <p>Licówki i wybielanie, które odmienią Twój uśmiech w jeden dzień.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="premium-card p-4 text-center">
-                        <i class="fas fa-align-center fa-3x text-primary mb-3"></i>
-                        <h4>Ortodoncja</h4>
-                        <p>Niewidoczne aparaty Invisalign dla dzieci i dorosłych.</p>
+                    <div class="card border-0 shadow-sm h-100">
+                        <img src="https://images.unsplash.com/photo-1593059025398-0f5806642173?q=80&w=600" class="card-img-top">
+                        <div class="card-body">
+                            <span class="badge bg-light text-dark mb-2">Implanty</span>
+                            <h5 class="card-title">Czy implanty bolą? Obalamy mity</h5>
+                            <p class="small text-muted">Przeczytasz w 4 minuty</p>
+                            <a href="#" class="text-warning text-decoration-none fw-bold">Czytaj dalej &rarr;</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="zespol" class="page-section">
+    <section id="cennik" class="page-section py-5 mt-5">
         <div class="container">
-            <h2 class="text-center display-4 fw-bold mb-5">Poznaj naszych lekarzy</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="premium-card">
-                        <img src="https://images.unsplash.com/photo-1559839734-2b71f1536783?q=80&w=800" class="member-img" alt="Doktor">
-                        <div class="p-3">
-                            <h5>dr n. med. Anna Nowak</h5>
-                            <p class="text-muted">Specjalista Implantolog</p>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="bg-light p-5 border shadow">
+                        <h2 class="text-center mb-5">Inwestycja w zdrowie</h2>
+                        <div class="d-flex justify-content-between border-bottom py-3">
+                            <span>Wszczepienie implantu (Premium)</span>
+                            <span class="fw-bold">od 2.900 PLN</span>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="premium-card">
-                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=800" class="member-img" alt="Doktor">
-                        <div class="p-3">
-                            <h5>lek. dent. Piotr Kowalski</h5>
-                            <p class="text-muted">Ortodonta</p>
+                        <div class="d-flex justify-content-between border-bottom py-3">
+                            <span>Licówka E-Max</span>
+                            <span class="fw-bold">1.800 PLN</span>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="premium-card">
-                        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80&w=800" class="member-img" alt="Doktor">
-                        <div class="p-3">
-                            <h5>lek. dent. Marta Wiśniewska</h5>
-                            <p class="text-muted">Stomatologia Estetyczna</p>
+                        <div class="d-flex justify-content-between border-bottom py-3">
+                            <span>Wybielanie Beyond</span>
+                            <span class="fw-bold">1.200 PLN</span>
                         </div>
+                        <p class="mt-4 small text-muted text-center">* Ceny orientacyjne. Pełny plan leczenia po konsultacji.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="cennik" class="page-section">
-        <div class="container">
-            <h2 class="text-center mb-5">Przejrzysty Cennik</h2>
-            <div class="table-responsive bg-white p-4 rounded-4 shadow">
-                <table class="table table-hover">
-                    <thead class="table-primary">
-                        <tr><th>Usługa</th><th>Cena</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Konsultacja specjalistyczna</td><td>0 zł</td></tr>
-                        <tr><td>Wybielanie gabinetowe</td><td>900 zł</td></tr>
-                        <tr><td>Implant (część chirurgiczna)</td><td>od 2500 zł</td></tr>
-                        <tr><td>Licówka porcelanowa</td><td>1600 zł</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <section id="blog" class="page-section">
-        <div class="container">
-            <h2 class="text-center mb-5">Porady naszych ekspertów</h2>
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="premium-card d-flex align-items-center">
-                        <img src="https://images.unsplash.com/photo-1560177118-c33607421361?q=80&w=300" style="width: 150px; height: 150px; object-fit: cover;" alt="Blog">
-                        <div class="p-3">
-                            <h6>Jak dbać o implanty?</h6>
-                            <a href="#" class="btn btn-sm btn-outline-primary">Czytaj więcej</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="premium-card d-flex align-items-center">
-                        <img src="https://images.unsplash.com/photo-1471864190281-ad5fe9bb0724?q=80&w=300" style="width: 150px; height: 150px; object-fit: cover;" alt="Blog">
-                        <div class="p-3">
-                            <h6>Dieta po wybielaniu zębów</h6>
-                            <a href="#" class="btn btn-sm btn-outline-primary">Czytaj więcej</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="modal fade" id="imgModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal fade" id="imageLightbox" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
             <div class="modal-content bg-transparent border-0">
                 <div class="modal-body p-0 text-center">
-                    <img src="" id="fullImg" class="img-fluid rounded shadow-lg" style="max-height: 90vh;">
-                    <p id="imgCaption" class="text-white mt-3 fs-4"></p>
+                    <button type="button" class="btn-close btn-close-white float-end m-3" data-bs-dismiss="modal"></button>
+                    <img src="" id="targetImg" class="full-screen-img shadow-lg">
                 </div>
             </div>
         </div>
     </div>
 
-    <footer class="bg-dark text-white py-4 text-center mt-5">
-        <p>&copy; 2026 Prestige Dental Warszawa. <a href="tel:506350590" class="text-warning text-decoration-none">Zadzwoń: 506 350 590</a></p>
+    <footer class="bg-dark text-white py-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>PRESTIGE.</h4>
+                    <p class="opacity-50 mt-4">Klinika Stomatologiczna<br>ul. Nowowiejska 10, Warszawa</p>
+                </div>
+                <div class="col-md-4">
+                    <p class="text-warning mb-1">Zadzwoń do nas</p>
+                    <a href="tel:506350590" class="h3 text-white text-decoration-none">506 350 590</a>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <div class="d-flex justify-content-md-end gap-3 fs-4">
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-facebook"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Funkcja zmieniająca "podstrony"
-        function showPage(pageId) {
-            // Ukryj wszystkie sekcje
-            const sections = document.querySelectorAll('.page-section');
-            sections.forEach(section => section.classList.remove('active'));
-            
-            // Pokaż wybraną
-            document.getElementById(pageId).classList.add('active');
-            
-            // Przewiń na górę
-            window.scrollTo(0, 0);
-
-            // Zamknij menu mobilne po kliknięciu
-            const navCollapse = document.getElementById('nav');
-            if(navCollapse.classList.contains('show')) {
-                bootstrap.Collapse.getInstance(navCollapse).hide();
+        // Dynamiczny Header
+        window.onscroll = function() {
+            const nav = document.getElementById('mainNav');
+            if (window.pageYOffset > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
             }
+        };
+
+        // Zarządzanie podstronami
+        function showPage(pageId) {
+            document.querySelectorAll('.page-section').forEach(p => p.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0,0);
+            
+            // Kolor tła nav dla stron innych niż home
+            const nav = document.getElementById('mainNav');
+            if(pageId !== 'home') {
+                nav.style.background = '#0f172a';
+            } else {
+                nav.style.background = 'transparent';
+            }
+
+            // Zamknij menu mobilne
+            const menu = document.getElementById('nav');
+            if(menu.classList.contains('show')) bootstrap.Collapse.getInstance(menu).hide();
         }
 
-        // Funkcja otwierająca zdjęcie na cały ekran
-        function openFullImg(src, caption) {
-            const modal = new bootstrap.Modal(document.getElementById('imgModal'));
-            document.getElementById('fullImg').src = src;
-            document.getElementById('imgCaption').innerText = caption;
+        // Otwieranie zdjęć 100%
+        function openFullImg(src, alt) {
+            const modal = new bootstrap.Modal(document.getElementById('imageLightbox'));
+            document.getElementById('targetImg').src = src;
             modal.show();
         }
     </script>
 </body>
-</html> 
- 
+</html>
