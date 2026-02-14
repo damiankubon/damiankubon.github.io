@@ -1,256 +1,737 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FLEX™ | Global Industrial Solutions | Heavy Duty Performance</title>
+    <title>FLEX Alpinizm Przemysłowy | Mycie Elewacji, Dachów, Siatki | Warszawa</title>
+    <meta name="description" content="FLEX - Specjaliści od mycia elewacji, dachów, montażu siatek balkonowych, usuwania zagrożeń. Dostępni 24/7. Tel: 733 501 801 | Warszawa Górczewska">
     
-    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Outfit:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Outfit:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
     <style>
         :root {
-            --lime: #ccff00;
-            --dark: #050505;
-            --gray-deep: #0d0d0d;
-            --gray-light: #1a1a1a;
-            --text: #ffffff;
-            --text-muted: #888;
-            --transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            --blue-primary: #3B82F6;
+            --blue-light: #60A5FA;
+            --lime-accent: #CCFF00;
+            --silver: #C0C0C0;
+            --red-accent: #EF4444;
+            --bg-light: #F8FAFC;
+            --surface-blue: rgba(59, 130, 246, 0.95);
+            --text-dark: #1E293B;
+            --text-light: #64748B;
+            --white: #FFFFFF;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Outfit', sans-serif; background: var(--dark); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
 
-        /* --- UI ELEMENTS --- */
-        .container { max-width: 1400px; margin: 0 auto; padding: 0 5%; }
-        .section-padding { padding: 140px 0; }
-        .glitch-text { font-family: 'Syncopate'; text-transform: uppercase; letter-spacing: 10px; color: var(--lime); font-size: 0.9rem; margin-bottom: 20px; display: block; }
-        .big-title { font-family: 'Syncopate'; font-size: clamp(2.5rem, 6vw, 5rem); text-transform: uppercase; line-height: 1; margin-bottom: 40px; }
-        .big-title span { -webkit-text-stroke: 1px var(--text); color: transparent; }
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(25px);
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.1);
+            border-bottom: 3px solid var(--blue-primary);
+            z-index: 10000;
+            padding: 1rem 0;
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+        }
+        
+        /* LOGO Flex srebrne z czerwoną obramówką */
+        .logo {
+            font-family: 'Syncopate', sans-serif;
+            font-size: clamp(26px, 4vw, 34px);
+            font-weight: 900;
+            text-decoration: none;
+            position: relative;
+            padding: 10px 20px;
+        }
+        
+        .logo-text {
+            color: var(--silver);
+            position: relative;
+            z-index: 2;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+        
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            right: 2px;
+            bottom: 2px;
+            background: var(--red-accent);
+            border-radius: 8px;
+            z-index: 1;
+        }
 
-        /* --- NAV --- */
-        nav { position: fixed; top: 0; width: 100%; padding: 30px 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; transition: 0.4s; }
-        nav.active { background: rgba(5,5,5,0.95); padding: 15px 5%; border-bottom: 1px solid rgba(204,255,0,0.2); backdrop-filter: blur(10px); }
-        .logo { font-family: 'Syncopate'; font-size: 2rem; color: #fff; text-decoration: none; }
-        .logo span { color: var(--lime); }
-        .nav-links { display: flex; gap: 30px; }
-        .nav-links a { color: #fff; text-decoration: none; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; opacity: 0.6; }
-        .nav-links a:hover, .nav-links a.current { opacity: 1; color: var(--lime); }
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        
+        .nav-links a { 
+            color: var(--text-dark); 
+            text-decoration: none; 
+            font-size: 15px; 
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+        
+        .nav-links a:hover {
+            color: var(--blue-primary);
+            background: rgba(59, 130, 246, 0.1);
+        }
 
-        /* --- PAGE LOGIC --- */
-        .page-content { display: none; }
-        .page-content.active { display: block; animation: fadeInUp 0.8s ease forwards; }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .status-24h {
+            background: var(--lime-accent);
+            color: #000;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-        /* --- HERO --- */
-        .hero { height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
-        .hero-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; opacity: 0.5; filter: grayscale(1); }
-        .hero-overlay { position: absolute; bottom: 0; left: 0; width: 100%; height: 50%; background: linear-gradient(transparent, var(--dark)); }
+        /* Hero */
+        .hero {
+            height: 100vh;
+            background: 
+                linear-gradient(135deg, rgba(59, 130, 246, 0.8), rgba(96, 165, 250, 0.6)),
+                url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1920&fit=crop') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            padding-top: 80px;
+        }
 
-        /* --- CARDS & TEAM --- */
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
-        .stat-box { background: var(--gray-deep); padding: 40px; border-top: 4px solid var(--lime); }
-        .stat-number { font-family: 'Syncopate'; font-size: 3rem; display: block; margin-bottom: 10px; }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.9), transparent);
+            z-index: 2;
+        }
 
-        .team-card { position: relative; overflow: hidden; background: var(--gray-light); height: 500px; }
-        .team-card img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); transition: 0.5s; }
-        .team-card:hover img { filter: grayscale(0); transform: scale(1.05); }
-        .team-info { position: absolute; bottom: 0; left: 0; width: 100%; padding: 30px; background: linear-gradient(transparent, #000); }
+        .hero-content {
+            max-width: 1000px;
+            padding: 0 5%;
+            position: relative;
+            z-index: 3;
+        }
+        
+        .hero-badge {
+            background: var(--lime-accent);
+            color: #000;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            display: inline-block;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 10px 30px rgba(204, 255, 0, 0.4);
+        }
+        
+        .hero h1 { 
+            font-family: 'Syncopate', sans-serif;
+            font-size: clamp(4rem, 10vw, 7rem);
+            line-height: 1; 
+            margin: 0 0 1.5rem 0;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-        /* --- FORM --- */
-        .form-group { margin-bottom: 20px; }
-        input, textarea, select { width: 100%; padding: 20px; background: var(--gray-light); border: 1px solid #333; color: #fff; font-family: 'Outfit'; outline: none; }
-        input:focus { border-color: var(--lime); }
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, var(--blue-primary), var(--blue-light));
+            color: white;
+            border: none;
+            padding: 1.5rem 4rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            border-radius: 50px;
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+            position: relative;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(59, 130, 246, 0.6);
+        }
 
-        /* --- BUTTONS --- */
-        .btn-main { padding: 20px 40px; font-family: 'Syncopate'; font-size: 0.75rem; text-decoration: none; display: inline-block; background: var(--lime); color: #000; clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%); transition: 0.3s; border: none; cursor: pointer; }
-        .btn-main:hover { transform: scale(1.05); background: #fff; }
+        .btn-lime {
+            background: var(--lime-accent);
+            color: #000;
+            border: 2px solid var(--lime-accent);
+            padding: 1.3rem 3.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 50px;
+            text-decoration: none;
+        }
+        
+        .btn-lime:hover {
+            background: white;
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(204, 255, 0, 0.3);
+        }
 
-        footer { padding: 80px 0; border-top: 1px solid #222; text-align: center; color: var(--text-muted); }
+        /* Sections */
+        .section {
+            padding: 100px 0;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Syncopate', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            text-align: center;
+            margin-bottom: 4rem;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            position: relative;
+            color: var(--text-dark);
+        }
+
+        .section-title span {
+            background: linear-gradient(45deg, var(--blue-primary), var(--lime-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Services Grid - Alpinistyczne */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            padding: 0 5%;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 3rem 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(59, 130, 246, 0.1);
+            border-top: 5px solid var(--blue-primary);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(59, 130, 246, 0.2);
+        }
+        
+        .service-number {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--lime-accent);
+            opacity: 0.1;
+            font-family: 'Syncopate', sans-serif;
+        }
+        
+        .service-icon {
+            color: var(--blue-primary);
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        
+        .service-card h3 {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            padding: 0 5%;
+        }
+        
+        .gallery-item {
+            height: 280px;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            border: 3px solid transparent;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .gallery-item:hover {
+            border-color: var(--blue-primary);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(59, 130, 246, 0.3);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        /* Team */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 0 5%;
+        }
+        
+        .team-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.1);
+        }
+
+        /* FAQ */
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        
+        .faq-question {
+            padding: 1.5rem 2rem;
+            background: var(--blue-primary);
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            padding: 0 2rem 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .faq-answer.active {
+            max-height: 200px;
+            padding: 1.5rem 2rem;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.15);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: 2px solid #E2E8F0;
+            border-radius: 12px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--blue-primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .contact-main {
+            background: linear-gradient(135deg, var(--blue-primary), var(--blue-light));
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+        }
+
+        .phone-display {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 900;
+            color: var(--lime-accent);
+            text-decoration: none;
+            display: block;
+            margin: 1.5rem 0;
+            letter-spacing: 2px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 3rem 5% 1.5rem;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .services-grid, .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
-
-    <nav id="mainNav">
-        <a href="#" class="logo" onclick="showPage('home')">FL<span>EX</span></a>
-        <div class="nav-links">
-            <a href="javascript:void(0)" onclick="showPage('home')" class="lnk active">Start</a>
-            <a href="javascript:void(0)" onclick="showPage('uslugi')" class="lnk">Usługi</a>
-            <a href="javascript:void(0)" onclick="showPage('onas')" class="lnk">O nas & Zespół</a>
-            <a href="javascript:void(0)" onclick="showPage('pomoc')" class="lnk">Pomoc</a>
-            <a href="javascript:void(0)" onclick="showPage('wycena')" class="lnk">Wycena</a>
-            <a href="javascript:void(0)" onclick="showPage('kontakt')" class="lnk">Kontakt</a>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="showPage('home')">
+                <span class="logo-text">FLEX</span>
+            </a>
+            <div class="nav-links">
+                <a href="#" onclick="showPage('onas')">O NAS</a>
+                <a href="#" onclick="showPage('uslugi')">USŁUGI</a>
+                <a href="#" onclick="showPage('zespól')">ZESPÓŁ</a>
+                <a href="#" onclick="showPage('cennik')">CENNIK</a>
+                <a href="#" onclick="showPage('pytania')">POMOC</a>
+                <a href="#" onclick="showPage('kontakt')">KONTAKT</a>
+            </div>
+            <div class="status-24h">DOSTĘPNE 24/7</div>
         </div>
     </nav>
 
-    <div id="home" class="page-content active">
+    <!-- Home -->
+    <div id="home" class="page active">
         <section class="hero">
-            <img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=2070" class="hero-video">
-            <div class="hero-overlay"></div>
-            <div class="container" style="position:relative; z-index:10;">
-                <span class="glitch-text">Premium Industrial Group</span>
-                <h1 class="big-title">ARCHITEKCI<br><span>WYSOKOŚCI</span></h1>
-                <p style="max-width: 600px; font-size: 1.2rem; margin-bottom: 40px; color: var(--text-muted);">
-                    Od 15 lat definiujemy standardy bezpieczeństwa i precyzji w polskim przemyśle. 
-                    Nie boimy się wyzwań, których inni nawet nie chcą wyceniać.
+            <div class="hero-content">
+                <div class="hero-badge">Alpinizm Przemysłowy | Warszawa Górczewska</div>
+                <h1>FLEX<span>ALPINIŚCI</span></h1>
+                <p class="hero-subtitle">
+                    Mycie elewacji, dachów, montaż siatek ochronnych, usuwanie zagrożeń. 
+                    Profesjonalny zespół alpinistów przemysłowych. Dostępni 24/7.
                 </p>
-                <button onclick="showPage('uslugi')" class="btn-main">Sprawdź możliwości</button>
-            </div>
-        </section>
-
-        <section class="section-padding" style="background: var(--gray-deep);">
-            <div class="container">
-                <div class="grid-3">
-                    <div class="stat-box" data-aos="fade-up">
-                        <span class="stat-number">15+</span>
-                        <p>Lat doświadczenia na rynku europejskim</p>
-                    </div>
-                    <div class="stat-box" data-aos="fade-up" data-aos-delay="100">
-                        <span class="stat-number">450+</span>
-                        <p>Zrealizowanych kontraktów przemysłowych</p>
-                    </div>
-                    <div class="stat-box" data-aos="fade-up" data-aos-delay="200">
-                        <span class="stat-number">100%</span>
-                        <p>Bezpieczeństwa (Zero wypadków w historii)</p>
-                    </div>
+                <div class="cta-buttons">
+                    <a href="tel:733501801" class="btn-primary">Zadzwoń 733 501 801</a>
+                    <a href="#" onclick="showPage('uslugi')" class="btn-lime">Nasze Usługi</a>
                 </div>
             </div>
         </section>
     </div>
 
-    <div id="onas" class="page-content">
-        <section class="section-padding">
-            <div class="container">
-                <span class="glitch-text">Nasza Historia</span>
-                <h2 class="big-title">LUDZIE Z<span> PASJĄ</span></h2>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-bottom: 100px;">
-                    <div>
-                        <p style="font-size: 1.4rem; color: var(--lime); margin-bottom: 20px;">FLEX to nie tylko firma – to elita techników wysokościowych.</p>
-                        <p>Zaczynaliśmy w 2011 roku jako mały zespół alpinistów. Dziś dysponujemy własną flotą maszyn, ciężkim sprzętem natryskowym i kadrą inżynierską, która zarządza projektami wartymi miliony. Nasza filozofia jest prosta: albo robimy coś perfekcyjnie, albo w ogóle się tego nie podejmujemy.</p>
-                        <br>
-                        <p>Każdy członek naszego zespołu przechodzi rygorystyczne testy sprawnościowe i techniczne. Nie zatrudniamy ludzi z przypadku – u nas pracują fachowcy z uprawnieniami IRATA, UDT oraz certyfikatami spawalniczymi.</p>
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2070" style="width: 100%; border-bottom: 10px solid var(--lime);">
+    <!-- O Nas -->
+    <div id="onas" class="page">
+        <div class="section">
+            <h2 class="section-title">Alpinizm<span>_</span>Przemysłowy</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; padding: 0 5%; align-items: center;">
+                <div>
+                    <p style="font-size: 1.3rem; line-height: 1.8;">
+                        FLEX to specjaliści od prac na wysokościach w Warszawie (Górczewska). 
+                        Montujemy siatki ochronne na balkonach, czyścimy elewacje i dachy, 
+                        usuwamy zagrożenia (gniazda, luźne elementy), montujemy wentylację.
+                    </p>
+                    <p style="font-size: 1.1rem; color: var(--text-light); margin-top: 2rem;">
+                        <strong>Dostępni 24/7</strong> • Szkolenia alpinistyczne IRATA • 
+                        Ubezpieczenie OC • Gwarancja na prace
+                    </p>
                 </div>
-
-                <h3 class="big-title" style="font-size: 2.5rem;">KLUCZOWY<span> ZESPÓŁ</span></h3>
-                <div class="grid-3">
-                    <div class="team-card">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800">
-                        <div class="team-info">
-                            <h4 style="font-family:'Syncopate';">Marek Wiśniewski</h4>
-                            <p>CEO & Founder</p>
-                        </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600" alt="Alpiniści">
                     </div>
-                    <div class="team-card">
-                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=800">
-                        <div class="team-info">
-                            <h4 style="font-family:'Syncopate';">Adam Nowak</h4>
-                            <p>Head of Operations</p>
-                        </div>
-                    </div>
-                    <div class="team-card">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800">
-                        <div class="team-info">
-                            <h4 style="font-family:'Syncopate';">Piotr Kowalski</h4>
-                            <p>Safety Inspector (IRATA 3)</p>
-                        </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600" alt="Mycie elewacji">
                     </div>
                 </div>
             </div>
-        </section>
-    </div>
-
-    <div id="uslugi" class="page-content">
-        <section class="section-padding">
-            <div class="container">
-                <h2 class="big-title">SPECYFIKACJA<span> DZIAŁAŃ</span></h2>
-                <div style="display: flex; flex-direction: column; gap: 100px;">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;">
-                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800" style="width: 100%;">
-                        <div>
-                            <h3 style="font-family:'Syncopate'; margin-bottom: 20px;">01. Malowanie Hal i Konstrukcji</h3>
-                            <p>Stosujemy zaawansowane systemy antykorozyjne zgodne z normą PN-EN ISO 12944. Malowanie hydrodynamiczne pozwala nam na pokrycie do 2000m² powierzchni w ciągu jednej zmiany roboczej.</p>
-                            <ul style="margin-top: 20px; color: var(--lime);">
-                                <li>- Przygotowanie podłoża (piaskowanie/hydromonitoring)</li>
-                                <li>- Dobór systemów epoksydowych i poliuretanowych</li>
-                                <li>- Gwarancja do 10 lat na powłokę</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;">
-                        <div>
-                            <h3 style="font-family:'Syncopate'; margin-bottom: 20px;">02. Serwis Alpinistyczny</h3>
-                            <p>Tam, gdzie nie wjedzie podnośnik, wchodzimy my. Montujemy instalacje, wymieniamy przeszklenia i prowadzimy inspekcje dronami w miejscach o utrudnionym dostępie.</p>
-                        </div>
-                        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800" style="width: 100%;">
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <div id="wycena" class="page-content">
-        <section class="section-padding">
-            <div class="container">
-                <div style="max-width: 900px; margin: 0 auto;">
-                    <h2 class="big-title">KONFIGURATOR<span> WYCENY</span></h2>
-                    <p style="margin-bottom: 50px;">Wypełnij poniższe pola, a nasz inżynier przygotuje kosztorys w ciągu 24h.</p>
-                    <form>
-                        <div class="grid-3" style="grid-template-columns: 1fr 1fr; margin-bottom: 20px;">
-                            <input type="text" placeholder="Imię i nazwisko">
-                            <input type="text" placeholder="Nazwa Firmy / NIP">
-                        </div>
-                        <div class="form-group">
-                            <select>
-                                <option>Rodzaj obiektu</option>
-                                <option>Hala produkcyjna</option>
-                                <option>Biurowiec</option>
-                                <option>Elektrownia / Komin</option>
-                                <option>Inny</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Szczegóły projektu (Metraż, wysokość, lokalizacja)" rows="6"></textarea>
-                        </div>
-                        <button class="btn-main" style="width: 100%;">Wyślij zapytanie do działu technicznego</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <footer>
-        <div class="container">
-            <div class="logo">FL<span>EX</span> GROUP</div>
-            <p style="margin-top: 20px;">© 2026 FLEX Industrial Sp. z o.o. | All Rights Reserved.</p>
         </div>
+    </div>
+
+    <!-- Usługi -->
+    <div id="uslugi" class="page">
+        <div class="section">
+            <h2 class="section-title">Nasze<span>_</span>Specjalizacje</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-number">01</div>
+                    <i class="fas fa-window-maximize service-icon"></i>
+                    <h3>Mycie Elewacji & Okien</h3>
+                    <p>Profesjonalne mycie szyb, elewacji szklanych i aluminiowych metodą alpinistyczną. Bez smug, z impregnacją.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">02</div>
+                    <i class="fas fa-home service-icon"></i>
+                    <h3>Mycie i Impregnacja Dachów</h3>
+                    <p>Usuwanie mchu, porostów, impregnacja dachówek ceramicznych i betonowych. Gwarancja 5 lat.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">03</div>
+                    <i class="fas fa-network-wired service-icon"></i>
+                    <h3>Montaż Wentylacji</h3>
+                    <p>Montaż i demontaż krat wentylacyjnych na wysokościach. Szybko i bezinwazyjnie.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">04</div>
+                    <i class="fas fa-exclamation-triangle service-icon"></i>
+                    <h3>Usuwanie Zagrożeń</h3>
+                    <p>Bezpieczne usuwanie gniazd os, szerszeni, luźnych elementów elewacji i dachów.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">05</div>
+                    <i class="fas fa-project-diagram service-icon"></i>
+                    <h3>Siatki Ochronne & GRUNT</h3>
+                    <p>Montaż siatek zabezpieczających na balkonach, GRUNT system, ochrona przed ptakami.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">06</div>
+                    <i class="fas fa-hard-hat service-icon"></i>
+                    <h3>Mycie Pobudowlane Lublin</h3>
+                    <p>Specjalizujemy się w myciu po remoncie i budowie w Lublinie i okolicach.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Zespół -->
+    <div id="zespól" class="page">
+        <div class="section">
+            <h2 class="section-title">Nasz<span>_</span>Zespół</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <i class="fas fa-user-tie fa-4x text-blue-500 mb-4"></i>
+                    <h4>Alpiniści IRATA</h4>
+                    <p>Szkolenia międzynarodowe. Prace na wysokościach do 100m.</p>
+                </div>
+                <div class="team-card">
+                    <i class="fas fa-tools fa-4x text-blue-500 mb-4"></i>
+                    <h4>Technicy</h4>
+                    <p>Specjaliści od montażu zabezpieczeń i wentylacji.</p>
+                </div>
+                <div class="team-card">
+                    <i class="fas fa-hard-hat fa-4x text-blue-500 mb-4"></i>
+                    <h4>Myjnie Przemysłowe</h4>
+                    <p>Doświadczenie w myciu elewacji i dachów od 10 lat.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cennik -->
+    <div id="cennik" class="page">
+        <div class="section">
+            <h2 class="section-title">Cennik<span>_</span>Przykładowy</h2>
+            <div class="pricing-grid">
+                <div class="service-card">
+                    <h3>Mycie elewacji</h3>
+                    <p>od <strong>12 zł/m²</strong></p>
+                </div>
+                <div class="service-card">
+                    <h3>Mycie dachów</h3>
+                    <p>od <strong>18 zł/m²</strong></p>
+                </div>
+                <div class="service-card">
+                    <h3>Siatki balkonowe</h3>
+                    <p>od <strong>45 zł/mb</strong></p>
+                </div>
+                <div class="service-card">
+                    <h3>Usuwanie zagrożeń</h3>
+                    <p>od <strong>250 zł/interwencja</strong></p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <p style="font-size: 1.3rem; color: var(--text-light);">
+                    <strong>Darmowa wycena w 24h!</strong> Indywidualne ceny po oględzinach.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Najczęstsze Pytania -->
+    <div id="pytania" class="page">
+        <div class="section">
+            <h2 class="section-title">Najczęstsze<span>_</span>Pytania</h2>
+            <div style="max-width: 800px; margin: 0 auto; padding: 0 5%;">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Czy pracujecie 24/7?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Tak! Jesteśmy dostępni całą dobę, 7 dni w tygodniu. Awaryjne zlecenia realizujemy w ciągu 2h.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Jakie tereny obsługujecie?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Warszawa (Górczewska), Lublin, okolice. Dojazd gratis do 50km od Warszawy.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Czy macie ubezpieczenie?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Tak, pełne OC na prace alpinistyczne do 5mln zł. Ubezpieczenie PZU.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Kontakt -->
+    <div id="kontakt" class="page">
+        <div class="section">
+            <div class="contact-main">
+                <h2 style="font-size: 3rem; margin-bottom: 1rem;">Dostępni<span>_</span>24/7</h2>
+                <a href="tel:733501801" class="phone-display">733 501 801</a>
+                <p style="font-size: 1.3rem; opacity: 0.95;">Warszawa Górczewska • Całodobowo</p>
+            </div>
+            <form class="contact-form">
+                <h3 style="text-align: center; margin-bottom: 2rem; color: var(--text-dark);">Wyślij zapytanie</h3>
+                <div class="form-group">
+                    <input type="text" placeholder="Imię i nazwisko" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" placeholder="Telefon" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea rows="5" placeholder="Opisz zlecenie..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; padding: 1.2rem;">Wyślij</button>
+            </form>
+            <p style="text-align: center; margin-top: 2rem; color: var(--text-light);">
+                Email: <a href="mailto:lukasz25zet@gmail.com" style="color: var(--blue-primary);">lukasz25zet@gmail.com</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="logo" style="color: var(--silver); font-size: 1.5rem;">
+            FLEX Alpinizm Przemysłowy
+        </div>
+        <p style="margin-top: 1rem; opacity: 0.8;">© 2026 Warszawa Górczewska | Dostępni 24/7 | Wszystkie prawa zastrzeżone</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init();
+        AOS.init({ duration: 1000, once: true });
 
         function showPage(pageId) {
-            // Hide all pages
-            document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
-            // Remove active link class
-            document.querySelectorAll('.lnk').forEach(l => l.classList.remove('current'));
-            
-            // Show current page
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
-            window.scrollTo(0,0);
+            window.scrollTo(0, 0);
         }
 
-        window.onscroll = function() {
-            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-                document.getElementById("mainNav").classList.add("active");
-            } else {
-                document.getElementById("mainNav").classList.remove("active");
-            }
-        };
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('i');
+            
+            answer.classList.toggle('active');
+            icon.style.transform = answer.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+
+        // Form submit
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Dziękujemy! Skontaktujemy się w ciągu 2h (24/7)');
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', e => {
+                e.preventDefault();
+                const target = document.querySelector(anchor.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
     </script>
 </body>
-</html> 
+</html>
