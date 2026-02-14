@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLEX ALPINIZM | Warszawa | Mycie, Montaż, Zabezpieczenia</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --blue-main: #3498db;
+            --blue-dark: #2980b9;
+            --lime: #ccff00;
+            --white: #ffffff;
+            --light-bg: #f4f7f9;
+            --text-dark: #2c3e50;
+            --silver: linear-gradient(145deg, #bdc3c7, #ecf0f1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Outfit', sans-serif; background: var(--white); color: var(--text-dark); overflow-x: hidden; scroll-behavior: smooth; }
+
+        /* --- LOGO CUSTOM --- */
+        .logo-box {
+            display: flex; align-items: center; gap: 10px; text-decoration: none;
+        }
+        .logo-flex {
+            background: var(--silver);
+            border: 3px solid #e74c3c; /* Czerwona obramówka */
+            padding: 5px 15px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            color: #2c3e50;
+            font-size: 1.8rem;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 20px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; transition: 0.4s; background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(10px); border-bottom: 1px solid rgba(52, 152, 219, 0.1);
+        }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { 
+            text-decoration: none; color: var(--text-dark); font-weight: 600; 
+            font-size: 0.85rem; text-transform: uppercase; transition: 0.3s;
+        }
+        .nav-links a:hover { color: var(--blue-main); }
+        .status-24h { 
+            background: var(--lime); color: #000; padding: 5px 12px; 
+            border-radius: 20px; font-size: 0.7rem; font-weight: 900; animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+
+        /* --- HERO --- */
+        .hero {
+            height: 90vh; background: linear-gradient(rgba(52, 152, 219, 0.8), rgba(255,255,255,0.9)), 
+            url('https://images.unsplash.com/photo-1521111833231-7cd269785097?q=80&w=1974') center/cover;
+            display: flex; align-items: center; padding: 0 5%;
+        }
+        .hero-text h1 { font-family: 'Montserrat'; font-size: 4.5rem; line-height: 1; color: var(--text-dark); }
+        .hero-text h1 span { color: var(--blue-main); text-shadow: 2px 2px 0px var(--lime); }
+
+        /* --- SECTION GENERIC --- */
+        section { padding: 100px 5%; display: none; }
+        section.active { display: block; animation: fadeIn 0.5s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .section-title { font-family: 'Montserrat'; font-size: 3rem; margin-bottom: 50px; border-left: 8px solid var(--lime); padding-left: 20px; }
+
+        /* --- SERVICES GRID --- */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .s-card { 
+            background: var(--white); padding: 40px; border-radius: 15px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-bottom: 5px solid var(--blue-main);
+            transition: 0.3s;
+        }
+        .s-card:hover { transform: translateY(-10px); border-color: var(--lime); }
+        .s-card i { font-size: 3rem; color: var(--blue-main); margin-bottom: 20px; }
+
+        /* --- CENNIK TABLE --- */
+        .price-table { width: 100%; border-collapse: collapse; background: #fff; margin-top: 30px; }
+        .price-table th, .price-table td { padding: 20px; border: 1px solid #eee; text-align: left; }
+        .price-table th { background: var(--blue-main); color: #fff; }
+
+        /* --- CONTACT FORM --- */
+        .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        .info-box { background: var(--blue-main); color: #fff; padding: 40px; border-radius: 15px; }
+        .form-group input, .form-group textarea { 
+            width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px;
+        }
+        .btn-send { 
+            background: var(--lime); color: #000; border: none; padding: 15px 40px; 
+            font-weight: 800; cursor: pointer; border-radius: 5px; width: 100%;
+        }
+
+        /* --- FAQ --- */
+        .faq-box { margin-bottom: 15px; background: #f9f9f9; padding: 20px; border-radius: 10px; cursor: pointer; }
+        .faq-box h4 { color: var(--blue-main); }
+        .faq-box p { display: none; margin-top: 10px; }
+
+        footer { background: #2c3e50; color: #fff; padding: 50px 5%; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo-box" onclick="navTo('home')">
+            <div class="logo-flex">FLEX</div>
+        </a>
+        <div class="nav-links">
+            <a href="javascript:void(0)" onclick="navTo('home')">Start</a>
+            <a href="javascript:void(0)" onclick="navTo('onas')">O Nas</a>
+            <a href="javascript:void(0)" onclick="navTo('uslugi')">Usługi</a>
+            <a href="javascript:void(0)" onclick="navTo('zespol')">Zespół</a>
+            <a href="javascript:void(0)" onclick="navTo('cennik')">Cennik</a>
+            <a href="javascript:void(0)" onclick="navTo('pomoc')">Pomoc & FAQ</a>
+            <a href="javascript:void(0)" onclick="navTo('kontakt')">Kontakt</a>
+        </div>
+        <div class="status-24h">CZYNNE 24H / 7</div>
+    </nav>
+
+    <div id="home" class="page active">
+        <section class="hero" style="display:flex;">
+            <div class="hero-text" data-aos="fade-right">
+                <span style="font-weight:900; color: var(--blue-dark);">WARSZAWA | GÓRCZEWSKA</span>
+                <h1>ALPINIZM<br><span>BEZ KOMPROMISÓW</span></h1>
+                <p style="font-size: 1.3rem; margin: 25px 0; max-width: 600px;">
+                    Profesjonalne mycie szyb, dachów, montaż wentylacji i zabezpieczenia balkonów. 
+                    Działamy tam, gdzie inni nie sięgają.
+                </p>
+                <button onclick="navTo('wycena')" class="btn-send" style="width:auto; padding: 20px 50px;">DARMOWA WYCENA</button>
+            </div>
+        </section>
+    </div>
+
+    <section id="onas">
+        <h2 class="section-title">O NAS</h2>
+        <div class="contact-wrapper">
+            <div>
+                <p style="font-size: 1.2rem; line-height: 2;">
+                    FLEX Alpinizm to warszawska firma z siedzibą przy ul. Górczewskiej. Specjalizujemy się w technice dostępu linowego. Nasza pasja do wysokości przekłada się na czystość Twoich okien i bezpieczeństwo Twoich konstrukcji. Jesteśmy dostępni 24/7, bo wiemy, że awarie nie czekają na rano.
+                </p>
+            </div>
+            <img src="https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?w=800" style="width:100%; border-radius: 20px;">
+        </div>
+    </section>
+
+    <section id="uslugi">
+        <h2 class="section-title">NASZE USŁUGI</h2>
+        <div class="services-grid">
+            <div class="s-card">
+                <i class="fas fa-soap"></i>
+                <h3>Mycie & Impregnacja</h3>
+                <p>Mycie szyb, elewacji oraz dachów. Specjalistyczne mycie pobudowlane (Lublin i okolice również).</p>
+            </div>
+            <div class="s-card">
+                <i class="fas fa-fan"></i>
+                <h3>Wentylacja</h3>
+                <p>Montaż i demontaż systemów wentylacyjnych na wysokościach. Szybko i bez rusztowań.</p>
+            </div>
+            <div class="s-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Zabezpieczenia</h3>
+                <p>Usuwanie zagrożeń, zabezpieczanie tynku (gruntowanie) oraz profesjonalne siatki na balkonach.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="cennik">
+        <h2 class="section-title">CENNIK ORIENTACYJNY</h2>
+        <table class="price-table">
+            <tr><th>Usługa</th><th>Cena od</th><th>Jednostka</th></tr>
+            <tr><td>Mycie szyb (standard)</td><td>15 zł</td><td>m2</td></tr>
+            <tr><td>Mycie i impregnacja dachów</td><td>25 zł</td><td>m2</td></tr>
+            <tr><td>Siatki na balkonach</td><td>350 zł</td><td>szt.</td></tr>
+            <tr><td>Usuwanie zagrożeń (nawisy/tynk)</td><td>500 zł</td><td>roboczogodzina</td></tr>
+        </table>
+    </section>
+
+    <section id="zespol">
+        <h2 class="section-title">ZESPÓŁ</h2>
+        <div class="services-grid">
+            <div class="s-card" style="text-align:center;">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400" style="width:150px; border-radius:50%; margin-bottom:20px;">
+                <h3>Łukasz</h3>
+                <p>Główny Specjalista IRATA L3</p>
+            </div>
+            </div>
+    </section>
+
+    <section id="pomoc">
+        <h2 class="section-title">POMOC & FAQ</h2>
+        <div class="faq-box" onclick="toggleFaq(this)">
+            <h4>Czy działacie w nocy?</h4>
+            <p>Tak, nasza firma jest czynna całą dobę. Realizujemy zlecenia awaryjne o każdej porze.</p>
+        </div>
+        <div class="faq-box" onclick="toggleFaq(this)">
+            <h4>Gdzie działacie?</h4>
+            <p>Główna siedziba to Górczewska, Warszawa, ale realizujemy projekty mycia pobudowlanego również w Lublinie.</p>
+        </div>
+    </section>
+
+    <section id="kontakt">
+        <h2 class="section-title">KONTAKT</h2>
+        <div class="contact-wrapper">
+            <div class="info-box">
+                <h3>Dane Firmy</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Górczewska, Warszawa</p>
+                <p><i class="fas fa-phone"></i> 733 501 801</p>
+                <p><i class="fas fa-envelope"></i> lukasz25zet@gmail.com</p>
+                <br>
+                <h4>STATUS: <span style="color:var(--lime)">OTWARTE 24H</span></h4>
+            </div>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group"><input type="text" placeholder="Imię i Nazwisko"></div>
+                    <div class="form-group"><input type="email" placeholder="E-mail"></div>
+                    <div class="form-group"><select><option>Wybierz usługę</option><option>Mycie</option><option>Zabezpieczenia</option></select></div>
+                    <div class="form-group"><textarea rows="5" placeholder="Twoja wiadomość..."></textarea></div>
+                    <button type="submit" class="btn-send">WYŚLIJ ZAPYTANIE</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo-flex" style="display:inline-block; margin-bottom:20px;">FLEX</div>
+        <p>© 2026 FLEX Alpinizm Warszawa. Wszystkie prawa zastrzeżone.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+
+        function navTo(id) {
+            document.querySelectorAll('section, .page').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function toggleFaq(el) {
+            const p = el.querySelector('p');
+            p.style.display = p.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>
