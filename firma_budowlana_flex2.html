@@ -37,7 +37,7 @@
             line-height: 1.7;
         }
 
-        /* LOGO dokładnie jak na zdjęciu */
+        /* LOGO */
         .logo {
             font-family: 'Syncopate', sans-serif;
             font-size: clamp(28px, 5vw, 40px);
@@ -49,12 +49,10 @@
             background-clip: text;
             text-transform: uppercase;
             letter-spacing: -1px;
-            position: relative;
-            text-shadow: none;
             font-style: italic;
         }
 
-        /* Navigation - prawdziwe podstrony */
+        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -78,19 +76,19 @@
 
         .nav-links {
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
             align-items: center;
         }
         
         .nav-links a { 
             color: var(--text-white); 
             text-decoration: none; 
-            font-size: 14px; 
+            font-size: 13px; 
             font-weight: 600;
             letter-spacing: 1.5px;
             text-transform: uppercase;
             position: relative;
-            padding: 0.7rem 1.2rem;
+            padding: 0.7rem 1rem;
             border-radius: 10px;
         }
         
@@ -112,7 +110,7 @@
             box-shadow: 0 5px 15px rgba(204, 255, 0, 0.4);
         }
 
-        /* Podstrony SPA */
+        /* Podstrony */
         .page { 
             display: none; 
             min-height: 100vh;
@@ -126,7 +124,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Hero z blokiem mieszkalnym */
+        /* Hero */
         .hero {
             height: 100vh;
             background: 
@@ -141,7 +139,7 @@
         }
 
         .hero-content {
-            max-width: 1000px;
+            max-width: 1100px;
             padding: 0 5%;
         }
         
@@ -157,29 +155,23 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             box-shadow: 0 15px 40px rgba(204, 255, 0, 0.5);
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
         }
         
         .hero h1 { 
             font-family: 'Syncopate', sans-serif;
-            font-size: clamp(4rem, 10vw, 7.5rem);
+            font-size: clamp(4rem, 10vw, 8rem);
             line-height: 1; 
-            margin: 0 0 1.5rem 0;
+            margin: 0 0 2rem 0;
             text-transform: uppercase;
             letter-spacing: -3px;
             text-shadow: 0 4px 30px rgba(0,0,0,0.5);
         }
         
         .hero-subtitle {
-            font-size: clamp(1.3rem, 3vw, 2rem);
-            margin-bottom: 3rem;
+            font-size: clamp(1.3rem, 3vw, 2.2rem);
+            margin-bottom: 4rem;
             opacity: 0.95;
-            max-width: 700px;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -194,12 +186,12 @@
         .btn-primary {
             background: linear-gradient(45deg, var(--blue-dark), var(--blue-medium));
             color: white;
-            padding: 1.6rem 4rem;
+            padding: 1.8rem 5rem;
             font-weight: 800;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             text-transform: uppercase;
             border-radius: 50px;
-            box-shadow: 0 20px 50px rgba(30, 58, 138, 0.5);
+            box-shadow: 0 25px 60px rgba(30, 58, 138, 0.5);
             text-decoration: none;
             display: inline-block;
             position: relative;
@@ -207,31 +199,13 @@
         }
         
         .btn-primary:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 30px 70px rgba(30, 58, 138, 0.7);
+            transform: translateY(-10px);
+            box-shadow: 0 35px 80px rgba(30, 58, 138, 0.7);
         }
 
-        .btn-lime {
-            background: var(--lime-accent);
-            color: #000;
-            border: 3px solid var(--lime-accent);
-            padding: 1.4rem 3.5rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            border-radius: 50px;
-            text-decoration: none;
-            box-shadow: 0 15px 40px rgba(204, 255, 0, 0.4);
-        }
-        
-        .btn-lime:hover {
-            background: #000;
-            color: var(--lime-accent);
-            transform: translateY(-5px);
-        }
-
-        /* Sekcje z tłem bloków */
+        /* Section */
         .section {
-            padding: 120px 0;
+            padding: 140px 0;
             position: relative;
         }
         
@@ -243,7 +217,7 @@
             right: 0;
             bottom: 0;
             background: 
-                linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)),
+                linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)),
                 url('https://images.unsplash.com/photo-1583608205776-bfd35f864b93?w=1920&fit=crop') center/cover fixed;
             z-index: -1;
         }
@@ -258,9 +232,9 @@
 
         .section-title {
             font-family: 'Syncopate', sans-serif;
-            font-size: clamp(2.8rem, 7vw, 5rem);
+            font-size: clamp(3rem, 8vw, 6rem);
             text-align: center;
-            margin-bottom: 5rem;
+            margin-bottom: 6rem;
             text-transform: uppercase;
             letter-spacing: -2px;
             position: relative;
@@ -273,44 +247,28 @@
             background-clip: text;
         }
 
-        /* Service Cards */
+        /* Services */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
         }
         
         .service-card {
             background: var(--surface);
-            backdrop-filter: blur(20px);
-            padding: 4rem 3rem;
-            border-radius: 24px;
-            border: 1px solid rgba(204, 255, 0, 0.2);
+            backdrop-filter: blur(25px);
+            padding: 4.5rem 3.5rem;
+            border-radius: 30px;
+            border: 2px solid rgba(204, 255, 0, 0.2);
             position: relative;
             overflow: hidden;
         }
         
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: linear-gradient(90deg, var(--lime-accent), var(--blue-light));
-        }
-        
-        .service-card:hover {
-            border-color: var(--lime-accent);
-            transform: translateY(-15px);
-            box-shadow: 0 40px 100px rgba(30, 58, 138, 0.4);
-        }
-        
         .service-number {
             position: absolute;
-            top: 2.5rem;
-            right: 2.5rem;
-            font-size: 4.5rem;
+            top: 3rem;
+            right: 3rem;
+            font-size: 5rem;
             font-weight: 900;
             color: var(--lime-accent);
             opacity: 0.08;
@@ -319,54 +277,130 @@
         
         .service-icon {
             color: var(--lime-accent);
-            font-size: 4rem;
-            margin-bottom: 2rem;
+            font-size: 4.5rem;
+            margin-bottom: 2.5rem;
             display: block;
         }
+
+        /* Team - ZDJĘCIA LUDZI */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
         
-        .service-card h3 {
-            font-family: 'Syncopate', sans-serif;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
+        .team-card {
+            background: var(--surface);
+            backdrop-filter: blur(25px);
+            padding: 3rem;
+            border-radius: 25px;
+            text-align: center;
+            border: 2px solid rgba(204, 255, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .team-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            background-size: cover;
+            background-position: center;
+            border: 4px solid var(--lime-accent);
+            box-shadow: 0 15px 40px rgba(204, 255, 0, 0.3);
         }
 
-        /* Gallery */
-        .gallery-grid {
+        /* Cennik */
+        .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
         }
-        
-        .gallery-item {
-            height: 320px;
+
+        /* FAQ */
+        .faq-item {
+            background: var(--surface);
+            margin-bottom: 1.5rem;
             border-radius: 20px;
             overflow: hidden;
-            position: relative;
+            border: 1px solid rgba(204, 255, 0, 0.2);
+        }
+        
+        .faq-question {
+            padding: 2rem 2.5rem;
+            background: rgba(30, 58, 138, 0.8);
+            color: white;
             cursor: pointer;
-            border: 3px solid rgba(204, 255, 0, 0.2);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s ease;
+        .faq-answer {
+            padding: 0 2.5rem 2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            background: var(--surface);
         }
         
-        .gallery-item:hover {
-            border-color: var(--lime-accent);
-            transform: translateY(-12px);
-        }
-        
-        .gallery-item:hover img {
-            transform: scale(1.12);
+        .faq-answer.active {
+            max-height: 300px;
+            padding: 2rem 2.5rem;
         }
 
-        /* Contact */
+        /* Kontakt Formularz */
+        .contact-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            padding: 0 5%;
+        }
+        
+        .contact-main {
+            background: var(--surface);
+            backdrop-filter: blur(30px);
+            padding: 5rem 4rem;
+            border-radius: 30px;
+            border: 3px solid var(--lime-accent);
+            text-align: center;
+        }
+        
+        .contact-form {
+            background: var(--surface);
+            backdrop-filter: blur(30px);
+            padding: 4rem;
+            border-radius: 30px;
+            border: 2px solid rgba(204, 255, 0, 0.2);
+        }
+        
+        .form-group {
+            margin-bottom: 2rem;
+        }
+        
+        .form-group input, .form-group textarea, .form-group email {
+            width: 100%;
+            padding: 1.5rem 2rem;
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(204, 255, 0, 0.3);
+            border-radius: 15px;
+            color: var(--text-white);
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        
+        .form-group input::placeholder, .form-group textarea::placeholder {
+            color: var(--text-gray);
+        }
+
         .phone-display {
-            font-size: clamp(3rem, 10vw, 5rem);
+            font-size: clamp(3.5rem, 12vw, 6rem);
             font-weight: 900;
             background: linear-gradient(45deg, var(--lime-accent), var(--blue-light));
             -webkit-background-clip: text;
@@ -374,35 +408,25 @@
             background-clip: text;
             text-decoration: none;
             display: block;
-            margin: 2rem 0;
-        }
-
-        .contact-form {
-            max-width: 700px;
-            margin: 0 auto 3rem;
-            background: var(--surface);
-            backdrop-filter: blur(25px);
-            padding: 4rem;
-            border-radius: 24px;
-            border: 1px solid rgba(204, 255, 0, 0.2);
+            margin: 2.5rem 0;
         }
 
         footer {
             background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(20px);
             padding: 4rem 5% 2rem;
             text-align: center;
-            border-top: 1px solid rgba(204, 255, 0, 0.2);
+            border-top: 2px solid rgba(204, 255, 0, 0.3);
         }
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .cta-buttons { flex-direction: column; align-items: center; }
+            .contact-container { grid-template-columns: 1fr; gap: 2rem; }
             .services-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
+    <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <a href="#" class="logo" onclick="showPage('home')">FLEX</a>
@@ -420,138 +444,282 @@
         </div>
     </nav>
 
-    <!-- Home -->
+    <!-- START - Hero -->
     <div id="home" class="page active">
         <section class="hero">
             <div class="hero-content">
                 <div class="hero-badge">Alpinizm Przemysłowy | Warszawa Górczewska</div>
                 <h1>FLEX<span>ALPINIŚCI</span></h1>
                 <p class="hero-subtitle">
-                    Mycie elewacji bloków, dachów, montaż siatek ochronnych, usuwanie zagrożeń. 
-                    Profesjonalny zespół alpinistów przemysłowych. Dostępni CAŁODOBOWO.
+                    Specjaliści od mycia elewacji bloków, dachów, montażu siatek GRUNT, 
+                    usuwania zagrożeń i wentylacji. Profesjonalny zespół alpinistów.
+                    <strong>Dostępni CAŁODOBOWO 24/7 w Warszawie!</strong>
                 </p>
                 <div class="cta-buttons">
-                    <a href="tel:733501801" class="btn-primary">Zadzwoń 733 501 801</a>
-                    <a href="#" onclick="showPage('uslugi')" class="btn-lime">Nasze Usługi</a>
+                    <a href="tel:733501801" class="btn-primary">📞 733 501 801</a>
+                    <a href="#" onclick="showPage('uslugi')" class="btn-primary" style="background: var(--lime-accent); color: #000;">Nasze Usługi</a>
                 </div>
             </div>
         </section>
     </div>
 
-    <!-- O Nas -->
+    <!-- O NAS -->
     <div id="onas" class="page">
         <div class="section">
             <div class="section-content">
-                <h2 class="section-title">Specjaliści<span>_</span>od wysokości</h2>
-                <p style="font-size: 1.4rem; text-align: center; max-width: 800px; margin: 0 auto 4rem; opacity: 0.9;">
-                    FLEX - alpinizm przemysłowy Warszawa Górczewska. Mycie elewacji bloków, dachów, 
-                    montaż siatek GRUNT, usuwanie zagrożeń, wentylacja. Dostępni 24/7.
+                <h2 class="section-title">O<span>_</span>NAS</h2>
+                <p style="font-size: 1.5rem; text-align: center; max-width: 900px; margin: 0 auto 6rem; opacity: 0.9; line-height: 1.8;">
+                    FLEX Alpinizm Przemysłowy - Twoi specjaliści od prac na wysokościach w Warszawie (Górczewska). 
+                    Mycie elewacji bloków mieszkalnych, dachów, montaż siatek ochronnych GRUNT, 
+                    usuwanie zagrożeń (gniazda, luźne elementy) i wentylacja.
                 </p>
-                <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600" alt="Alpiniści na bloku">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+                    <div>
+                        <h3 style="font-size: 2.5rem; color: var(--lime-accent); margin-bottom: 2rem; font-family: 'Syncopate';">
+                            Dlaczego FLEX?
+                        </h3>
+                        <ul style="font-size: 1.3rem; line-height: 2; opacity: 0.95;">
+                            <li>✅ Szkolenia IRATA Level 1-3</li>
+                            <li>✅ Ubezpieczenie OC do 5mln zł</li>
+                            <li>✅ Dostępni 24h/7 • 365 dni</li>
+                            <li>✅ Dojazd gratis Warszawa + 50km</li>
+                            <li>✅ Gwarancja na wszystkie prace</li>
+                            <li>✅ Mycie Lublin + Warszawa</li>
+                        </ul>
                     </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600" alt="Mycie elewacji bloku">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1583608205776-bfd35f864b93?w=600" alt="Blok mieszkalny">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600" alt="Alpiniści FLEX">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Usługi -->
+    <!-- USŁUGI - już działa -->
     <div id="uslugi" class="page">
         <div class="section">
             <div class="section-content">
-                <h2 class="section-title">Alpinistyczne<span>_</span>Usługi</h2>
+                <h2 class="section-title">Nasze<span>_</span>Specjalizacje</h2>
                 <div class="services-grid">
                     <div class="service-card">
                         <div class="service-number">01</div>
                         <i class="fas fa-window-maximize service-icon"></i>
                         <h3>Mycie Elewacji Bloków</h3>
-                        <p>Profesjonalne mycie szyb, elewacji szklanych bloków mieszkalnych metodą alpinistyczną. Impregnacja + antysmog.</p>
+                        <p>Profesjonalne mycie szyb, elewacji szklanych i aluminiowych bloków. Kärcher + chemia antysmog. Bez smug.</p>
                     </div>
                     <div class="service-card">
                         <div class="service-number">02</div>
                         <i class="fas fa-home service-icon"></i>
-                        <h3>Mycie Dachów</h3>
-                        <p>Usuwanie mchu, porostów z dachów bloków. Impregnacja ceramiki i betonu. Gwarancja 7 lat.</p>
+                        <h3>Dachy Bloków</h3>
+                        <p>Usuwanie mchu, porostów, impregnacja dachówek. Gwarancja 7 lat na hydrofobizację.</p>
                     </div>
                     <div class="service-card">
                         <div class="service-number">03</div>
                         <i class="fas fa-network-wired service-icon"></i>
                         <h3>Wentylacja</h3>
-                        <p>Montaż krat wentylacyjnych na wysokościach bloków. Bezinwazyjne wiercenie diamentowe.</p>
+                        <p>Montaż/demontaż krat wentylacyjnych na blokach. Wiercenie diamentowe bez ingerencji w konstrukcję.</p>
                     </div>
                     <div class="service-card">
                         <div class="service-number">04</div>
                         <i class="fas fa-exclamation-triangle service-icon"></i>
                         <h3>Usuwanie Zagrożeń</h3>
-                        <p>Gniazda os, szerszeni, luźne płyty elewacji, konary. Interwencje 24/7.</p>
+                        <p>Gniazda os/szerszeni, luźne płyty, konary. Interwencje awaryjne 24/7 w 2h od telefonu.</p>
                     </div>
                     <div class="service-card">
                         <div class="service-number">05</div>
                         <i class="fas fa-project-diagram service-icon"></i>
-                        <h3>Siatki GRUNT Balkony</h3>
-                        <p>Montaż siatek ochronnych GRUNT system na balkonach bloków. Ochrona dzieci + ptaki.</p>
+                        <h3>Siatki GRUNT</h3>
+                        <p>Siatki ochronne na balkonach bloków. System GRUNT + ochrona przed ptakami. Dla dzieci i zwierząt.</p>
                     </div>
                     <div class="service-card">
                         <div class="service-number">06</div>
                         <i class="fas fa-broom service-icon"></i>
                         <h3>Mycie Lublin</h3>
-                        <p>Mycie pobudowlane bloków w Lublinie i okolicach. Specjaliści od dużych powierzchni.</p>
+                        <p>Mycie pobudowlane bloków w Lublinie. Duże powierzchnie po remoncie i budowie.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Realizacje -->
+    <!-- REALIZACJE - już działa -->
     <div id="realizacja" class="page">
         <div class="section">
             <div class="section-content">
-                <h2 class="section-title">Nasze<span>_</span>Realizacje</h2>
+                <h2 class="section-title">Realizacje<span>_</span>FLEX</h2>
                 <div class="gallery-grid">
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600" alt="Mycie elewacji bloków">
+                        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600" alt="Mycie bloku Warszawa">
                     </div>
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=600" alt="Montaż siatek balkonowych">
+                        <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=600" alt="Montaż siatek GRUNT">
                     </div>
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=600" alt="Usuwanie zagrożeń">
+                        <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=600" alt="Usuwanie gniazd os">
                     </div>
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600" alt="Mycie dachów bloków">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600" alt="Impregnacja dachów">
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Kontakt -->
-    <div id="kontakt" class="page">
+    <!-- ZESPÓŁ - NAPRAWIONE Z ZDJĘCIAMI LUDZI -->
+    <div id="zespól" class="page">
         <div class="section">
             <div class="section-content">
-                <div style="text-align: center; background: var(--surface); backdrop-filter: blur(30px); padding: 5rem 3rem; border-radius: 30px; border: 2px solid rgba(204, 255, 0, 0.3);">
-                    <h2 class="section-title" style="margin-bottom: 2rem;">Całodobowy<span>_</span>Kontakt</h2>
-                    <a href="tel:733501801" class="phone-display">733 501 801</a>
-                    <p style="font-size: 1.4rem; margin: 2rem 0; opacity: 0.9;">Warszawa Górczewska • 24h/7 • 365 dni w roku</p>
-                    <p style="font-size: 1.3rem; margin-bottom: 3rem;">
-                        Email: <a href="mailto:lukasz25zet@gmail.com" style="color: var(--lime-accent);">lukasz25zet@gmail.com</a>
-                    </p>
-                    <a href="#" class="btn-primary" style="padding: 1.8rem 5rem; font-size: 1.3rem;">Wyślij Zapytanie</a>
+                <h2 class="section-title">Nasz<span>_</span>Zespół</h2>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-photo" style="background-image: url('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400')"></div>
+                        <h3 style="font-family: 'Syncopate'; font-size: 1.8rem; color: var(--lime-accent);">Łukasz</h3>
+                        <p style="font-size: 1.1rem; opacity: 0.9;">Kierownik techniczny<br>IRATA Level 3<br>15 lat doświadczenia</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-photo" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400')"></div>
+                        <h3 style="font-family: 'Syncopate'; font-size: 1.8rem; color: var(--lime-accent);">Kuba</h3>
+                        <p style="font-size: 1.1rem; opacity: 0.9;">Alpinista przemysłowy<br>Specjalista siatki GRUNT<br>10 lat na wysokościach</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-photo" style="background-image: url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400')"></div>
+                        <h3 style="font-family: 'Syncopate'; font-size: 1.8rem; color: var(--lime-accent);">Marek</h3>
+                        <p style="font-size: 1.1rem; opacity: 0.9;">Myjnia przemysłowa<br>Kärcher Professional<br>Mycie Lublin + Warszawa</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- CENNIK - NAPRAWIONE -->
+    <div id="cennik" class="page">
+        <div class="section">
+            <div class="section-content">
+                <h2 class="section-title">Cennik<span>_</span>2026</h2>
+                <div class="pricing-grid">
+                    <div class="service-card">
+                        <i class="fas fa-window-maximize service-icon" style="font-size: 3.5rem;"></i>
+                        <h3 style="margin-top: 1rem;">Mycie Elewacji Bloków</h3>
+                        <div style="font-size: 3rem; font-weight: 900; color: var(--lime-accent); margin: 1rem 0;">od 12 zł/m²</div>
+                        <p>W tym impregnacja antysmog + myjka ciśnieniowa Kärcher</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-home service-icon" style="font-size: 3.5rem;"></i>
+                        <h3 style="margin-top: 1rem;">Mycie + Impregnacja Dachów</h3>
+                        <div style="font-size: 3rem; font-weight: 900; color: var(--lime-accent); margin: 1rem 0;">od 20 zł/m²</div>
+                        <p>Gwarancja 7 lat. Usuwanie mchu + porostów</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-project-diagram service-icon" style="font-size: 3.5rem;"></i>
+                        <h3 style="margin-top: 1rem;">Siatki Ochronne GRUNT</h3>
+                        <div style="font-size: 3rem; font-weight: 900; color: var(--lime-accent); margin: 1rem 0;">od 55 zł/mb</div>
+                        <p>Montaż na balkonach bloków. Kolory do wyboru</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-exclamation-triangle service-icon" style="font-size: 3.5rem;"></i>
+                        <h3 style="margin-top: 1rem;">Usuwanie Zagrożeń</h3>
+                        <div style="font-size: 3rem; font-weight: 900; color: var(--lime-accent); margin: 1rem 0;">od 350 zł</div>
+                        <p>Gniazda os + szerszeni. Interwencja 24/7</p>
+                    </div>
+                </div>
+                <div style="text-align: center; background: var(--surface); padding: 4rem; border-radius: 25px; border: 2px solid var(--lime-accent);">
+                    <h3 style="font-size: 2.5rem; color: var(--lime-accent); margin-bottom: 1.5rem;">DARMOWA WYCENA!</h3>
+                    <p style="font-size: 1.4rem; opacity: 0.95;">Wyślij zdjęcia → wycena w 24h → realizacja w 48h</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- POMOC / FAQ - NAPRAWIONE -->
+    <div id="pytania" class="page">
+        <div class="section">
+            <div class="section-content">
+                <h2 class="section-title">Najczęstsze<span>_</span>Pytania</h2>
+                <div style="max-width: 1000px; margin: 0 auto;">
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>🎯 Czy naprawdę jesteście dostępni 24/7?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <strong>Tak!</strong> Całodobowa dyspozycyjność 365 dni w roku. Awaryjne zlecenia realizujemy w ciągu 2 godzin od telefonu.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>📍 Gdzie działacie?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Warszawa (Górczewska) + 50km gratis. Mycie pobudowlane Lublin i okolice. 
+                            Dojazd powyżej 50km - 2 zł/km.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>🛡️ Czy macie ubezpieczenie?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Pełne OC alpinistyczne PZU do 5 000 000 zł. Ubezpieczenie sprzętu i pracowników.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>⚡ Jak szybko działacie?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Wycena: 24h | Planowanie: 48h | Realizacja: 3-7 dni (w zależności od wielkości zlecenia).
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- KONTAKT z FORMULARZEM - NAPRAWIONE -->
+    <div id="kontakt" class="page">
+        <div class="section">
+            <div class="contact-container">
+                <div class="contact-main">
+                    <h2 style="font-size: 4rem; margin-bottom: 2rem; font-family: 'Syncopate';">Całodobowy<span>_</span>Kontakt</h2>
+                    <a href="tel:733501801" class="phone-display">733 501 801</a>
+                    <p style="font-size: 1.6rem; margin: 3rem 0; opacity: 0.95;">Warszawa Górczewska</p>
+                    <p style="font-size: 1.4rem; opacity: 0.9;">
+                        📧 <a href="mailto:lukasz25zet@gmail.com" style="color: var(--lime-accent);">lukasz25zet@gmail.com</a>
+                    </p>
+                </div>
+                <form class="contact-form" onsubmit="submitForm(event)">
+                    <h3 style="text-align: center; font-family: 'Syncopate'; font-size: 2.2rem; color: var(--lime-accent); margin-bottom: 3rem;">
+                        Wyślij Zapytanie
+                    </h3>
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="👤 Imię i nazwisko" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" placeholder="📞 Telefon" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="📧 Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="6" placeholder="📝 Opisz zlecenie (elewacja, dach, siatki GRUNT, zagrożenia...)"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary" style="width: 100%; padding: 1.8rem; font-size: 1.3rem; font-weight: 900;">
+                        🚀 Wyślij Zapytanie 24/7
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
     <footer>
-        <div class="logo" style="font-size: 2rem; margin-bottom: 1rem;">FLEX</div>
-        <p style="opacity: 0.8;">© 2026 Alpinizm Przemysłowy Warszawa Górczewska | Dostępni Całodobowo</p>
+        <div class="logo" style="font-size: 2.5rem; margin-bottom: 1.5rem;">FLEX</div>
+        <p style="font-size: 1.2rem; opacity: 0.9;">Alpinizm Przemysłowy Warszawa Górczewska | © 2026 | Dostępni Całodobowo 24/7</p>
     </footer>
 
     <script>
@@ -563,7 +731,25 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Parallax effect
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('i');
+            answer.classList.toggle('active');
+            icon.style.transform = answer.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            alert(`✅ Dziękujemy ${name}!\n📞 Oddzwonimy w ciągu 2h (24/7)\n📧 Potwierdzenie: ${email}`);
+            event.target.reset();
+        }
+
+        // Parallax
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             document.querySelectorAll('.section::before').forEach(bg => {
