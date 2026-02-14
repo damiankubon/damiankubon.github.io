@@ -1,658 +1,280 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FLEX | Budownictwo & Czyszczenie Specjalistyczne | Premium Usługi</title>
-    <meta name="description" content="FLEX - Profesjonalne budownictwo, mycie elewacji, demontaż, malowanie. Szybko, czysto, gwarancja. Tel: 506 350 590">
+    <title>FLEX™ | Total Build & Specialist Cleaning | Premium Industry</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Outfit:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Outfit:wght@300;400;600;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <style>
         :root {
             --neon-lime: #ccff00;
-            --neon-dark: #00ff88;
-            --bg-black: #0a0a0a;
-            --surface-dark: #161616;
-            --surface-card: rgba(22, 22, 22, 0.9);
+            --neon-glow: rgba(204, 255, 0, 0.6);
+            --bg-black: #050505;
+            --surface-dark: #0f0f0f;
+            --glass: rgba(255, 255, 255, 0.03);
             --text-white: #ffffff;
-            --text-gray: #a0a0a0;
-            --gold-accent: #ffd700;
+            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        * { 
-            box-sizing: border-box; 
-            margin: 0; 
-            padding: 0;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: 'Outfit', sans-serif;
             background: var(--bg-black);
             color: var(--text-white);
             overflow-x: hidden;
-            line-height: 1.7;
+            scroll-behavior: smooth;
         }
 
-        /* Navigation */
+        /* --- PRELOADER / BACKGROUND EFFECTS --- */
+        .noise {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://grainy-gradients.vercel.app/noise.svg');
+            opacity: 0.05; pointer-events: none; z-index: 9999;
+        }
+
+        /* --- NAVIGATION --- */
         nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10, 10, 10, 0.98);
-            backdrop-filter: blur(25px);
-            border-bottom: 2px solid rgba(204, 255, 0, 0.3);
-            z-index: 10000;
-            padding: 1rem 0;
+            position: fixed; top: 0; width: 100%; padding: 25px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+            backdrop-filter: blur(10px); border-bottom: 1px solid rgba(204, 255, 0, 0.1);
         }
-        
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 5%;
-        }
-        
+
         .logo {
-            font-family: 'Syncopate', sans-serif;
-            font-size: clamp(24px, 4vw, 32px);
-            font-weight: 900;
-            text-decoration: none;
-            letter-spacing: -1px;
-            background: linear-gradient(45deg, var(--neon-lime), var(--text-white));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-family: 'Syncopate', sans-serif; font-size: 2rem; font-weight: 900;
+            text-decoration: none; color: var(--text-white); letter-spacing: -2px;
+        }
+        .logo span { color: var(--neon-lime); text-shadow: 0 0 15px var(--neon-glow); }
+
+        .nav-links { display: flex; gap: 40px; }
+        .nav-links a {
+            text-decoration: none; color: var(--text-white); font-weight: 600;
+            font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase;
+            opacity: 0.6; transition: var(--transition);
+        }
+        .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--neon-lime); }
+
+        /* --- MAIN LAYOUT --- */
+        .page-section {
+            display: none; min-height: 100vh; padding: 120px 5% 60px;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        .page-section.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-        
-        .nav-links a { 
-            color: var(--text-white); 
-            text-decoration: none; 
-            font-size: 14px; 
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            position: relative;
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--neon-lime);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-links a:hover::after { width: 100%; }
-        .nav-links a:hover { color: var(--neon-lime); }
-
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 4px;
-        }
-        
-        .menu-toggle span {
-            width: 30px;
-            height: 3px;
-            background: var(--neon-lime);
-            border-radius: 2px;
-        }
-
-        /* Hero */
+        /* --- HERO --- */
         .hero {
-            height: 100vh;
-            background: 
-                linear-gradient(135deg, rgba(0,0,0,0.7), rgba(10,10,10,0.3)),
-                url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&fit=crop') center/cover fixed;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            height: 100vh; display: flex; align-items: center; justify-content: center;
+            background: radial-gradient(circle at center, rgba(204,255,0,0.05) 0%, transparent 70%);
             text-align: center;
-            position: relative;
         }
+        .hero-title {
+            font-family: 'Syncopate', sans-serif; font-size: clamp(3rem, 12vw, 9rem);
+            line-height: 0.85; text-transform: uppercase; margin-bottom: 30px;
+        }
+        .hero-title b { color: var(--neon-lime); -webkit-text-stroke: 1px var(--neon-lime); -webkit-text-fill-color: transparent; }
 
-        .hero-content {
-            max-width: 1000px;
-            padding: 0 5%;
+        /* --- BUTTONS --- */
+        .btn-flex {
+            display: inline-block; padding: 20px 45px; font-weight: 900;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: none;
+            position: relative; overflow: hidden; transition: var(--transition);
+            cursor: pointer; border: none; font-family: 'Outfit';
         }
-        
-        .hero-badge {
-            color: var(--neon-lime);
-            font-weight: 900;
-            letter-spacing: 5px;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-        }
-        
-        .hero h1 { 
-            font-family: 'Syncopate', sans-serif;
-            font-size: clamp(4rem, 10vw, 8rem);
-            line-height: 0.9; 
-            margin: 0 0 2rem 0;
-            text-transform: uppercase;
-            letter-spacing: -2px;
-        }
-        
-        .hero h1 span { 
-            background: linear-gradient(45deg, var(--neon-lime), var(--neon-dark));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-        
-        @keyframes glow {
-            0% { filter: drop-shadow(0 0 10px var(--neon-lime)); }
-            100% { filter: drop-shadow(0 0 25px var(--neon-lime)); }
-        }
-        
-        .hero-subtitle {
-            font-size: clamp(1.2rem, 3vw, 1.6rem);
-            margin-bottom: 3rem;
-            opacity: 0.9;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+        .btn-primary { background: var(--neon-lime); color: black; clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%); }
+        .btn-primary:hover { transform: scale(1.05); box-shadow: 0 0 30px var(--neon-glow); }
 
-        .cta-buttons {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(45deg, var(--neon-lime), var(--neon-dark));
-            color: #000;
-            border: none;
-            padding: 1.5rem 4rem;
-            font-weight: 900;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            cursor: pointer;
-            border-radius: 0;
-            clip-path: polygon(12% 0%, 100% 0%, 88% 100%, 0% 100%);
-            box-shadow: 0 15px 40px rgba(204, 255, 0, 0.4);
-            position: relative;
-            overflow: hidden;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 25px 60px rgba(204, 255, 0, 0.6);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-white);
-            border: 2px solid var(--neon-lime);
-            padding: 1.3rem 3.5rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            border-radius: 0;
-            text-decoration: none;
-        }
-        
-        .btn-secondary:hover {
-            background: var(--neon-lime);
-            color: #000;
-            transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(204, 255, 0, 0.4);
-        }
-
-        /* Quality Bar */
-        .quality-bar {
-            display: flex;
-            background: linear-gradient(90deg, var(--neon-lime), var(--neon-dark), var(--neon-lime));
-            color: #000;
-            padding: 1.5rem 5%;
-            font-weight: 900;
-            font-size: 1.1rem;
-            justify-content: space-around;
-            margin: 0;
-            transform: skew(-2deg);
-        }
-
-        /* Sections */
-        .section {
-            padding: 120px 0;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-family: 'Syncopate', sans-serif;
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            text-align: center;
-            margin-bottom: 4rem;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: var(--neon-lime);
-        }
-
-        .section-title span {
-            color: var(--neon-lime);
-        }
-
-        /* Services Grid */
+        /* --- SERVICES CARD --- */
         .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 2rem;
-            padding: 0 5%;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
         }
-        
-        .service-card {
-            background: var(--surface-card);
-            padding: 4rem 3rem;
-            border-radius: 12px;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(204, 255, 0, 0.2);
-            backdrop-filter: blur(10px);
+        .s-card {
+            background: var(--surface-dark); padding: 50px; border-radius: 2px;
+            border: 1px solid rgba(255,255,255,0.05); position: relative;
+            transition: var(--transition); overflow: hidden;
         }
-        
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--neon-lime), var(--neon-dark));
+        .s-card:hover { border-color: var(--neon-lime); transform: translateY(-10px); }
+        .s-card i { font-size: 3rem; color: var(--neon-lime); margin-bottom: 25px; }
+        .s-card h3 { font-family: 'Syncopate'; margin-bottom: 15px; font-size: 1.2rem; }
+        .s-card::after {
+            content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px;
+            background: var(--neon-lime); transform: scaleX(0); transition: 0.4s;
         }
-        
-        .service-card:hover {
-            border-color: var(--neon-lime);
-            transform: translateY(-15px);
-            box-shadow: 0 30px 80px rgba(204, 255, 0, 0.2);
-        }
-        
-        .service-number {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            font-size: 4rem;
-            font-weight: 900;
-            color: rgba(204, 255, 0, 0.1);
-            font-family: 'Syncopate', sans-serif;
-        }
-        
-        .service-icon {
-            color: var(--neon-lime);
-            font-size: 3.5rem;
-            margin-bottom: 2rem;
-            display: block;
-        }
-        
-        .service-card h3 {
-            font-family: 'Syncopate', sans-serif;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-        }
+        .s-card:hover::after { transform: scaleX(1); }
 
-        /* Gallery */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            padding: 0 5%;
+        /* --- PORTFOLIO --- */
+        .portfolio-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 50px;
         }
-        
-        .gallery-item {
-            height: 300px;
-            border-radius: 12px;
-            overflow: hidden;
-            position: relative;
-            cursor: pointer;
-            border: 2px solid rgba(204, 255, 0, 0.2);
+        .port-item {
+            height: 400px; background: var(--surface-dark); position: relative; overflow: hidden;
         }
-        
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
+        .port-item img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); transition: 0.8s; }
+        .port-item:hover img { filter: grayscale(0); transform: scale(1.1); }
+        .port-overlay {
+            position: absolute; inset: 0; background: linear-gradient(transparent, var(--neon-lime));
+            opacity: 0; display: flex; align-items: flex-end; padding: 30px; transition: 0.4s;
         }
-        
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-        
-        .gallery-item:hover {
-            border-color: var(--neon-lime);
-            box-shadow: 0 20px 60px rgba(204, 255, 0, 0.3);
-        }
+        .port-item:hover .port-overlay { opacity: 0.9; }
+        .port-overlay h4 { color: black; font-weight: 900; text-transform: uppercase; }
 
-        /* Pricing Cards */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            padding: 0 5%;
-        }
-        
-        .price-card {
-            background: var(--surface-dark);
-            border-left: 6px solid var(--neon-lime);
-            padding: 3rem;
-            border-radius: 12px;
-            text-align: center;
-            position: relative;
-        }
-        
-        .price-card h3 {
-            font-family: 'Syncopate', sans-serif;
-            font-size: 1.5rem;
-            color: var(--neon-lime);
-            margin-bottom: 1rem;
-        }
+        /* --- CONTACT SECTION --- */
+        .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+        .contact-info h2 { font-family: 'Syncopate'; font-size: 4rem; margin-bottom: 30px; }
+        .phone-big { font-size: 3rem; color: var(--neon-lime); text-decoration: none; font-weight: 900; }
 
-        /* Contact */
-        .contact-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            padding: 0 5%;
-        }
-        
-        .contact-phone {
-            font-size: clamp(2.5rem, 8vw, 4rem);
-            font-weight: 900;
-            color: var(--neon-lime);
-            text-decoration: none;
-            display: block;
-            margin: 2rem 0;
-            letter-spacing: 2px;
-        }
-
-        /* Footer */
-        footer {
-            padding: 4rem 5% 2rem;
-            background: #000;
-            border-top: 1px solid rgba(204, 255, 0, 0.2);
-            text-align: center;
-        }
-        
-        .footer-logo {
-            font-family: 'Syncopate', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            .menu-toggle {
-                display: flex;
-            }
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            .quality-bar {
-                flex-direction: column;
-                gap: 1rem;
-                padding: 2rem;
-                text-align: center;
-            }
+        @media (max-width: 968px) {
+            .portfolio-grid, .contact-wrap { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <a href="#" class="logo" onclick="showPage('home')">FL<span>EX</span></a>
-            <div class="nav-links">
-                <a href="#" onclick="showPage('home')">START</a>
-                <a href="#" onclick="showPage('uslugi')">USŁUGI</a>
-                <a href="#" onclick="showPage('jakosc')">JAKOŚĆ</a>
-                <a href="#" onclick="showPage('cennik')">CENNIK</a>
-                <a href="#" onclick="showPage('kontakt')">KONTAKT</a>
-            </div>
-            <div class="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Home Page -->
-    <div id="home" class="page active">
-        <section class="hero">
-            <div class="hero-content">
-                <div class="hero-badge">EST. 2010</div>
-                <h1>TOTAL<span>BUILD</span><br>TOTAL<span>CLEAN</span></h1>
-                <p class="hero-subtitle">
-                    Nie tylko budujemy. My dbamy o detale, których inni nie widzą. 
-                    Mycie, malowanie, demontaże – FLEX to Twoja ekipa od zadań specjalnych.
-                </p>
-                <div class="cta-buttons">
-                    <a href="#" onclick="showPage('uslugi')" class="btn-primary">Nasze Realizacje</a>
-                    <a href="tel:506350590" class="btn-secondary">Zadzwoń 506 350 590</a>
-                </div>
-            </div>
-        </section>
+<div class="noise"></div>
+
+<nav>
+    <a href="#" class="logo" onclick="showPage('home')">FL<span>EX</span></a>
+    <div class="nav-links">
+        <a href="javascript:void(0)" onclick="showPage('home')" class="nav-item active">Start</a>
+        <a href="javascript:void(0)" onclick="showPage('services')" class="nav-item">Ekspertyza</a>
+        <a href="javascript:void(0)" onclick="showPage('portfolio')" class="nav-item">Realizacje</a>
+        <a href="javascript:void(0)" onclick="showPage('contact')" class="nav-item">Kontakt</a>
+    </div>
+    <a href="tel:506350590" class="btn-flex btn-primary" style="padding: 10px 25px; font-size: 0.7rem;">Szybki Kontakt</a>
+</nav>
+
+<section id="home" class="page-section active hero">
+    <div class="hero-inner">
+        <p style="letter-spacing: 10px; color: var(--neon-lime); margin-bottom: 20px;">BUILDING THE FUTURE</p>
+        <h1 class="hero-title">ENGINEERED<br><b>PRECISION</b></h1>
+        <div style="display: flex; gap: 20px; justify-content: center;">
+            <button onclick="showPage('portfolio')" class="btn-flex btn-primary">Zobacz Realizacje</button>
+            <button onclick="showPage('contact')" class="btn-flex" style="color: white; border: 1px solid var(--neon-lime);">Wycena Online</button>
+        </div>
+    </div>
+</section>
+
+<section id="services" class="page-section">
+    <h2 style="font-family: 'Syncopate'; font-size: 3rem; margin-bottom: 50px;">NASZA<br><span style="color: var(--neon-lime)">EKSPERTYZA</span></h2>
+    <div class="services-grid">
+        <div class="s-card">
+            <i class="fas fa-mountain"></i>
+            <h3>Alpinistyka Przemysłowa</h3>
+            <p>Dostęp linowy tam, gdzie inni nie mogą dotrzeć. Mycie szklanych elewacji i serwis techniczny na wysokościach.</p>
+        </div>
+        <div class="s-card">
+            <i class="fas fa-spray-can"></i>
+            <h3>Malowanie Natryskowe</h3>
+            <p>Agregaty Graco HD. Malujemy hale, dachy i konstrukcje stalowe z precyzją co do mikrona.</p>
+        </div>
+        <div class="s-card">
+            <i class="fas fa-radiation"></i>
+            <h3>Czyszczenie Specjalistyczne</h3>
+            <p>Usuwanie najtrudniejszych zabrudzeń przemysłowych, mchów i osadów z dachów oraz elewacji.</p>
+        </div>
+        <div class="s-card">
+            <i class="fas fa-vector-square"></i>
+            <h3>Demontaże Premium</h3>
+            <p>Bezinwazyjne rozbiórki konstrukcji i przygotowanie terenu pod nowe inwestycje.</p>
+        </div>
+    </div>
+</section>
+
+<section id="portfolio" class="page-section">
+    <h2 style="font-family: 'Syncopate'; font-size: 3rem; margin-bottom: 50px;">PROJEKTY<br><span style="color: var(--neon-lime)">ZREALIZOWANE</span></h2>
+    <div class="portfolio-grid">
+        <div class="port-item">
+            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800" alt="Budowa">
+            <div class="port-overlay"><h4>Konstrukcje Stalowe 2023</h4></div>
+        </div>
+        <div class="port-item">
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800" alt="Mycie">
+            <div class="port-overlay"><h4>Szklany Biurowiec Poznań</h4></div>
+        </div>
+        <div class="port-item">
+            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800" alt="Przemysł">
+            <div class="port-overlay"><h4>Renowacja Dachu Fabryki</h4></div>
+        </div>
+        <div class="port-item">
+            <img src="https://images.unsplash.com/photo-1517089596392-db9a5e9428f6?w=800" alt="Malowanie">
+            <div class="port-overlay"><h4>Malowanie Hali 5000m2</h4></div>
+        </div>
+        <div class="port-item">
+            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800" alt="Architektura">
+            <div class="port-overlay"><h4>Demontaż Konstrukcji Aluminiowych</h4></div>
+        </div>
+        <div class="port-item">
+            <img src="https://images.unsplash.com/photo-1590644365607-1c5a519a9a37?w=800" alt="Wysokość">
+            <div class="port-overlay"><h4>Serwis Alpinistyczny Hotelu</h4></div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="page-section">
+    <div class="contact-wrap">
+        <div class="contact-info">
+            <h2>START A<br><span>PROJECT</span></h2>
+            <p style="margin-bottom: 40px; opacity: 0.7;">Analizujemy zdjęcia w 24h. Wyślij zapytanie, aby otrzymać darmowy kosztorys Twojej realizacji.</p>
+            <a href="tel:506350590" class="phone-big">506 350 590</a>
+            <p style="margin-top: 20px; font-weight: 600;">biuro@flex.pl</p>
+        </div>
+        <div style="background: var(--surface-dark); padding: 50px; border-radius: 4px;">
+            <form onsubmit="event.preventDefault(); alert('Wysłano zapytanie!');">
+                <input type="text" placeholder="Imię / Nazwa Firmy" style="width:100%; padding:20px; background:transparent; border:none; border-bottom:1px solid rgba(255,255,255,0.1); color:white; margin-bottom:30px; outline:none;">
+                <input type="email" placeholder="E-mail" style="width:100%; padding:20px; background:transparent; border:none; border-bottom:1px solid rgba(255,255,255,0.1); color:white; margin-bottom:30px; outline:none;">
+                <textarea placeholder="Opisz zakres prac (np. Mycie dachu 200m2)" style="width:100%; padding:20px; background:transparent; border:none; border-bottom:1px solid rgba(255,255,255,0.1); color:white; margin-bottom:40px; outline:none; height:100px;"></textarea>
+                <button type="submit" class="btn-flex btn-primary" style="width:100%;">Wyślij zapytanie</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<script>
+    function showPage(pageId) {
+        // 1. Ukryj wszystkie sekcje
+        document.querySelectorAll('.page-section').forEach(section => {
+            section.classList.remove('active');
+        });
         
-        <div class="quality-bar">
-            <span>BEZPIECZEŃSTWO</span>
-            <span>SZYBKOŚĆ</span>
-            <span>PRECYZJA</span>
-            <span>TECHNOLOGIA</span>
-            <span>GWARANCJA</span>
-        </div>
-    </div>
-
-    <!-- Services Page -->
-    <div id="uslugi" class="page">
-        <div class="section">
-            <h2 class="section-title">Specjalizacje<span>_</span></h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-number">01</div>
-                    <i class="fas fa-broom service-icon"></i>
-                    <h3>Mycie Okien & Elewacji</h3>
-                    <p>Alpiniści lub systemy kijów teleskopowych. Myjemy wieżowce, biurowce i domy prywatne. Bez smug. Zawsze idealnie.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-number">02</div>
-                    <i class="fas fa-home service-icon"></i>
-                    <h3>Czyszczenie Dachów</h3>
-                    <p>Usuwamy mech, porosty i sadzę. Impregnujemy dachówki, aby wyglądały jak nowe przez lata. Gwarancja 5 lat.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-number">03</div>
-                    <i class="fas fa-hammer service-icon"></i>
-                    <h3>Demontaże & Rozbiórki</h3>
-                    <p>Szybki i bezpieczny demontaż konstrukcji, ścianek i starych instalacji. Sprzątamy po sobie w 100%.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-number">04</div>
-                    <i class="fas fa-paint-roller service-icon"></i>
-                    <h3>Malowanie Specjalistyczne</h3>
-                    <p>Malowanie natryskowe dużych powierzchni lub precyzyjne wykończenia wnętrz premium. Graco HD.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-number">05</div>
-                    <i class="fas fa-tools service-icon"></i>
-                    <h3>Wymiany & Naprawy</h3>
-                    <p>Wymiana rynien, okien, uszczelnień i elementów konstrukcyjnych. Szybka reakcja serwisowa 24/7.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Quality Page -->
-    <div id="jakosc" class="page">
-        <div class="section">
-            <h2 class="section-title">Jakość<span>_</span>Bez Kompromisów</h2>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; padding: 0 5%; align-items: center;">
-                <div>
-                    <p style="font-size: 1.3rem; line-height: 1.8; margin-bottom: 2rem;">
-                        W FLEX używamy wyłącznie chemii biodegradowalnej i maszyn klasy przemysłowej 
-                        (Kärcher, Graco). Każdy pracownik przechodzi szkolenia wysokościowe i BHP.
-                    </p>
-                    <p style="font-size: 1.5rem; color: var(--neon-lime); font-weight: 900;">
-                        Dla nas "dobrze" to za mało. Musi być idealnie.
-                    </p>
-                </div>
-                <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=600" alt="Prace alpinistyczne">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=600" alt="Mycie elewacji">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600" alt="Malowanie przemysłowe">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Pricing Page -->
-    <div id="cennik" class="page">
-        <div class="section">
-            <h2 class="section-title">Cennik<span>_</span>& Wycena</h2>
-            <div class="pricing-grid">
-                <div class="price-card">
-                    <h3>Indywidualna wycena</h3>
-                    <p style="font-size: 1.3rem;">Każdy projekt to inne wyzwanie. Nie stosujemy sztywnych stawek.</p>
-                    <ul style="text-align: left; color: var(--text-gray); margin: 2rem 0;">
-                        <li>✓ Stopień zabrudzenia / skomplikowania</li>
-                        <li>✓ Metraż i wysokość obiektu</li>
-                        <li>✓ Termin realizacji (ekspres 24h)</li>
-                        <li>✓ Dostęp (linowy / podnośnik / drabiny)</li>
-                    </ul>
-                    <p style="font-size: 1.8rem; color: var(--neon-lime); font-weight: 900;">
-                        Darmowa wycena w 24h na podstawie zdjęć!
-                    </p>
-                </div>
-                <div class="price-card">
-                    <h3>Przykładowe ceny</h3>
-                    <div style="font-size: 1.2rem; color: var(--text-gray);">
-                        <p>Mycie elewacji: od 8 zł/m²</p>
-                        <p>Czyszczenie dachów: od 15 zł/m²</p>
-                        <p>Malowanie natryskowe: od 25 zł/m²</p>
-                        <p>Demontaż: od 50 zł/m²</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Contact Page -->
-    <div id="kontakt" class="page">
-        <div class="section">
-            <div class="contact-content">
-                <h2 class="section-title">Wejdź na<span>_</span>Wyższy Poziom</h2>
-                <p style="font-size: 2rem; margin-bottom: 3rem; opacity: 0.9;">
-                    Potrzebujesz ekipy, która nie pije kawy co 15 minut?
-                </p>
-                <div style="display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap; margin-bottom: 4rem;">
-                    <div>
-                        <p style="color: var(--neon-lime); font-weight: 700; font-size: 1.2rem;">TELEFON</p>
-                        <a href="tel:506350590" class="contact-phone">506 350 590</a>
-                    </div>
-                    <div>
-                        <p style="color: var(--neon-lime); font-weight: 700; font-size: 1.2rem;">EMAIL</p>
-                        <a href="mailto:biuro@flex.pl" style="color: var(--text-white); font-size: 1.8rem; text-decoration: none; font-weight: 700;">BIURO@FLEX.PL</a>
-                    </div>
-                </div>
-                <a href="#" class="btn-primary" style="padding: 1.8rem 5rem; font-size: 1.2rem;">Wyślij zapytanie teraz</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-logo">FL<span>EX</span> GROUP</div>
-        <p style="color: var(--text-gray); margin-top: 1rem;">© 2026 | PROJEKTOWANIE • BUDOWANIE • CZYSZCZENIE • SERWIS</p>
-    </footer>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 1000,
-            once: true
+        // 2. Pokaż wybraną sekcję
+        const target = document.getElementById(pageId);
+        target.classList.add('active');
+        
+        // 3. Zmień aktywny link w menu
+        document.querySelectorAll('.nav-item').forEach(link => {
+            link.classList.remove('active');
+            if(link.getAttribute('onclick').includes(pageId)) {
+                link.classList.add('active');
+            }
         });
 
-        function showPage(pageId) {
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
-            document.getElementById(pageId).classList.add('active');
-            window.scrollTo(0, 0);
-            
-            // Mobile menu
-            const navLinks = document.querySelector('.nav-links');
-            if (window.innerWidth <= 768) {
-                navLinks.style.display = 'none';
-            }
+        // 4. Scroll do góry
+        window.scrollTo(0, 0);
+    }
+
+    // Scroll effect for nav
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('nav');
+        if (window.scrollY > 50) {
+            nav.style.background = 'rgba(5, 5, 5, 0.95)';
+            nav.style.padding = '15px 5%';
+        } else {
+            nav.style.background = 'transparent';
+            nav.style.padding = '25px 5%';
         }
+    });
+</script>
 
-        // Mobile menu toggle
-        document.querySelector('.menu-toggle').addEventListener('click', () => {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-
-        // Parallax effect
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            if (hero) {
-                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
-        });
-    </script>
 </body>
 </html>
 
