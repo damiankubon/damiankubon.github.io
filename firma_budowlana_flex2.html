@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
@@ -19,7 +19,6 @@
             --text-white: #ffffff;
             --text-gray: #a0a0a0;
             --gold-accent: #ffd700;
-            --purple-glow: #8b5cf6;
         }
 
         * { 
@@ -37,19 +36,7 @@
             line-height: 1.7;
         }
 
-        /* SCROLLBAR */
-        ::-webkit-scrollbar {
-            width: 12px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--bg-black);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(var(--neon-lime), var(--neon-dark));
-            border-radius: 6px;
-        }
-
-        /* Navigation - Floating Effect */
+        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -80,7 +67,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: 0 0 30px rgba(204, 255, 0, 0.5);
         }
 
         .nav-links {
@@ -95,14 +81,14 @@
             font-size: 14px; 
             font-weight: 600;
             letter-spacing: 1.5px;
-            position: relative;
             text-transform: uppercase;
+            position: relative;
         }
         
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: -8px;
             left: 0;
             width: 0;
             height: 2px;
@@ -110,14 +96,8 @@
             transition: width 0.3s ease;
         }
         
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        .nav-links a:hover {
-            color: var(--neon-lime);
-            text-shadow: 0 0 15px rgba(204, 255, 0, 0.7);
-        }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover { color: var(--neon-lime); }
 
         .menu-toggle {
             display: none;
@@ -131,49 +111,42 @@
             height: 3px;
             background: var(--neon-lime);
             border-radius: 2px;
-            transition: 0.3s;
         }
 
-        /* Hero Section - Parallax */
+        /* Hero */
         .hero {
             height: 100vh;
             background: 
-                linear-gradient(135deg, rgba(0,0,0,0.6), rgba(10,10,10,0.4)),
+                linear-gradient(135deg, rgba(0,0,0,0.7), rgba(10,10,10,0.3)),
                 url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&fit=crop') center/cover fixed;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 100px;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
-            z-index: 2;
         }
 
         .hero-content {
-            max-width: 900px;
+            max-width: 1000px;
             padding: 0 5%;
-            z-index: 3;
-            position: relative;
+        }
+        
+        .hero-badge {
+            color: var(--neon-lime);
+            font-weight: 900;
+            letter-spacing: 5px;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
         }
         
         .hero h1 { 
             font-family: 'Syncopate', sans-serif;
             font-size: clamp(4rem, 10vw, 8rem);
             line-height: 0.9; 
-            margin: 0 0 1rem 0;
+            margin: 0 0 2rem 0;
             text-transform: uppercase;
-            letter-spacing: -3px;
-            text-shadow: 0 0 50px rgba(204, 255, 0, 0.8);
+            letter-spacing: -2px;
         }
         
         .hero h1 span { 
@@ -190,10 +163,12 @@
         }
         
         .hero-subtitle {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
             margin-bottom: 3rem;
-            opacity: 0.95;
-            font-weight: 400;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .cta-buttons {
@@ -221,21 +196,6 @@
             display: inline-block;
         }
         
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: left 0.6s;
-        }
-        
-        .btn-primary:hover::before {
-            left: 100%;
-        }
-        
         .btn-primary:hover {
             transform: translateY(-8px) scale(1.05);
             box-shadow: 0 25px 60px rgba(204, 255, 0, 0.6);
@@ -249,7 +209,6 @@
             font-weight: 700;
             text-transform: uppercase;
             border-radius: 0;
-            transition: all 0.4s;
             text-decoration: none;
         }
         
@@ -260,7 +219,7 @@
             box-shadow: 0 20px 50px rgba(204, 255, 0, 0.4);
         }
 
-        /* Quality Bar - Animated */
+        /* Quality Bar */
         .quality-bar {
             display: flex;
             background: linear-gradient(90deg, var(--neon-lime), var(--neon-dark), var(--neon-lime));
@@ -271,22 +230,429 @@
             justify-content: space-around;
             margin: 0;
             transform: skew(-2deg);
-            position: relative;
-            overflow: hidden;
         }
-        
-        .quality-bar::before {
+
+        /* Sections */
+        .section {
+            padding: 120px 0;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Syncopate', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            text-align: center;
+            margin-bottom: 4rem;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            position: relative;
+        }
+
+        .section-title::after {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
-            transform: rotate(45deg);
-            animation: shimmer 3s infinite;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--neon-lime);
+        }
+
+        .section-title span {
+            color: var(--neon-lime);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2rem;
+            padding: 0 5%;
         }
         
-        @keyframes shimmer {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% {
+        .service-card {
+            background: var(--surface-card);
+            padding: 4rem 3rem;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(204, 255, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--neon-lime), var(--neon-dark));
+        }
+        
+        .service-card:hover {
+            border-color: var(--neon-lime);
+            transform: translateY(-15px);
+            box-shadow: 0 30px 80px rgba(204, 255, 0, 0.2);
+        }
+        
+        .service-number {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 4rem;
+            font-weight: 900;
+            color: rgba(204, 255, 0, 0.1);
+            font-family: 'Syncopate', sans-serif;
+        }
+        
+        .service-icon {
+            color: var(--neon-lime);
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            display: block;
+        }
+        
+        .service-card h3 {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            padding: 0 5%;
+        }
+        
+        .gallery-item {
+            height: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            border: 2px solid rgba(204, 255, 0, 0.2);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item:hover {
+            border-color: var(--neon-lime);
+            box-shadow: 0 20px 60px rgba(204, 255, 0, 0.3);
+        }
+
+        /* Pricing Cards */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            padding: 0 5%;
+        }
+        
+        .price-card {
+            background: var(--surface-dark);
+            border-left: 6px solid var(--neon-lime);
+            padding: 3rem;
+            border-radius: 12px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .price-card h3 {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 1.5rem;
+            color: var(--neon-lime);
+            margin-bottom: 1rem;
+        }
+
+        /* Contact */
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 5%;
+        }
+        
+        .contact-phone {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 900;
+            color: var(--neon-lime);
+            text-decoration: none;
+            display: block;
+            margin: 2rem 0;
+            letter-spacing: 2px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 5% 2rem;
+            background: #000;
+            border-top: 1px solid rgba(204, 255, 0, 0.2);
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .menu-toggle {
+                display: flex;
+            }
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .quality-bar {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 2rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="showPage('home')">FL<span>EX</span></a>
+            <div class="nav-links">
+                <a href="#" onclick="showPage('home')">START</a>
+                <a href="#" onclick="showPage('uslugi')">USŁUGI</a>
+                <a href="#" onclick="showPage('jakosc')">JAKOŚĆ</a>
+                <a href="#" onclick="showPage('cennik')">CENNIK</a>
+                <a href="#" onclick="showPage('kontakt')">KONTAKT</a>
+            </div>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">EST. 2010</div>
+                <h1>TOTAL<span>BUILD</span><br>TOTAL<span>CLEAN</span></h1>
+                <p class="hero-subtitle">
+                    Nie tylko budujemy. My dbamy o detale, których inni nie widzą. 
+                    Mycie, malowanie, demontaże – FLEX to Twoja ekipa od zadań specjalnych.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#" onclick="showPage('uslugi')" class="btn-primary">Nasze Realizacje</a>
+                    <a href="tel:506350590" class="btn-secondary">Zadzwoń 506 350 590</a>
+                </div>
+            </div>
+        </section>
+        
+        <div class="quality-bar">
+            <span>BEZPIECZEŃSTWO</span>
+            <span>SZYBKOŚĆ</span>
+            <span>PRECYZJA</span>
+            <span>TECHNOLOGIA</span>
+            <span>GWARANCJA</span>
+        </div>
+    </div>
+
+    <!-- Services Page -->
+    <div id="uslugi" class="page">
+        <div class="section">
+            <h2 class="section-title">Specjalizacje<span>_</span></h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-number">01</div>
+                    <i class="fas fa-broom service-icon"></i>
+                    <h3>Mycie Okien & Elewacji</h3>
+                    <p>Alpiniści lub systemy kijów teleskopowych. Myjemy wieżowce, biurowce i domy prywatne. Bez smug. Zawsze idealnie.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">02</div>
+                    <i class="fas fa-home service-icon"></i>
+                    <h3>Czyszczenie Dachów</h3>
+                    <p>Usuwamy mech, porosty i sadzę. Impregnujemy dachówki, aby wyglądały jak nowe przez lata. Gwarancja 5 lat.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">03</div>
+                    <i class="fas fa-hammer service-icon"></i>
+                    <h3>Demontaże & Rozbiórki</h3>
+                    <p>Szybki i bezpieczny demontaż konstrukcji, ścianek i starych instalacji. Sprzątamy po sobie w 100%.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">04</div>
+                    <i class="fas fa-paint-roller service-icon"></i>
+                    <h3>Malowanie Specjalistyczne</h3>
+                    <p>Malowanie natryskowe dużych powierzchni lub precyzyjne wykończenia wnętrz premium. Graco HD.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">05</div>
+                    <i class="fas fa-tools service-icon"></i>
+                    <h3>Wymiany & Naprawy</h3>
+                    <p>Wymiana rynien, okien, uszczelnień i elementów konstrukcyjnych. Szybka reakcja serwisowa 24/7.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quality Page -->
+    <div id="jakosc" class="page">
+        <div class="section">
+            <h2 class="section-title">Jakość<span>_</span>Bez Kompromisów</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; padding: 0 5%; align-items: center;">
+                <div>
+                    <p style="font-size: 1.3rem; line-height: 1.8; margin-bottom: 2rem;">
+                        W FLEX używamy wyłącznie chemii biodegradowalnej i maszyn klasy przemysłowej 
+                        (Kärcher, Graco). Każdy pracownik przechodzi szkolenia wysokościowe i BHP.
+                    </p>
+                    <p style="font-size: 1.5rem; color: var(--neon-lime); font-weight: 900;">
+                        Dla nas "dobrze" to za mało. Musi być idealnie.
+                    </p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=600" alt="Prace alpinistyczne">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=600" alt="Mycie elewacji">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600" alt="Malowanie przemysłowe">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pricing Page -->
+    <div id="cennik" class="page">
+        <div class="section">
+            <h2 class="section-title">Cennik<span>_</span>& Wycena</h2>
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3>Indywidualna wycena</h3>
+                    <p style="font-size: 1.3rem;">Każdy projekt to inne wyzwanie. Nie stosujemy sztywnych stawek.</p>
+                    <ul style="text-align: left; color: var(--text-gray); margin: 2rem 0;">
+                        <li>✓ Stopień zabrudzenia / skomplikowania</li>
+                        <li>✓ Metraż i wysokość obiektu</li>
+                        <li>✓ Termin realizacji (ekspres 24h)</li>
+                        <li>✓ Dostęp (linowy / podnośnik / drabiny)</li>
+                    </ul>
+                    <p style="font-size: 1.8rem; color: var(--neon-lime); font-weight: 900;">
+                        Darmowa wycena w 24h na podstawie zdjęć!
+                    </p>
+                </div>
+                <div class="price-card">
+                    <h3>Przykładowe ceny</h3>
+                    <div style="font-size: 1.2rem; color: var(--text-gray);">
+                        <p>Mycie elewacji: od 8 zł/m²</p>
+                        <p>Czyszczenie dachów: od 15 zł/m²</p>
+                        <p>Malowanie natryskowe: od 25 zł/m²</p>
+                        <p>Demontaż: od 50 zł/m²</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="kontakt" class="page">
+        <div class="section">
+            <div class="contact-content">
+                <h2 class="section-title">Wejdź na<span>_</span>Wyższy Poziom</h2>
+                <p style="font-size: 2rem; margin-bottom: 3rem; opacity: 0.9;">
+                    Potrzebujesz ekipy, która nie pije kawy co 15 minut?
+                </p>
+                <div style="display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap; margin-bottom: 4rem;">
+                    <div>
+                        <p style="color: var(--neon-lime); font-weight: 700; font-size: 1.2rem;">TELEFON</p>
+                        <a href="tel:506350590" class="contact-phone">506 350 590</a>
+                    </div>
+                    <div>
+                        <p style="color: var(--neon-lime); font-weight: 700; font-size: 1.2rem;">EMAIL</p>
+                        <a href="mailto:biuro@flex.pl" style="color: var(--text-white); font-size: 1.8rem; text-decoration: none; font-weight: 700;">BIURO@FLEX.PL</a>
+                    </div>
+                </div>
+                <a href="#" class="btn-primary" style="padding: 1.8rem 5rem; font-size: 1.2rem;">Wyślij zapytanie teraz</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">FL<span>EX</span> GROUP</div>
+        <p style="color: var(--text-gray); margin-top: 1rem;">© 2026 | PROJEKTOWANIE • BUDOWANIE • CZYSZCZENIE • SERWIS</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0, 0);
+            
+            // Mobile menu
+            const navLinks = document.querySelector('.nav-links');
+            if (window.innerWidth <= 768) {
+                navLinks.style.display = 'none';
+            }
+        }
+
+        // Mobile menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', () => {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Parallax effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
+
