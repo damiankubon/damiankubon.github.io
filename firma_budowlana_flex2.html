@@ -3,278 +3,279 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FLEX™ | Total Build & Specialist Cleaning | Premium Industry</title>
+    <title>FLEX™ | Industrial Excellence | Premium Build & Clean</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Outfit:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
         :root {
-            --neon-lime: #ccff00;
-            --neon-glow: rgba(204, 255, 0, 0.6);
-            --bg-black: #050505;
-            --surface-dark: #0f0f0f;
-            --glass: rgba(255, 255, 255, 0.03);
-            --text-white: #ffffff;
-            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            --lime: #ccff00;
+            --dark: #0a0a0a;
+            --gray: #1a1a1a;
+            --text: #ffffff;
+            --accent-glow: rgba(204, 255, 0, 0.4);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: 'Outfit', sans-serif;
-            background: var(--bg-black);
-            color: var(--text-white);
+            background: var(--dark);
+            color: var(--text);
             overflow-x: hidden;
-            scroll-behavior: smooth;
+            line-height: 1.6;
         }
 
-        /* --- PRELOADER / BACKGROUND EFFECTS --- */
-        .noise {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: url('https://grainy-gradients.vercel.app/noise.svg');
-            opacity: 0.05; pointer-events: none; z-index: 9999;
-        }
+        /* --- LUXURY SCROLLBAR --- */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--dark); }
+        ::-webkit-scrollbar-thumb { background: var(--lime); border-radius: 10px; }
 
         /* --- NAVIGATION --- */
         nav {
-            position: fixed; top: 0; width: 100%; padding: 25px 5%;
+            position: fixed; top: 0; width: 100%; padding: 20px 5%;
             display: flex; justify-content: space-between; align-items: center;
-            z-index: 1000; background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
-            backdrop-filter: blur(10px); border-bottom: 1px solid rgba(204, 255, 0, 0.1);
+            z-index: 1000; transition: 0.5s;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
         }
+        nav.scrolled { background: rgba(10, 10, 10, 0.98); padding: 15px 5%; border-bottom: 1px solid rgba(204, 255, 0, 0.2); }
 
-        .logo {
-            font-family: 'Syncopate', sans-serif; font-size: 2rem; font-weight: 900;
-            text-decoration: none; color: var(--text-white); letter-spacing: -2px;
+        .logo { font-family: 'Syncopate'; font-size: 2rem; color: #fff; text-decoration: none; letter-spacing: -2px; }
+        .logo span { color: var(--lime); }
+
+        .menu { display: flex; gap: 40px; }
+        .menu a { 
+            text-decoration: none; color: #fff; font-size: 0.8rem; 
+            font-weight: 700; text-transform: uppercase; letter-spacing: 2px;
+            position: relative; transition: 0.3s;
         }
-        .logo span { color: var(--neon-lime); text-shadow: 0 0 15px var(--neon-glow); }
-
-        .nav-links { display: flex; gap: 40px; }
-        .nav-links a {
-            text-decoration: none; color: var(--text-white); font-weight: 600;
-            font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase;
-            opacity: 0.6; transition: var(--transition);
+        .menu a:hover { color: var(--lime); }
+        .menu a::after {
+            content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px;
+            background: var(--lime); transition: 0.3s;
         }
-        .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--neon-lime); }
+        .menu a:hover::after { width: 100%; }
 
-        /* --- MAIN LAYOUT --- */
-        .page-section {
-            display: none; min-height: 100vh; padding: 120px 5% 60px;
-            animation: fadeIn 0.8s ease-out forwards;
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh; width: 100%; position: relative;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
         }
-        .page-section.active { display: block; }
+        .hero-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070') center/cover no-repeat;
+            z-index: -1; transform: scale(1.1); transition: 10s linear;
+        }
+        .hero:hover .hero-bg { transform: scale(1); }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+        .hero-content { text-align: center; z-index: 1; }
+        .hero-tag { font-family: 'Syncopate'; color: var(--lime); letter-spacing: 8px; font-size: 0.9rem; margin-bottom: 20px; display: block; }
+        .hero-title { font-family: 'Syncopate'; font-size: clamp(3rem, 10vw, 8rem); line-height: 0.9; text-transform: uppercase; }
+        .hero-title b { -webkit-text-stroke: 2px var(--lime); color: transparent; }
+
+        /* --- BUTTONS --- */
+        .cta-group { display: flex; gap: 20px; justify-content: center; margin-top: 40px; }
+        .btn {
+            padding: 20px 40px; font-family: 'Syncopate'; font-size: 0.7rem; font-weight: 700;
+            text-decoration: none; text-transform: uppercase; transition: 0.4s;
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+        }
+        .btn-lime { background: var(--lime); color: #000; }
+        .btn-lime:hover { transform: translateY(-5px); box-shadow: 0 10px 30px var(--accent-glow); }
+        .btn-outline { border: 2px solid var(--lime); color: #fff; }
+        .btn-outline:hover { background: var(--lime); color: #000; }
+
+        /* --- SECTIONS --- */
+        section { padding: 100px 5%; min-height: 100vh; display: none; }
+        section.active { display: block; animation: slideUp 0.6s ease-out; }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- HERO --- */
-        .hero {
-            height: 100vh; display: flex; align-items: center; justify-content: center;
-            background: radial-gradient(circle at center, rgba(204,255,0,0.05) 0%, transparent 70%);
-            text-align: center;
-        }
-        .hero-title {
-            font-family: 'Syncopate', sans-serif; font-size: clamp(3rem, 12vw, 9rem);
-            line-height: 0.85; text-transform: uppercase; margin-bottom: 30px;
-        }
-        .hero-title b { color: var(--neon-lime); -webkit-text-stroke: 1px var(--neon-lime); -webkit-text-fill-color: transparent; }
+        .section-header { margin-bottom: 60px; }
+        .section-header h2 { font-family: 'Syncopate'; font-size: 3.5rem; text-transform: uppercase; }
+        .section-header h2 span { color: var(--lime); }
 
-        /* --- BUTTONS --- */
-        .btn-flex {
-            display: inline-block; padding: 20px 45px; font-weight: 900;
-            text-transform: uppercase; letter-spacing: 2px; text-decoration: none;
-            position: relative; overflow: hidden; transition: var(--transition);
-            cursor: pointer; border: none; font-family: 'Outfit';
+        /* --- SERVICES GRID --- */
+        .services-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        .service-box {
+            background: var(--gray); padding: 60px 40px; border-radius: 4px;
+            border-bottom: 4px solid transparent; transition: 0.4s;
         }
-        .btn-primary { background: var(--neon-lime); color: black; clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%); }
-        .btn-primary:hover { transform: scale(1.05); box-shadow: 0 0 30px var(--neon-glow); }
+        .service-box:hover { border-color: var(--lime); transform: translateY(-10px); background: #222; }
+        .service-box i { font-size: 3rem; color: var(--lime); margin-bottom: 30px; }
+        .service-box h3 { font-family: 'Syncopate'; font-size: 1.2rem; margin-bottom: 20px; }
 
-        /* --- SERVICES CARD --- */
-        .services-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
+        /* --- REALIZACJE (GALLERY) --- */
+        .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .gallery-item {
+            height: 400px; position: relative; overflow: hidden; cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.1);
         }
-        .s-card {
-            background: var(--surface-dark); padding: 50px; border-radius: 2px;
-            border: 1px solid rgba(255,255,255,0.05); position: relative;
-            transition: var(--transition); overflow: hidden;
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; filter: grayscale(100%); }
+        .gallery-item:hover img { transform: scale(1.1); filter: grayscale(0%); }
+        .gallery-info {
+            position: absolute; bottom: 0; left: 0; width: 100%; padding: 30px;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            transform: translateY(100%); transition: 0.4s;
         }
-        .s-card:hover { border-color: var(--neon-lime); transform: translateY(-10px); }
-        .s-card i { font-size: 3rem; color: var(--neon-lime); margin-bottom: 25px; }
-        .s-card h3 { font-family: 'Syncopate'; margin-bottom: 15px; font-size: 1.2rem; }
-        .s-card::after {
-            content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px;
-            background: var(--neon-lime); transform: scaleX(0); transition: 0.4s;
-        }
-        .s-card:hover::after { transform: scaleX(1); }
+        .gallery-item:hover .gallery-info { transform: translateY(0); }
 
-        /* --- PORTFOLIO --- */
-        .portfolio-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 50px;
+        /* --- CONTACT --- */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+        .contact-form input, .contact-form textarea {
+            width: 100%; padding: 20px; background: #111; border: 1px solid #333;
+            color: #fff; margin-bottom: 20px; outline: none; font-family: 'Outfit';
         }
-        .port-item {
-            height: 400px; background: var(--surface-dark); position: relative; overflow: hidden;
-        }
-        .port-item img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); transition: 0.8s; }
-        .port-item:hover img { filter: grayscale(0); transform: scale(1.1); }
-        .port-overlay {
-            position: absolute; inset: 0; background: linear-gradient(transparent, var(--neon-lime));
-            opacity: 0; display: flex; align-items: flex-end; padding: 30px; transition: 0.4s;
-        }
-        .port-item:hover .port-overlay { opacity: 0.9; }
-        .port-overlay h4 { color: black; font-weight: 900; text-transform: uppercase; }
+        .contact-form input:focus { border-color: var(--lime); }
 
-        /* --- CONTACT SECTION --- */
-        .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
-        .contact-info h2 { font-family: 'Syncopate'; font-size: 4rem; margin-bottom: 30px; }
-        .phone-big { font-size: 3rem; color: var(--neon-lime); text-decoration: none; font-weight: 900; }
-
-        @media (max-width: 968px) {
-            .portfolio-grid, .contact-wrap { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
+        /* --- LIGHTBOX --- */
+        #lightbox {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95); z-index: 10000; display: none;
+            align-items: center; justify-content: center;
         }
+        #lightbox img { max-width: 90%; max-height: 80%; border: 2px solid var(--lime); }
+        .close-lb { position: absolute; top: 40px; right: 40px; color: var(--lime); font-size: 3rem; cursor: pointer; }
+
     </style>
 </head>
 <body>
 
-<div class="noise"></div>
-
-<nav>
-    <a href="#" class="logo" onclick="showPage('home')">FL<span>EX</span></a>
-    <div class="nav-links">
-        <a href="javascript:void(0)" onclick="showPage('home')" class="nav-item active">Start</a>
-        <a href="javascript:void(0)" onclick="showPage('services')" class="nav-item">Ekspertyza</a>
-        <a href="javascript:void(0)" onclick="showPage('portfolio')" class="nav-item">Realizacje</a>
-        <a href="javascript:void(0)" onclick="showPage('contact')" class="nav-item">Kontakt</a>
+    <div id="lightbox">
+        <span class="close-lb" onclick="closeLightbox()">&times;</span>
+        <img src="" id="lb-img">
     </div>
-    <a href="tel:506350590" class="btn-flex btn-primary" style="padding: 10px 25px; font-size: 0.7rem;">Szybki Kontakt</a>
-</nav>
 
-<section id="home" class="page-section active hero">
-    <div class="hero-inner">
-        <p style="letter-spacing: 10px; color: var(--neon-lime); margin-bottom: 20px;">BUILDING THE FUTURE</p>
-        <h1 class="hero-title">ENGINEERED<br><b>PRECISION</b></h1>
-        <div style="display: flex; gap: 20px; justify-content: center;">
-            <button onclick="showPage('portfolio')" class="btn-flex btn-primary">Zobacz Realizacje</button>
-            <button onclick="showPage('contact')" class="btn-flex" style="color: white; border: 1px solid var(--neon-lime);">Wycena Online</button>
+    <nav id="navbar">
+        <a href="#" class="logo" onclick="navigateTo('home')">FL<span>EX</span></a>
+        <div class="menu">
+            <a href="javascript:void(0)" onclick="navigateTo('home')">Start</a>
+            <a href="javascript:void(0)" onclick="navigateTo('ekspertyza')">Ekspertyza</a>
+            <a href="javascript:void(0)" onclick="navigateTo('realizacje')">Realizacje</a>
+            <a href="javascript:void(0)" onclick="navigateTo('kontakt')">Kontakt</a>
         </div>
-    </div>
-</section>
+        <a href="tel:506350590" class="btn btn-lime" style="padding: 12px 25px; font-size: 0.6rem;">Zadzwoń teraz</a>
+    </nav>
 
-<section id="services" class="page-section">
-    <h2 style="font-family: 'Syncopate'; font-size: 3rem; margin-bottom: 50px;">NASZA<br><span style="color: var(--neon-lime)">EKSPERTYZA</span></h2>
-    <div class="services-grid">
-        <div class="s-card">
-            <i class="fas fa-mountain"></i>
-            <h3>Alpinistyka Przemysłowa</h3>
-            <p>Dostęp linowy tam, gdzie inni nie mogą dotrzeć. Mycie szklanych elewacji i serwis techniczny na wysokościach.</p>
+    <main id="home-page">
+        <div class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content" data-aos="zoom-out">
+                <span class="hero-tag">ESTABLISHED 2010</span>
+                <h1 class="hero-title">ENGINEERED<br><b>PRECISION</b></h1>
+                <div class="cta-group">
+                    <a href="javascript:void(0)" onclick="navigateTo('realizacje')" class="btn btn-lime">Nasze Projekty</a>
+                    <a href="javascript:void(0)" onclick="navigateTo('kontakt')" class="btn btn-outline">Darmowa Wycena</a>
+                </div>
+            </div>
         </div>
-        <div class="s-card">
-            <i class="fas fa-spray-can"></i>
-            <h3>Malowanie Natryskowe</h3>
-            <p>Agregaty Graco HD. Malujemy hale, dachy i konstrukcje stalowe z precyzją co do mikrona.</p>
-        </div>
-        <div class="s-card">
-            <i class="fas fa-radiation"></i>
-            <h3>Czyszczenie Specjalistyczne</h3>
-            <p>Usuwanie najtrudniejszych zabrudzeń przemysłowych, mchów i osadów z dachów oraz elewacji.</p>
-        </div>
-        <div class="s-card">
-            <i class="fas fa-vector-square"></i>
-            <h3>Demontaże Premium</h3>
-            <p>Bezinwazyjne rozbiórki konstrukcji i przygotowanie terenu pod nowe inwestycje.</p>
-        </div>
-    </div>
-</section>
+    </main>
 
-<section id="portfolio" class="page-section">
-    <h2 style="font-family: 'Syncopate'; font-size: 3rem; margin-bottom: 50px;">PROJEKTY<br><span style="color: var(--neon-lime)">ZREALIZOWANE</span></h2>
-    <div class="portfolio-grid">
-        <div class="port-item">
-            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800" alt="Budowa">
-            <div class="port-overlay"><h4>Konstrukcje Stalowe 2023</h4></div>
+    <section id="ekspertyza">
+        <div class="section-header">
+            <h2>Nasza<span>_</span>Ekspertyza</h2>
+            <p>Technologie przyszłości w służbie budownictwa.</p>
         </div>
-        <div class="port-item">
-            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800" alt="Mycie">
-            <div class="port-overlay"><h4>Szklany Biurowiec Poznań</h4></div>
+        <div class="services-container">
+            <div class="service-box">
+                <i class="fas fa-mountain"></i>
+                <h3>Alpinistyka</h3>
+                <p>Prace na wysokościach z użyciem technik linowych. Bezpiecznie, szybko i bez dźwigów.</p>
+            </div>
+            <div class="service-box">
+                <i class="fas fa-brush"></i>
+                <h3>Malowanie</h3>
+                <p>Przemysłowe malowanie natryskowe hal i dachów. Trwałość liczona w dekadach.</p>
+            </div>
+            <div class="service-box">
+                <i class="fas fa-water"></i>
+                <h3>Hydro-Cleaning</h3>
+                <p>Mycie ciśnieniowe elewacji i dachów. Usuwamy to, czego inni nie potrafią doczyścić.</p>
+            </div>
         </div>
-        <div class="port-item">
-            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800" alt="Przemysł">
-            <div class="port-overlay"><h4>Renowacja Dachu Fabryki</h4></div>
-        </div>
-        <div class="port-item">
-            <img src="https://images.unsplash.com/photo-1517089596392-db9a5e9428f6?w=800" alt="Malowanie">
-            <div class="port-overlay"><h4>Malowanie Hali 5000m2</h4></div>
-        </div>
-        <div class="port-item">
-            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800" alt="Architektura">
-            <div class="port-overlay"><h4>Demontaż Konstrukcji Aluminiowych</h4></div>
-        </div>
-        <div class="port-item">
-            <img src="https://images.unsplash.com/photo-1590644365607-1c5a519a9a37?w=800" alt="Wysokość">
-            <div class="port-overlay"><h4>Serwis Alpinistyczny Hotelu</h4></div>
-        </div>
-    </div>
-</section>
+    </section>
 
-<section id="contact" class="page-section">
-    <div class="contact-wrap">
-        <div class="contact-info">
-            <h2>START A<br><span>PROJECT</span></h2>
-            <p style="margin-bottom: 40px; opacity: 0.7;">Analizujemy zdjęcia w 24h. Wyślij zapytanie, aby otrzymać darmowy kosztorys Twojej realizacji.</p>
-            <a href="tel:506350590" class="phone-big">506 350 590</a>
-            <p style="margin-top: 20px; font-weight: 600;">biuro@flex.pl</p>
+    <section id="realizacje">
+        <div class="section-header">
+            <h2>Ostatnie<span>_</span>Projekty</h2>
         </div>
-        <div style="background: var(--surface-dark); padding: 50px; border-radius: 4px;">
-            <form onsubmit="event.preventDefault(); alert('Wysłano zapytanie!');">
-                <input type="text" placeholder="Imię / Nazwa Firmy" style="width:100%; padding:20px; background:transparent; border:none; border-bottom:1px solid rgba(255,255,255,0.1); color:white; margin-bottom:30px; outline:none;">
-                <input type="email" placeholder="E-mail" style="width:100%; padding:20px; background:transparent; border:none; border-bottom:1px solid rgba(255,255,255,0.1); color:white; margin-bottom:30px; outline:none;">
-                <textarea placeholder="Opisz zakres prac (np. Mycie dachu 200m2)" style="width:100%; padding:20px; background:transparent; border:none; border-bottom:1px solid rgba(255,255,255,0.1); color:white; margin-bottom:40px; outline:none; height:100px;"></textarea>
-                <button type="submit" class="btn-flex btn-primary" style="width:100%;">Wyślij zapytanie</button>
-            </form>
+        <div class="gallery">
+            <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800')">
+                <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800">
+                <div class="gallery-info"><h4>Hala Przemysłowa Katowice</h4></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800')">
+                <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800">
+                <div class="gallery-info"><h4>Biurowiec Glass-Wall</h4></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800')">
+                <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800">
+                <div class="gallery-info"><h4>Renowacja Elewacji Zabytkowej</h4></div>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<script>
-    function showPage(pageId) {
-        // 1. Ukryj wszystkie sekcje
-        document.querySelectorAll('.page-section').forEach(section => {
-            section.classList.remove('active');
-        });
-        
-        // 2. Pokaż wybraną sekcję
-        const target = document.getElementById(pageId);
-        target.classList.add('active');
-        
-        // 3. Zmień aktywny link w menu
-        document.querySelectorAll('.nav-item').forEach(link => {
-            link.classList.remove('active');
-            if(link.getAttribute('onclick').includes(pageId)) {
-                link.classList.add('active');
+    <section id="kontakt">
+        <div class="contact-grid">
+            <div>
+                <h2 style="font-family:'Syncopate'; font-size: 4rem;">Let's<span>_</span>Work</h2>
+                <p style="font-size: 1.5rem; margin-top: 20px;">biuro@flex.pl</p>
+                <p style="font-size: 3rem; font-weight: 900; color: var(--lime);">506 350 590</p>
+            </div>
+            <div class="contact-form">
+                <form>
+                    <input type="text" placeholder="Twoje Imię">
+                    <input type="email" placeholder="E-mail">
+                    <textarea placeholder="Opisz projekt..." rows="5"></textarea>
+                    <button type="submit" class="btn btn-lime" style="width: 100%; border:none; cursor:pointer;">Wyślij Zapytanie</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+
+        // --- NAVIGATION LOGIC ---
+        function navigateTo(pageId) {
+            // Hide all pages & sections
+            document.getElementById('home-page').style.display = 'none';
+            document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+
+            if (pageId === 'home') {
+                document.getElementById('home-page').style.display = 'block';
+            } else {
+                document.getElementById(pageId).classList.add('active');
+            }
+            window.scrollTo(0,0);
+        }
+
+        // --- NAVBAR SCROLL ---
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                document.getElementById('navbar').classList.add('scrolled');
+            } else {
+                document.getElementById('navbar').classList.remove('scrolled');
             }
         });
 
-        // 4. Scroll do góry
-        window.scrollTo(0, 0);
-    }
-
-    // Scroll effect for nav
-    window.addEventListener('scroll', () => {
-        const nav = document.querySelector('nav');
-        if (window.scrollY > 50) {
-            nav.style.background = 'rgba(5, 5, 5, 0.95)';
-            nav.style.padding = '15px 5%';
-        } else {
-            nav.style.background = 'transparent';
-            nav.style.padding = '25px 5%';
+        // --- LIGHTBOX ---
+        function openLightbox(src) {
+            document.getElementById('lb-img').src = src;
+            document.getElementById('lightbox').style.display = 'flex';
         }
-    });
-</script>
-
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+    </script>
 </body>
-</html>
+</html> 
 
