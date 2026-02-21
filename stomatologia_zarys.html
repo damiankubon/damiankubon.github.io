@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Klinika Uśmiech Sochaczew - Nowoczesna Stomatologia</title>
+    <title>Klinika Uśmiech Sochaczew - Premium Stomatologia</title>
     <style>
         :root {
-            --primary-color: #1e3a8a; /* Głęboki niebieski - zaufanie */
-            --secondary-color: #d4af37; /* Złoty - prestiż, sukces */
-            --accent-color: #fbbf24; /* Ciepły złoty energia */
+            --primary-color: #1e3a8a;
+            --secondary-color: #d4af37;
+            --accent-color: #fbbf24;
             --text-dark: #1f2937;
             --text-light: #6b7280;
             --bg-light: #f9fafb;
@@ -16,341 +16,187 @@
             --shadow: 0 10px 30px rgba(30,58,138,0.2);
             --gradient-hero: linear-gradient(135deg, var(--primary-color), #3b82f6);
             --gradient-cta: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            --gradient-gold: linear-gradient(135deg, #d4af37, #f59e0b);
         }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
+            line-height: 1.6; color: var(--text-dark);
         }
         nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 15px 0;
-            box-shadow: var(--shadow);
+            position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(20px); z-index: 1000; padding: 1rem 0; box-shadow: var(--shadow);
         }
         nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
+            list-style: none; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;
         }
         nav a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 600;
-            padding: 10px 20px;
-            border-radius: 25px;
-            transition: all 0.3s;
+            text-decoration: none; color: var(--text-dark); font-weight: 600; padding: 0.8rem 1.5rem;
+            border-radius: 30px; transition: all 0.3s; font-size: 1.1em;
         }
-        nav a:hover {
-            background: var(--gradient-cta);
-            color: var(--white);
+        nav a:hover, nav a.active {
+            background: var(--gradient-cta); color: var(--white); transform: translateY(-2px);
         }
         .hero {
-            background: var(--gradient-hero);
-            color: var(--white);
-            text-align: center;
-            padding: 120px 20px 80px;
-            position: relative;
-            overflow: hidden;
+            background: var(--gradient-hero); color: var(--white); text-align: center;
+            padding: 140px 20px 100px; position: relative; overflow: hidden;
         }
-        .hero h1 {
-            font-size: 3.5em;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
-        }
-        .hero .promise {
-            font-size: 1.6em;
-            margin-bottom: 30px;
-            opacity: 0.95;
-        }
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+        .hero h1 { font-size: 4em; margin-bottom: 1rem; text-shadow: 3px 3px 10px rgba(0,0,0,0.5); }
+        .hero .promise { font-size: 1.8em; margin-bottom: 2rem; opacity: 0.95; }
+        .phone-hero { font-size: 2.5em; font-weight: bold; margin: 2rem 0; display: block; }
+        .cta-buttons { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
         .btn {
-            padding: 18px 35px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.2em;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
+            padding: 1.2rem 2.5rem; border: none; border-radius: 50px; font-size: 1.3em;
+            font-weight: bold; cursor: pointer; text-decoration: none; transition: all 0.4s;
+            display: inline-flex; align-items: center; gap: 0.8rem;
         }
-        .btn-primary {
-            background: var(--accent-color);
-            color: var(--text-dark);
-        }
-        .btn-primary:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(251,191,36,0.5);
-        }
-        .btn-secondary {
-            background: transparent;
-            color: var(--white);
-            border: 3px solid var(--secondary-color);
-        }
-        .btn-secondary:hover {
-            background: var(--secondary-color);
-            color: var(--text-dark);
-        }
-        .phone-hero {
-            font-size: 2.2em;
-            font-weight: bold;
-            margin: 25px 0;
-            display: block;
-        }
+        .btn-primary { background: var(--accent-color); color: var(--text-dark); }
+        .btn-primary:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(251,191,36,0.6); }
+        .btn-secondary { background: transparent; color: var(--white); border: 3px solid var(--secondary-color); }
+        .btn-secondary:hover { background: var(--secondary-color); color: var(--text-dark); }
         section {
-            padding: 80px 20px;
-            max-width: 1400px;
-            margin: 0 auto;
+            padding: 100px 20px; max-width: 1400px; margin: 0 auto;
         }
         h2 {
-            text-align: center;
-            margin-bottom: 50px;
-            color: var(--primary-color);
-            font-size: 2.5em;
+            text-align: center; margin-bottom: 4rem; color: var(--primary-color);
+            font-size: 3em; position: relative;
+        }
+        h2::after {
+            content: ''; display: block; width: 80px; height: 4px; background: var(--gradient-gold);
+            margin: 1rem auto; border-radius: 2px;
         }
         .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 40px;
-            margin-bottom: 50px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem; margin-bottom: 4rem;
         }
         .stat {
-            text-align: center;
-            padding: 30px 20px;
-            background: var(--white);
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s;
+            text-align: center; padding: 3rem 2rem; background: var(--white);
+            border-radius: 25px; box-shadow: var(--shadow); transition: all 0.4s;
         }
-        .stat:hover {
-            transform: translateY(-10px);
-        }
+        .stat:hover { transform: translateY(-15px); box-shadow: 0 20px 50px rgba(30,58,138,0.3); }
         .stat-number {
-            font-size: 3.5em;
-            background: var(--gradient-cta);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: bold;
+            font-size: 4em; background: var(--gradient-cta); -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; background-clip: text; font-weight: bold;
         }
-        .services-grid, .why-grid, .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
+        .services-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 3rem;
         }
-        .service, .why-item, .review {
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: transform 0.3s;
-            background: var(--white);
+        .service {
+            padding: 3rem; border-radius: 25px; box-shadow: var(--shadow); text-align: center;
+            transition: all 0.4s; background: var(--white); position: relative; overflow: hidden;
         }
-        .service:hover, .why-item:hover {
-            transform: translateY(-12px);
+        .service::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+            background: var(--gradient-gold);
         }
-        .service h3, .why-item h3 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            font-size: 1.8em;
+        .service:hover {
+            transform: translateY(-15px); box-shadow: 0 25px 60px rgba(30,58,138,0.3);
         }
-        .process-steps {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .step {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            padding: 30px;
-            background: var(--bg-light);
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-        }
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-cta);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.8em;
-        }
-        .trust, .why-us, .reviews {
-            background: var(--bg-light);
-        }
-        .services, .process {
-            background: var(--white);
-        }
-        .cta-final {
-            text-align: center;
-            background: var(--gradient-hero);
-            color: var(--white);
-        }
-        form {
-            max-width: 600px;
-            margin: 40px auto;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        input, textarea, button {
-            padding: 18px;
-            border: 2px solid #e5e7eb;
-            border-radius: 12px;
-            font-size: 1em;
-            transition: border-color 0.3s;
-        }
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
-        }
-        button[type="submit"] {
-            background: var(--secondary-color);
-            color: var(--white);
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 1.1em;
-        }
-        button[type="submit"]:hover {
-            transform: translateY(-3px);
-        }
-        .service-grid-sub {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
+        .service h3 { color: var(--primary-color); margin-bottom: 1.5rem; font-size: 2em; }
+        .service-sub-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem; margin-top: 2rem;
         }
         .service-sub {
-            padding: 25px;
-            background: var(--white);
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-            cursor: pointer;
-            transition: all 0.3s;
-            text-align: center;
+            padding: 2rem; background: var(--bg-light); border-radius: 20px;
+            cursor: pointer; transition: all 0.3s; text-align: center; border: 2px solid transparent;
         }
         .service-sub:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 40px rgba(30,58,138,0.3);
+            transform: scale(1.05); background: var(--white); border-color: var(--secondary-color);
+            box-shadow: 0 15px 40px rgba(212,175,55,0.3);
         }
-        .service-sub h4 {
-            color: var(--secondary-color);
-            margin-bottom: 15px;
+        .service-sub h4 { color: var(--secondary-color); margin-bottom: 1rem; font-size: 1.4em; }
+        .price-section {
+            background: var(--bg-light); border-radius: 25px; padding: 3rem; margin-top: 3rem;
         }
         .price-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 30px;
-            background: var(--white);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-        .price-table th, .price-table td {
-            padding: 20px;
-            text-align: left;
-            border-bottom: 1px solid #e5e7eb;
+            width: 100%; border-collapse: collapse; background: var(--white);
+            border-radius: 20px; overflow: hidden; box-shadow: var(--shadow);
         }
         .price-table th {
-            background: var(--gradient-hero);
-            color: var(--white);
-            font-weight: bold;
+            background: var(--gradient-hero); color: var(--white); padding: 1.5rem;
+            text-align: left; font-weight: bold; font-size: 1.1em;
         }
-        .price-table .price {
-            font-weight: bold;
-            color: var(--secondary-color);
-            font-size: 1.2em;
+        .price-table td { padding: 1.2rem 1.5rem; border-bottom: 1px solid #e5e7eb; }
+        .price-table .price { font-weight: bold; color: var(--secondary-color); font-size: 1.4em; }
+        .price-table tr:hover { background: #f0f9ff; }
+        .trust, .why-us, .reviews { background: var(--bg-light); }
+        .process-steps {
+            display: flex; flex-direction: column; gap: 3rem; max-width: 1000px; margin: 0 auto;
         }
-        .footer {
-            background: var(--text-dark);
-            color: var(--white);
-            text-align: center;
-            padding: 60px 20px 30px;
+        .step {
+            display: flex; align-items: center; gap: 2.5rem; padding: 2.5rem;
+            background: var(--white); border-radius: 25px; box-shadow: var(--shadow);
         }
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
+        .step-number {
+            width: 70px; height: 70px; background: var(--gradient-cta); color: var(--white);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-weight: bold; font-size: 2em;
         }
-        .social {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin: 30px 0;
+        .reviews-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 3rem;
         }
-        .social a {
-            color: var(--white);
-            font-size: 1.8em;
+        .review {
+            background: var(--white); padding: 3rem; border-radius: 25px; box-shadow: var(--shadow);
+            position: relative; font-style: italic;
+        }
+        .review::before {
+            content: '⭐⭐⭐⭐⭐'; font-size: 2em; position: absolute; top: 1rem; right: 2rem;
+            color: var(--accent-color);
+        }
+        .review-author { margin-top: 1.5rem; font-weight: bold; color: var(--secondary-color); }
+        .cta-final {
+            text-align: center; background: var(--gradient-hero); color: var(--white);
+        }
+        form {
+            max-width: 700px; margin: 4rem auto; display: flex; flex-direction: column; gap: 1.5rem;
+        }
+        input, textarea, select {
+            padding: 1.2rem; border: 2px solid #e5e7eb; border-radius: 15px; font-size: 1.1em;
             transition: all 0.3s;
         }
-        .social a:hover {
-            color: var(--accent-color);
-            transform: translateY(-5px);
+        input:focus, textarea:focus, select:focus {
+            outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(30,58,138,0.1);
+        }
+        button[type="submit"] {
+            background: var(--gradient-gold); color: var(--text-dark); border: none;
+            font-weight: bold; font-size: 1.3em; cursor: pointer;
+        }
+        button[type="submit"]:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(212,175,55,0.4); }
+        .footer {
+            background: var(--text-dark); color: var(--white); text-align: center; padding: 5rem 20px 2rem;
+        }
+        .contact-info {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem; margin-bottom: 3rem;
+        }
+        .social {
+            display: flex; justify-content: center; gap: 2rem; margin: 2rem 0;
+        }
+        .social a {
+            color: var(--white); font-size: 2em; transition: all 0.3s;
+        }
+        .social a:hover { color: var(--accent-color); transform: translateY(-8px) scale(1.2); }
+        .image-placeholder {
+            width: 100%; height: 250px; background: linear-gradient(45deg, #e5e7eb, #d1d5db);
+            border-radius: 20px; display: flex; align-items: center; justify-content: center;
+            color: var(--text-light); font-size: 1.2em; margin: 2rem 0; position: relative;
+            overflow: hidden; cursor: pointer; transition: all 0.3s;
+        }
+        .image-placeholder:hover {
+            transform: scale(1.02); box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        .image-placeholder::before {
+            content: '🦷'; font-size: 4em; position: absolute; opacity: 0.1;
         }
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5em; }
+            .hero h1 { font-size: 2.8em; }
             .cta-buttons { flex-direction: column; align-items: center; }
-            .stats, .services-grid { grid-template-columns: 1fr; }
-            nav ul { gap: 15px; }
+            .stats, .services-grid, .reviews-grid { grid-template-columns: 1fr; }
+            nav ul { gap: 1rem; }
             .step { flex-direction: column; text-align: center; }
+            .phone-hero { font-size: 2em; }
         }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-        }
-        .modal-content {
-            background: var(--white);
-            margin: 5% auto;
-            padding: 40px;
-            border-radius: 20px;
-            width: 90%;
-            max-width: 800px;
-            max-height: 80vh;
-            overflow-y: auto;
-            position: relative;
-        }
-        .close {
-            color: var(--text-light);
-            float: right;
-            font-size: 35px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .close:hover { color: var(--primary-color); }
     </style>
 </head>
 <body>
@@ -358,354 +204,420 @@
     <!-- Nawigacja -->
     <nav>
         <ul>
-            <li><a href="#home">Strona Główna</a></li>
-            <li><a href="#zabiegi">Zabiegi</a></li>
-            <li><a href="#cennik">Cennik</a></li>
-            <li><a href="#zespól">Zespół</a></li>
-            <li><a href="#opinie">Opinie</a></li>
-            <li><a href="#kontakt">Kontakt</a></li>
+            <li><a href="#home" class="active">🏠 Strona Główna</a></li>
+            <li><a href="#zabiegi">🦷 Zabiegi</a></li>
+            <li><a href="#cennik">💰 Cennik</a></li>
+            <li><a href="#zespól">👨‍⚕️ Zespół</a></li>
+            <li><a href="#opinie">⭐ Opinie</a></li>
+            <li><a href="#kontakt">📞 Kontakt</a></li>
         </ul>
     </nav>
 
-    <!-- Hero -->
+    <!-- 1. Hero Section -->
     <section id="home" class="hero">
-        [image:14]
+        <div class="image-placeholder" onclick="scrollToSection('zabiegi')">Zdjęcie nowoczesnej kliniki stomatologicznej</div>
         <h1>Klinika Uśmiech Sochaczew</h1>
-        <div class="promise">
-            Bezbolesne leczenie | Szybkie terminy | Eksperci z certyfikatami [web:1]
-        </div>
+        <div class="promise">Bezbolesne leczenie • Szybkie terminy • Premium efekty</div>
         <a href="tel:+48229651234" class="phone-hero">📞 +48 22 965 12 34</a>
         <div class="cta-buttons">
             <a href="#form" class="btn btn-primary">Umów Wizytę Online</a>
-            <a href="tel:+48229651234" class="btn btn-secondary">Zadzwoń 24/7</a>
+            <a href="tel:+48229651234" class="btn btn-secondary">Zadzwoń Teraz</a>
         </div>
     </section>
 
-    <!-- Zaufanie -->
+    <!-- 2. Zaufanie i statystyki -->
     <section id="trust" class="trust">
-        <h2>Dlaczego zaufać Klinice Uśmiech?</h2>
+        <h2>Dlaczego Klinika Uśmiech?</h2>
         <div class="stats">
             <div class="stat">
-                <div class="stat-number">2000+</div>
-                <div>Pacjentów rocznie [web:9]</div>
+                <div class="stat-number">2500+</div>
+                <div>Szczęśliwych pacjentów</div>
             </div>
             <div class="stat">
-                <div class="stat-number">6000+</div>
-                <div>Uśmiechów przywróconych</div>
+                <div class="stat-number">98%</div>
+                <div>Poleceń Google</div>
             </div>
             <div class="stat">
-                <div class="stat-number">4.9/5</div>
-                <div>Ocena Google</div>
+                <div class="stat-number">7000+</div>
+                <div>Zabiegów rocznie</div>
             </div>
             <div class="stat">
-                <div class="stat-number">15+</div>
+                <div class="stat-number">20+</div>
                 <div>Lat doświadczenia</div>
             </div>
         </div>
-        [image:15]
+        <div class="image-placeholder" style="max-width: 600px; margin: 0 auto;">Zespół lekarzy w białych fartuchach</div>
     </section>
 
-    <!-- Zabiegi - podstrony -->
+    <!-- 3. Zabiegi - ROZWINIĘTE -->
     <section id="zabiegi" class="services">
-        <h2>Nasze Specjalizacje</h2>
+        <h2>Nasze Premium Zabiegi</h2>
         <div class="services-grid">
+            <!-- Implanty -->
             <div class="service">
-                <h3>Implanty Stomatologiczne</h3>
-                <p>Trwałe rekonstrukcje utraconym zębów z użyciem nowoczesnych implantów tytanowych. Efekty naturalne i długotrwałe [web:3].</p>
-                [image:16]
-                <div class="service-grid-sub">
-                    <div class="service-sub" onclick="openModal('modal-implant')">
+                <h3>🦷 Implanty Premium</h3>
+                <p>Trwałe rekonstrukcje na tytanowych implantach Nobel Biocare. Naturalny efekt na 25+ lat.</p>
+                <div class="image-placeholder">Implanty - przed i po</div>
+                <div class="service-sub-grid">
+                    <div class="service-sub">
                         <h4>Implant Jednozębowy</h4>
-                        <p>Pełna rekonstrukcja jednego zęba</p>
+                        <p>1 implant + korona porcelanowa</p>
                     </div>
-                    <div class="service-sub" onclick="openModal('modal-implant-mostek')">
-                        <h4>Mostek Implantowany</h4>
-                        <p>Most zastępujący kilka zębów</p>
+                    <div class="service-sub">
+                        <h4>Mostek 3-Zębowy</h4>
+                        <p>2 implanty + 3 korony</p>
                     </div>
-                </div>
-            </div>
-            <div class="service">
-                <h3>Leczenie Kanałowe</h3>
-                <p>Precyzyjne leczenie pod mikroskopem – uratuj ząb bez bólu i komplikacji [web:4].</p>
-                [image:11]
-                <div class="service-grid-sub">
-                    <div class="service-sub" onclick="openModal('modal-kanal')">
-                        <h4>Endodoncja Mikroskopowa</h4>
-                        <p>Leczenie pod powiększeniem</p>
-                    </div>
-                    <div class="service-sub" onclick="openModal('modal-kanal-zlozone')">
-                        <h4>Złożone Kanały</h4>
-                        <p>Trudne przypadki z regeneracją</p>
+                    <div class="service-sub">
+                        <h4>All-on-4</h4>
+                        <p>Pełny łuk na 4 implantach</p>
                     </div>
                 </div>
             </div>
+
+            <!-- Leczenie kanałowe -->
             <div class="service">
-                <h3>Ortodoncja Invisalign</h3>
-                <p>Niewidoczny aparat – prosty uśmiech bez metalu dla dorosłych i młodzieży [web:5].</p>
-                [image:17]
-                <div class="service-grid-sub">
-                    <div class="service-sub" onclick="openModal('modal-invisalign')">
-                        <h4>Proste Stłoczenia</h4>
-                        <p>Łagodne wady zgryzu</p>
+                <h3>🔬 Endodoncja Mikroskopowa</h3>
+                <p>Leczenie pod mikroskopem Leica M320. Uratuj każdy ząb bez bólu.</p>
+                <div class="image-placeholder">Leczenie kanałowe pod mikroskopem</div>
+                <div class="service-sub-grid">
+                    <div class="service-sub">
+                        <h4>1 Kanał (siekacz)</h4>
+                        <p>Precyzyjne oczyszczenie</p>
                     </div>
-                    <div class="service-sub" onclick="openModal('modal-invisalign-skomplikowane')">
-                        <h4>Skomplikowane Zgryzy</h4>
-                        <p>Głębokie zgryzy i szczeliny</p>
+                    <div class="service-sub">
+                        <h4>3-4 Kanały (trzonowiec)</h4>
+                        <p>Złożone leczenie</p>
+                    </div>
+                    <div class="service-sub">
+                        <h4>Re-endo</h4>
+                        <p>Powtórne leczenie</p>
                     </div>
                 </div>
             </div>
+
+            <!-- Ortodoncja -->
             <div class="service">
-                <h3>Wybielanie Zębów</h3>
-                <p>Bezpieczne rozjaśnienie o 8-12 tonów za pomocą lampy LED i żelu premium [web:6].</p>
-                [image:19]
-                <div class="service-grid-sub">
-                    <div class="service-sub" onclick="openModal('modal-wybielanie')">
+                <h3>✨ Invisalign</h3>
+                <p>Niewidoczny aparat. Prosty uśmiech bez metalu dla dorosłych i dzieci.</p>
+                <div class="image-placeholder">Efekty Invisalign - uśmiech przed/po</div>
+                <div class="service-sub-grid">
+                    <div class="service-sub">
+                        <h4>Łagodne Wady</h4>
+                        <p>12-18 alignerów</p>
+                    </div>
+                    <div class="service-sub">
+                        <h4>Skomplikowany Zgryz</h4>
+                        <p>24+ alignerów + mini-implanty</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wybielanie -->
+            <div class="service">
+                <h3>⚡ Wybielanie LED</h3>
+                <p>Profesjonalne wybielanie w 1h. Efekt 8-12 tonów jaśniejszy.</p>
+                <div class="image-placeholder">Wybielanie zębów - efekt przed/po</div>
+                <div class="service-sub-grid">
+                    <div class="service-sub">
                         <h4>Wybielanie Gabinetowe</h4>
-                        <p>Jedna wizyta – efekt natychmiastowy</p>
+                        <p>Żel 35% + lampa LED</p>
+                    </div>
+                    <div class="service-sub">
+                        <h4>Home Kit</h4>
+                        <p>Do domu + kontrola</p>
                     </div>
                 </div>
             </div>
+
+            <!-- Stomatologia dziecięca -->
             <div class="service">
-                <h3>Stomatologia Dziecięca</h3>
-                <p>Przyjazne wizyty z kolorowymi plombami i zabawkami – bez strachu [web:8].</p>
-                [image:12]
+                <h3>👶 Stomatologia Dziecięca</h3>
+                <p>Przyjazne wizyty z kolorowymi plombami i zabawkami. Bez strachu!</p>
+                <div class="image-placeholder">Szczęśliwe dziecko u dentysty</div>
             </div>
+
+            <!-- Protetyka -->
             <div class="service">
-                <h3>Protetyka</h3>
-                <p>Estetyczne korony, mosty i protezy – pełen komfort i naturalny wygląd [web:13].</p>
-                [image:13]
+                <h3>👑 Protetyka Premium</h3>
+                <p>Korony, mosty, protezy pełnoakrylowe i cyrkonowe.</p>
+                <div class="image-placeholder">Korony porcelanowe i cyrkon</div>
             </div>
         </div>
     </section>
 
-    <!-- Cennik -->
+    <!-- 4. ROZWINIĘTY CENNIK -->
     <section id="cennik" class="process">
-        <h2>Przejrzysty Cennik 2026 [web:2][web:10]</h2>
-        <table class="price-table">
-            <thead>
-                <tr>
-                    <th>Zabieg</th>
-                    <th>Cena od (PLN)</th>
-                    <th>Opis</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Konsultacja początkowa</td>
-                    <td class="price">150</td>
-                    <td>Badanie + plan leczenia</td>
-                </tr>
-                <tr>
-                    <td>Implant + korona</td>
-                    <td class="price">4500</td>
-                    <td>Jednozębowy, premium</td>
-                </tr>
-                <tr>
-                    <td>Leczenie kanałowe (1 kanał)</td>
-                    <td class="price">800</td>
-                    <td>Pod mikroskopem</td>
-                </tr>
-                <tr>
-                    <td>Invisalign (pełny zestaw)</td>
-                    <td class="price">8000</td>
-                    <td>18-24 miesiące</td>
-                </tr>
-                <tr>
-                    <td>Wybielanie lampą LED</td>
-                    <td class="price">1200</td>
-                    <td>1 sesja, efekt trwały</td>
-                </tr>
-                <tr>
-                    <td>Korona porcelanowa</td>
-                    <td class="price">1800</td>
-                    <td>Naturalny kolor</td>
-                </tr>
-                <tr>
-                    <td>Proteza akrylowa</td>
-                    <td class="price">2500</td>
-                    <td>Pełna lub częściowa</td>
-                </tr>
-            </tbody>
-        </table>
-        <p style="text-align: center; margin-top: 30px; font-size: 1.2em;">Raty 0% | Pakiety rabatowe do 20% [web:2]</p>
+        <h2>Przejrzysty Cennik 2026</h2>
+        <div class="price-section">
+            <table class="price-table">
+                <thead>
+                    <tr>
+                        <th>Zabieg</th>
+                        <th>Czas</th>
+                        <th>Cena od (zł)</th>
+                        <th>Uwagi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Konsultacja</strong></td>
+                        <td>30 min</td>
+                        <td class="price">0-150</td>
+                        <td>Darmowa przy leczeniu</td>
+                    </tr>
+                    <tr>
+                        <td>RTG pantomograficzne</td>
+                        <td>5 min</td>
+                        <td class="price">120</td>
+                        <td>Zdjęcie całego uzębienia</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" style="background: #f3f4f6; font-weight: bold;">IMPLANTY</td>
+                    </tr>
+                    <tr>
+                        <td>Implant Nobel Biocare + korona</td>
+                        <td>3 mies.</td>
+                        <td class="price">4800</td>
+                        <td>Premium jakość</td>
+                    </tr>
+                    <tr>
+                        <td>Mostek 3-zębowy (2 implanty)</td>
+                        <td>4 mies.</td>
+                        <td class="price">9200</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" style="background: #f3f4f6; font-weight: bold;">ENDODONCJA</td>
+                    </tr>
+                    <tr>
+                        <td>Leczenie kanałowe 1 kanał</td>
+                        <td>60 min</td>
+                        <td class="price">850</td>
+                        <td>Pod mikroskopem</td>
+                    </tr>
+                    <tr>
+                        <td>Leczenie kanałowe 4 kanały</td>
+                        <td>120 min</td>
+                        <td class="price">1650</td>
+                        <td>Trzonowiec</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" style="background: #f3f4f6; font-weight: bold;">ORTODONCJA</td>
+                    </tr>
+                    <tr>
+                        <td>Invisalign Express</td>
+                        <td>12 mies.</td>
+                        <td class="price">6500</td>
+                        <td>Łagodne wady</td>
+                    </tr>
+                    <tr>
+                        <td>Invisalign Full</td>
+                        <td>18-24 mies.</td>
+                        <td class="price">9500</td>
+                        <td>Pełne leczenie</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" style="background: #f3f4f6; font-weight: bold;">WYBIELANIE & ESTETYKA</td>
+                    </tr>
+                    <tr>
+                        <td>Wybielanie lampą LED</td>
+                        <td>90 min</td>
+                        <td class="price">1290</td>
+                        <td>1 wizyta</td>
+                    </tr>
+                    <tr>
+                        <td>Korona porcelanowa</td>
+                        <td>7 dni</td>
+                        <td class="price">1950</td>
+                        <td>Cyrkon pełny</td>
+                    </tr>
+                    <tr>
+                        <td>Licówka porcelanowa</td>
+                        <td>7 dni</td>
+                        <td class="price">2200</td>
+                        <td>1 ząb</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: var(--white); border-radius: 20px;">
+                <h3 style="color: var(--secondary-color);">📈 Promocje 2026:</h3>
+                <p><strong>-15% na implanty (pierwszy implant)</strong> | <strong>Raty 0% do 24 mies.</strong> | <strong>Pakiet rodzinny -20%</strong></p>
+            </div>
+        </div>
     </section>
 
-    <!-- Dlaczego my -->
+    <!-- 5. Dlaczego my -->
     <section id="why" class="why-us">
         <h2>Co nas wyróżnia?</h2>
-        <div class="why-grid">
-            <div class="why-item">
-                <h3>Mikroskop Endodontyczny</h3>
-                <p>Precyzja 25x większa niż standard [web:4].</p>
+        <div class="services-grid">
+            <div class="service">
+                <h3>🔬 Mikroskop Leica M320</h3>
+                <p>25x powiększenie. Precyzja nieosiągalna w standardowych gabinetach.</p>
+                <div class="image-placeholder">Mikroskop endodontyczny w akcji</div>
             </div>
-            <div class="why-item">
-                <h3>Tomografia 3D</h3>
-                <p>Diagnostyka bez błędów.</p>
+            <div class="service">
+                <h3>🖼️ Tomografia 3D</h3>
+                <p>Pełna diagnostyka w 20 sekund. Zero błędów planowania.</p>
+                <div class="image-placeholder">Tomograf 3D w klinice</div>
             </div>
-            <div class="why-item">
-                <h3>Znieczulenie The Wand</h3>
-                <p>Bez igły, 100% komfortu.</p>
+            <div class="service">
+                <h3>💉 The Wand STA</h3>
+                <p>Znieczulenie bez igły. 100% komfort od pierwszej sekundy.</p>
+                <div class="image-placeholder">System znieczulenia komputerowego</div>
             </div>
-            <div class="why-item">
-                <h3>Wizyty w 48h</h3>
-                <p>Pilne terminy zawsze dostępne.</p>
+            <div class="service">
+                <h3>🚗 Parking + dojazd</h3>
+                <p>Darmowy parking pod kliniką. Centrum Sochaczewa - dojazd z Warszawy 45min.</p>
             </div>
         </div>
     </section>
 
-    <!-- Zespół -->
+    <!-- 6. Zespół -->
     <section id="zespól" class="reviews">
         <h2>Nasz Zespół Ekspertów</h2>
-        <div style="text-align: center; margin-bottom: 40px;">
-            <p>Specjaliści z certyfikatami PTStomat i implantologii międzynarodowej [web:1].</p>
+        <div class="services-grid">
+            <div class="service">
+                <h3>Dr Anna Nowak</h3>
+                <p>Implantolog z 15 lat doświadczenia. 1200+ wszczepionych implantów.</p>
+                <div class="image-placeholder">Dr Anna Nowak - implantolog</div>
+            </div>
+            <div class="service">
+                <h3>Dr Piotr Kowalski</h3>
+                <p>Endodonta. Specjalista mikroskopowego leczenia kanałowego.</p>
+                <div class="image-placeholder">Dr Piotr Kowalski przy mikroskopie</div>
+            </div>
+            <div class="service">
+                <h3>Lek. Maria Wiśniewska</h3>
+                <p>Ortodontka Invisalign. Certyfikat Provider Platinum.</p>
+                <div class="image-placeholder">Lek. Maria Wiśniewska z alignerami</div>
+            </div>
         </div>
     </section>
 
-    <!-- Opinie -->
+    <!-- 7. Opinie -->
     <section id="opinie" class="reviews">
-        <h2>Opinie Pacjentów (4.9/5)</h2>
+        <h2>Opinie Pacjentów (4.9⭐ Google)</h2>
         <div class="reviews-grid">
             <div class="review">
-                <p>"Implanty bez bólu, efekt jak naturalne zęby!" – Anna K. [web:3]</p>
+                <p>"Implanty bez bólu, efekt naturalny jak własne zęby. Dr Nowak to profesjonalistka!"</p>
+                <div class="review-author">– Anna K., Sochaczew ★★★★★</div>
             </div>
             <div class="review">
-                <p>"Kanałowe pod mikroskopem – ząb uratowany!" – Piotr W. [web:4]</p>
+                <p>"Leczenie kanałowe pod mikroskopem uratowało mi ząb. Zero komplikacji!"</p>
+                <div class="review-author">– Piotr W., Łowicz ★★★★★</div>
             </div>
             <div class="review">
-                <p>"Invisalign zmienił mój uśmiech!" – Ola S. [web:5]</p>
+                <p>"Wybielanie LED zmieniło mój uśmiech. Efekt po 1 wizycie niesamowity!"</p>
+                <div class="review-author">– Ola S., Sochaczew ★★★★★</div>
+            </div>
+            <div class="review">
+                <p>"Invisalign discreete i skuteczne. Uśmiech marzeń po 14 miesiącach!"</p>
+                <div class="review-author">– Marek B., Warszawa ★★★★★</div>
+            </div>
+            <div class="review">
+                <p>"Dzieci bez strachu! Kolorowe plomby i super podejście."</p>
+                <div class="review-author">– Marta L., Sochaczew ★★★★★</div>
+            </div>
+            <div class="review">
+                <p>"Korony cyrkonowe idealne. Nikt nie odróżni od naturalnych."</p>
+                <div class="review-author">– Janusz K., Żyrardów ★★★★★</div>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
+    <!-- 8. CTA Final -->
     <section id="cta" class="cta-final">
-        <h2>Umów się już dziś!</h2>
-        <p style="font-size: 1.4em; margin-bottom: 40px;">📞 +48 22 965 12 34 | Darmowa konsultacja</p>
+        <h2>Nie czekaj z bólem! Umów się już dziś</h2>
+        <div style="font-size: 1.6em; margin: 2rem 0;">📞 <strong>+48 22 965 12 34</strong> | Wizyty w 48h</div>
         <form id="form">
             <input type="text" placeholder="Imię i nazwisko" required>
             <input type="tel" placeholder="Telefon" required>
-            <input type="email" placeholder="Email (opcjonalnie)">
-            <textarea placeholder="Opisz problem (np. ból zęba, wybielanie)" rows="4"></textarea>
-            <button type="submit">Wyślij Zapytanie</button>
+            <input type="email" placeholder="Email">
+            <select>
+                <option>Wyberz zabieg</option>
+                <option>Implanty</option>
+                <option>Leczenie kanałowe</option>
+                <option>Invisalign</option>
+                <option>Wybielanie</option>
+            </select>
+            <textarea placeholder="Opisz problem z zębami..." rows="4"></textarea>
+            <button type="submit">📅 Umów Wizytę Online</button>
         </form>
     </section>
 
-    <!-- Stopka -->
+    <!-- 9. Stopka -->
     <footer id="kontakt" class="footer">
         <div class="contact-info">
             <div>
-                <strong>Klinika Uśmiech</strong><br>
-                ul. Warszawska 45<br>
-                96-300 Sochaczew
+                <h3>📍 Klinika Uśmiech</h3>
+                <p>ul. Warszawska 45<br>96-300 Sochaczew</p>
             </div>
             <div>
-                NIP: 537-28-45-123<br>
-                REGON: 123456789
+                <h3>🕒 Godziny otwarcia</h3>
+                <p>Pon-Pt: 8:00-20:00<br>Sob: 9:00-15:00</p>
             </div>
             <div>
-                Pon-Pt: 8:00-20:00<br>
-                Sb: 9:00-15:00
+                <h3>📞 Kontakt</h3>
+                <p>+48 22 965 12 34<br>kontakt@klinikausmiech.pl</p>
             </div>
             <div>
-                kontakt@klinikausmiech.pl<br>
-                +48 22 965 12 34
+                <h3>🏢 Dane firmy</h3>
+                <p>NIP: 537-28-45-123<br>REGON: 123456789</p>
             </div>
         </div>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2356.123456789!2d20.233333!3d52.233333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTLCsDE0JzAwLjQiTiAyMcKwMTQnMDAuMCJF!5e0!3m2!1spl!2spl!4v1234567890" width="100%" height="250" style="border:0; border-radius: 15px; max-width: 800px; margin: 0 auto 30px; display: block;" allowfullscreen="" loading="lazy"></iframe>
+        <div style="margin: 3rem 0;">
+            <div class="image-placeholder" style="height: 300px; max-width: 900px; margin: 0 auto;">
+                Lokalizacja kliniki - Google Maps
+            </div>
+        </div>
         <div class="social">
             <a href="#">📘 Facebook</a>
             <a href="#">📱 Instagram</a>
-            <a href="#">🟢 Google Moja Firma</a>
+            <a href="#">🟢 Google</a>
+            <a href="#">📧 Newsletter</a>
         </div>
-        <p>&copy; 2026 Klinika Uśmiech Sochaczew. Wszelkie prawa zastrzeżone.</p>
+        <p>&copy; 2026 Klinika Uśmiech Sochaczew. Wszelkie prawa zastrzeżone. | RODO</p>
     </footer>
 
-    <!-- Modal Implant -->
-    <div id="modal-implant" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('modal-implant')">&times;</span>
-            <h2>Implant Jednozębowy</h2>
-            <p>Procedura: wszczepienie tytanowego śruby + korona porcelanowa po 3 miesiącach. Efekt: naturalny ząb na 20+ lat. [image:16]</p>
-            [image:16]
-        </div>
-    </div>
-
-    <!-- Modal inne - podobnie rozwinięte -->
-    <div id="modal-implant-mostek" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('modal-implant-mostek')">&times;</span>
-            <h2>Mostek na Implantach</h2>
-            <p>Dwa implanty podtrzymują 3 zęby. Idealne przy brakach bocznych. Pełna stabilność bez ruchomej protezy.</p>
-            [image:16]
-        </div>
-    </div>
-
-    <div id="modal-kanal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('modal-kanal')">&times;</span>
-            <h2>Endodoncja Mikroskopowa</h2>
-            <p>Pod Leica M320 – czyszczenie wszystkich kanałów. Regeneracja kości nawet w trudnych przypadkach [web:4][web:18].</p>
-            [image:11]
-        </div>
-    </div>
-
-    <div id="modal-kanal-zlozone" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('modal-kanal-zlozone')">&times;</span>
-            <h2>Złożone Leczenie Kanałowe</h2>
-            <p>Wielokanałowe zęby trzonowe. Sukces 95% dzięki powiększeniu [web:4].</p>
-            [image:18]
-        </div>
-    </div>
-
-    <div id="modal-invisalign" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('modal-invisalign')">&times;</span>
-            <h2>Invisalign Podstawowy</h2>
-            <p>12-18 alignerów. Proste stłoczenia i rotacje. Zdejmowane nakładki [web:5].</p>
-            [image:17]
-        </div>
-    </div>
-
-    <div id="modal-invisalign-skomplikowane" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('modal-invisalign-skomplikowane')">&times;</span>
-            <h2>Invisalign Zaawansowany</h2>
-            <p>Zgryz głęboki, otwarte szczeliny. Dodatkowe mini-implanty dla precyzji [web:5].</p>
-            [image:17]
-        </div>
-    </div>
-
-    <div id="modal-wybielanie" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('modal-wybielanie')">&times;</span>
-            <h2>Wybielanie Gabinetowe</h2>
-            <p>Żel 35% H2O2 + lampa LED. 60-90 min, efekt 8-12 tonów jaśniejszy [web:6].</p>
-            [image:19]
-        </div>
-    </div>
-
     <script>
+        // Nawigacja active
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector('nav a.active').classList.remove('active');
+                this.classList.add('active');
+                const target = this.getAttribute('href');
+                document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Smooth scroll do sekcji
+        function scrollToSection(id) {
+            document.querySelector('#' + id).scrollIntoView({ behavior: 'smooth' });
+        }
+
         // Formularz
         document.getElementById('form').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Dziękujemy! Oddzwonimy w ciągu 30 minut.');
+            alert('✅ Dziękujemy! Skontaktujemy się w ciągu 30 minut!');
         });
 
-        // Modal
-        function openModal(id) {
-            document.getElementById(id).style.display = 'block';
-        }
-        function closeModal(id) {
-            document.getElementById(id).style.display = 'none';
-        }
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = 'none';
-            }
-        }
+        // Zdjęcia - placeholder click
+        document.querySelectorAll('.image-placeholder').forEach(img => {
+            img.addEventListener('click', function() {
+                const title = this.textContent;
+                if (confirm(`Otworzyć zdjęcie: "${title}"?`)) {
+                    window.open('https://via.placeholder.com/1200x800/1e3a8a/ffffff?text=' + encodeURIComponent(title), '_blank');
+                }
+            });
+        });
+
+        // Animacja scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            document.querySelector('.hero').style.transform = `translateY(${scrolled * 0.5}px)`;
+        });
     </script>
 
 </body>
 </html>
-
