@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kancelaria Prawna | Profesjonalna Obsługa Prawna</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f5f5f5;
+    color: #1a1a1a;
+    line-height: 1.6;
+}
+
+header {
+    background: #0f172a;
+    color: white;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: 400;
+}
+
+.hero {
+    background: linear-gradient(rgba(15,23,42,0.85), rgba(15,23,42,0.85)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f') center/cover;
+    color: white;
+    padding: 120px 8%;
+    text-align: left;
+}
+
+.hero h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    max-width: 500px;
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+
+.btn {
+    background: #c6a75e;
+    color: #0f172a;
+    padding: 14px 28px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 3px;
+}
+
+section {
+    padding: 80px 8%;
+    background: white;
+}
+
+section:nth-child(even) {
+    background: #f1f1f1;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.card h3 {
+    margin-bottom: 15px;
+}
+
+.process {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.process div {
+    flex: 1;
+    min-width: 200px;
+}
+
+.contact {
+    background: #0f172a;
+    color: white;
+    text-align: center;
+    padding: 80px 8%;
+}
+
+.contact form {
+    max-width: 500px;
+    margin: 30px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact input, .contact textarea {
+    padding: 12px;
+    border: none;
+}
+
+.contact button {
+    background: #c6a75e;
+    color: #0f172a;
+    padding: 14px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #111827;
+    color: white;
+    font-size: 14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Kancelaria Prawna</h1>
+    <nav>
+        <a href="#specjalizacje">Specjalizacje</a>
+        <a href="#proces">Proces</a>
+        <a href="#kontakt">Kontakt</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Skuteczna pomoc prawna dla firm i osób prywatnych</h2>
+    <p>Reprezentujemy naszych klientów z pełnym zaangażowaniem i strategicznym podejściem do każdej sprawy.</p>
+    <a href="#kontakt" class="btn">Umów konsultację</a>
+</section>
+
+<section id="specjalizacje">
+    <h2 class="section-title">Specjalizacje</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Prawo cywilne</h3>
+            <p>Sprawy majątkowe, umowy, odszkodowania, spory sądowe.</p>
+        </div>
+        <div class="card">
+            <h3>Prawo gospodarcze</h3>
+            <p>Obsługa prawna firm, kontrakty, negocjacje, compliance.</p>
+        </div>
+        <div class="card">
+            <h3>Prawo karne</h3>
+            <p>Obrona w postępowaniach karnych i reprezentacja przed sądem.</p>
+        </div>
+    </div>
+</section>
+
+<section id="proces">
+    <h2 class="section-title">Jak pracujemy</h2>
+    <div class="process">
+        <div>
+            <h3>1. Konsultacja</h3>
+            <p>Analiza sytuacji i określenie strategii działania.</p>
+        </div>
+        <div>
+            <h3>2. Strategia</h3>
+            <p>Przygotowanie dokumentów i planu procesowego.</p>
+        </div>
+        <div>
+            <h3>3. Reprezentacja</h3>
+            <p>Pełne wsparcie i reprezentacja przed sądami i urzędami.</p>
+        </div>
+    </div>
+</section>
+
+<section id="kontakt" class="contact">
+    <h2>Skontaktuj się z nami</h2>
+    <p>Zostaw wiadomość – oddzwonimy w ciągu 24 godzin.</p>
+    <form>
+        <input type="text" placeholder="Imię i nazwisko" required>
+        <input type="email" placeholder="Email" required>
+        <textarea rows="4" placeholder="Opisz swoją sprawę"></textarea>
+        <button type="submit">Wyślij wiadomość</button>
+    </form>
+</section>
+
+<footer>
+    © 2025 Kancelaria Prawna | Wszelkie prawa zastrzeżone
+</footer>
+
+</body>
+</html>
