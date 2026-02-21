@@ -3,129 +3,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DNP – Kancelaria Rzeczoznawcy Majątkowego | Wycena Nieruchomości Gałków Duży</title>
-    <meta name="description" content="Profesjonalna wycena nieruchomości w Gałkowie Dużym i okolicach. Operaty szacunkowe dla banków, sądów i urzędów. Kancelaria DNP – precyzja i bezpieczeństwo.">
+    <title>DNP – Kancelaria Rzeczoznawcy Majątkowego | Gałków Duży</title>
+    <meta name="description" content="Profesjonalna wycena nieruchomości Kancelaria DNP. Operaty szacunkowe dla banków, sądów i urzędów. Gałków Duży, ul. Główna 48.">
     
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
         :root {
             --gold: #c5a059;
+            --gold-dark: #b08d4a;
             --navy: #0f172a;
+            --navy-light: #1e293b;
             --slate: #334155;
             --light: #f8fafc;
             --white: #ffffff;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
-        * { box-sizing: border-box; transition: all 0.3s ease; }
+        * { box-sizing: border-box; }
         
+        html { scroll-behavior: smooth; }
+
         body {
             font-family: 'Montserrat', sans-serif;
             margin: 0;
             color: var(--slate);
             background-color: var(--light);
-            overflow-x: hidden;
+            line-height: 1.7;
         }
 
-        h1, h2, h3, .brand-name { font-family: 'Playfair Display', serif; }
+        h1, h2, h3, h4, .brand-name { font-family: 'Playfair Display', serif; }
 
-        /* Nawigacja Premium */
+        /* --- NAWIGACJA --- */
         nav {
             background: var(--navy);
-            padding: 20px 0;
+            padding: 15px 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 2px solid var(--gold);
+            border-bottom: 3px solid var(--gold);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
         }
         .nav-container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 20px;
+            padding: 0 30px;
         }
-        .brand-name { color: var(--white); font-size: 24px; text-decoration: none; }
+        .brand-name { color: var(--white); font-size: 26px; text-decoration: none; font-weight: 900; }
         .brand-name span { color: var(--gold); }
         
-        .nav-links { display: flex; gap: 25px; }
+        .nav-links { display: flex; gap: 30px; }
         .nav-links a { 
             color: var(--white); 
             text-decoration: none; 
             font-size: 13px; 
             text-transform: uppercase; 
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             font-weight: 600;
+            position: relative;
         }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+        .nav-links a:hover::after { width: 100%; }
         .nav-links a:hover { color: var(--gold); }
 
-        /* Mechanizm Podstron */
-        .page { display: none; padding-top: 100px; min-height: 100vh; animation: fadeIn 0.5s ease; }
+        /* --- MECHANIZM STRON --- */
+        .page { display: none; padding-top: 100px; min-height: 100vh; animation: fadeIn 0.6s ease; }
         .page.active { display: block; }
         
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Hero Section */
+        /* --- HERO SECTION --- */
         .hero {
-            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), 
-                        url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973') center/cover;
-            height: 70vh;
+            position: relative;
+            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), 
+                        url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069') center/cover;
+            height: 85vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: var(--white);
+            padding: 0 20px;
         }
-        .hero-content h1 { font-size: 48px; margin-bottom: 20px; }
-        .hero-content p { font-size: 18px; font-weight: 300; max-width: 800px; margin: 0 auto 30px; }
+        .hero-content h1 { font-size: clamp(32px, 5vw, 64px); margin-bottom: 25px; line-height: 1.2; }
+        .hero-content p { font-size: clamp(16px, 2vw, 22px); font-weight: 300; max-width: 900px; margin: 0 auto 40px; }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
-        h2 { font-size: 36px; text-align: center; color: var(--navy); margin-bottom: 40px; }
-        h2::after { content: ''; display: block; width: 60px; height: 3px; background: var(--gold); margin: 20px auto; }
+        /* --- SEKCJE OGÓLNE --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 80px 25px; }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 42px; color: var(--navy); margin-bottom: 15px; }
+        .section-title .divider { width: 80px; height: 4px; background: var(--gold); margin: 0 auto; }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        /* --- SIATKA USŁUG --- */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
         .card { 
             background: var(--white); 
-            padding: 30px; 
-            border-radius: 5px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
-            border-top: 4px solid var(--gold);
+            padding: 45px; 
+            border-radius: 12px; 
+            box-shadow: 0 15px 45px rgba(0,0,0,0.05); 
+            border-bottom: 5px solid transparent;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .card:hover { transform: translateY(-10px); border-bottom-color: var(--gold); }
+        .card i { font-size: 50px; color: var(--gold); margin-bottom: 25px; display: block; }
+        .card h3 { font-size: 24px; margin-bottom: 15px; color: var(--navy); }
+
+        /* --- PROCES (NOWE) --- */
+        .process-flow {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        .process-step {
+            flex: 1;
+            min-width: 200px;
             text-align: center;
+            position: relative;
         }
-        .card i { font-size: 40px; color: var(--gold); margin-bottom: 20px; }
-
-        .price-info { background: var(--navy); color: var(--white); padding: 50px; border-radius: 15px; text-align: center; }
-        .price-box { background: rgba(255,255,255,0.05); padding: 25px; margin: 20px 0; border: 1px dashed var(--gold); }
-
-        .about-flex { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
-        .about-img { flex: 1; min-width: 300px; border-radius: 5px; box-shadow: 15px 15px 0 var(--gold); }
-        .about-text { flex: 1; min-width: 300px; }
-
-        .faq-item { background: var(--white); margin-bottom: 15px; padding: 20px; border-radius: 8px; cursor: pointer; }
-        .faq-item p { display: none; margin-top: 15px; border-top: 1px solid #eee; padding-top: 10px; }
-
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
-        .contact-form input, .contact-form textarea {
-            width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; font-family: inherit;
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--gold);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 auto 20px;
         }
+
+        /* --- O MNIE --- */
+        .about-section { display: flex; align-items: center; gap: 70px; flex-wrap: wrap; }
+        .about-image-wrapper { flex: 1; min-width: 350px; position: relative; }
+        .about-image { width: 100%; border-radius: 15px; box-shadow: 25px 25px 0 var(--gold); }
+        .about-text { flex: 1.2; min-width: 350px; }
+        .feature-list { list-style: none; padding: 0; margin-top: 30px; }
+        .feature-list li { margin-bottom: 15px; display: flex; align-items: center; gap: 15px; font-weight: 500; }
+        .feature-list i { color: var(--gold); font-size: 20px; }
+
+        /* --- DOKUMENTY (NOWE) --- */
+        .doc-section { background: var(--navy); color: var(--white); padding: 80px 0; border-radius: 30px; margin: 40px 0; }
+        .doc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; padding: 0 40px; }
+        .doc-item { background: rgba(255,255,255,0.05); padding: 25px; border-left: 3px solid var(--gold); }
+
+        /* --- CENNIK --- */
+        .price-hero { 
+            background: var(--navy-light); color: white; padding: 60px; border-radius: 20px; text-align: center;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+        }
+        .cta-box { margin-top: 30px; padding: 30px; background: rgba(255,255,255,0.05); border-radius: 10px; }
+
+        /* --- FAQ --- */
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-item { 
+            background: var(--white); margin-bottom: 20px; border-radius: 10px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); overflow: hidden;
+        }
+        .faq-header { 
+            padding: 25px; cursor: pointer; display: flex; justify-content: space-between; 
+            align-items: center; font-weight: 700; color: var(--navy);
+        }
+        .faq-content { padding: 0 25px 25px; display: none; color: var(--slate); border-top: 1px solid #eee; padding-top: 20px; }
+
+        /* --- KONTAKT --- */
+        .contact-wrapper { 
+            display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; 
+            background: var(--white); padding: 50px; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+        }
+        .info-card { background: var(--navy); color: white; padding: 40px; border-radius: 15px; }
+        .info-item { display: flex; align-items: center; gap: 20px; margin-bottom: 30px; }
+        .info-item i { font-size: 24px; color: var(--gold); }
+        
+        .form-group { margin-bottom: 20px; }
+        .form-control { 
+            width: 100%; padding: 15px; border: 1px solid #e2e8f0; border-radius: 8px; 
+            font-family: inherit; font-size: 15px; transition: var(--transition);
+        }
+        .form-control:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.2); }
+
         .btn-gold { 
-            background: var(--gold); color: white; border: none; padding: 15px 40px; 
-            font-weight: 700; cursor: pointer; text-transform: uppercase; border-radius: 5px; text-decoration: none; display: inline-block;
+            background: var(--gold); color: white; border: none; padding: 18px 45px; 
+            font-weight: 700; cursor: pointer; text-transform: uppercase; border-radius: 8px; 
+            text-decoration: none; display: inline-block; letter-spacing: 1px; transition: var(--transition);
         }
-        .btn-gold:hover { background: #b08d4a; transform: translateY(-3px); }
+        .btn-gold:hover { background: var(--gold-dark); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(176, 141, 74, 0.3); }
 
-        footer { background: var(--navy); color: white; text-align: center; padding: 30px; font-size: 14px; }
+        /* --- DODATKOWE ZDJĘCIA (NOWE) --- */
+        .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 50px; }
+        .gallery-item { height: 200px; border-radius: 8px; overflow: hidden; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+        .gallery-item img:hover { transform: scale(1.1); }
 
-        @media (max-width: 768px) {
-            .hero-content h1 { font-size: 32px; }
-            .nav-links { display: none; }
-            .contact-grid { grid-template-columns: 1fr; }
+        footer { background: var(--navy); color: white; padding: 60px 20px; text-align: center; }
+        .footer-logo { font-size: 30px; margin-bottom: 20px; display: block; }
+        
+        @media (max-width: 992px) {
+            .contact-wrapper { grid-template-columns: 1fr; }
+            .about-section { flex-direction: column; text-align: center; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
@@ -148,46 +246,90 @@
     <div id="home" class="page active">
         <section class="hero">
             <div class="hero-content">
-                <h1>Rzetelna Wycena Nieruchomości</h1>
-                <p>Kancelaria Rzeczoznawcy Majątkowego DNP w Gałkowie Dużym. Profesjonalne operaty szacunkowe dla klientów indywidualnych, banków i sądów.</p>
-                <button class="btn-gold" onclick="showPage('uslugi')">Sprawdź zakres usług</button>
+                <h1>Profesjonalna Wycena Nieruchomości</h1>
+                <p>Niezależny Rzeczoznawca Majątkowy w Gałkowie Dużym. Tworzymy operaty szacunkowe z pełną odpowiedzialnością prawną dla banków, sądów i inwestorów.</p>
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                    <a href="javascript:void(0)" onclick="showPage('uslugi')" class="btn-gold">Zakres usług</a>
+                    <a href="tel:+48501564284" class="btn-gold" style="background: transparent; border: 2px solid var(--gold);">Zadzwoń teraz</a>
+                </div>
             </div>
         </section>
+
         <div class="container">
+            <div class="section-title">
+                <h2>Fundamenty naszej pracy</h2>
+                <div class="divider"></div>
+            </div>
             <div class="grid">
                 <div class="card">
-                    <i class="fas fa-balance-scale"></i>
-                    <h3>Zaufanie i Prawo</h3>
-                    <p>Wyceny przygotowywane zgodnie z przepisami prawa i standardami zawodowymi rzeczoznawców majątkowych.</p>
+                    <i class="fas fa-certificate"></i>
+                    <h3>Uprawnienia Państwowe</h3>
+                    <p>Wpisy do centralnego rejestru rzeczoznawców majątkowych gwarantują pełną akceptację dokumentów przez instytucje państwowe.</p>
                 </div>
                 <div class="card">
-                    <i class="fas fa-map-marked-alt"></i>
-                    <h3>Lokalna Wiedza</h3>
-                    <p>Głęboka znajomość rynku nieruchomości w Gałkowie Dużym, Łodzi i powiatach ościennych.</p>
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Bezpieczeństwo</h3>
+                    <p>Każdy operat szacunkowy objęty jest pełnym ubezpieczeniem OC, co zapewnia ochronę prawną naszych klientów.</p>
                 </div>
                 <div class="card">
-                    <i class="fas fa-clock"></i>
-                    <h3>Terminowość</h3>
-                    <p>Szanujemy czas naszych klientów. Gwarantujemy sprawne przygotowanie dokumentacji bez zbędnej zwłoki.</p>
+                    <i class="fas fa-search-location"></i>
+                    <h3>Analiza Rynku</h3>
+                    <p>Korzystamy z zaawansowanych baz danych transakcyjnych z regionu Łodzi i powiatu łódzkiego wschodniego.</p>
                 </div>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1582408921715-18e7806365c1?q=80&w=500" alt="Nieruchomość"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=500" alt="Dom"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1448630360428-65456885c650?q=80&w=500" alt="Osiedle"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1460472178825-e5240623abe5?q=80&w=500" alt="Budynek"></div>
             </div>
         </div>
     </div>
 
     <div id="onas" class="page">
         <div class="container">
-            <h2>O Kancelarii DNP</h2>
-            <div class="about-flex">
-                <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=800" alt="Dokumentacja prawna" class="about-img">
+            <div class="about-section">
+                <div class="about-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800" alt="Rzeczoznawca przy pracy" class="about-img">
+                </div>
                 <div class="about-text">
-                    <h3>Ekspert w dziedzinie nieruchomości</h3>
-                    <p>Kancelaria Rzeczoznawcy Majątkowego Nieruchomości DNP to miejsce, gdzie precyzja spotyka się z profesjonalnym doradztwem. Posiadamy wymagane uprawnienia państwowe do określania wartości nieruchomości.</p>
-                    <p>Specjalizujemy się w sporządzaniu operatów szacunkowych, które są niezbędne w procesach kredytowych, spadkowych czy przy transakcjach kupna-sprzedaży.</p>
-                    <ul style="list-style: none; padding: 0;">
-                        <li><i class="fas fa-check" style="color:var(--gold)"></i> Uprawnienia Ministra Rozwoju i Technologii</li>
-                        <li><i class="fas fa-check" style="color:var(--gold)"></i> Pełne ubezpieczenie odpowiedzialności cywilnej</li>
-                        <li><i class="fas fa-check" style="color:var(--gold)"></i> Najwyższa staranność i obiektywizm</li>
+                    <h2>Doświadczenie i Precyzja</h2>
+                    <p>Kancelaria DNP powstała z myślą o dostarczaniu najwyższej jakości usług w zakresie szacowania wartości mienia. W wycenie nieruchomości nie ma miejsca na domysły – liczą się fakty, liczby i analiza porównawcza.</p>
+                    <p>Nasza siedziba w Gałkowie Dużym pozwala na szybki dojazd i doskonałą znajomość lokalnych uwarunkowań planistycznych.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> Licencjonowany rzeczoznawca majątkowy</li>
+                        <li><i class="fas fa-check-circle"></i> Członek stowarzyszeń branżowych</li>
+                        <li><i class="fas fa-check-circle"></i> Ponad 10 lat doświadczenia na rynku nieruchomości</li>
+                        <li><i class="fas fa-check-circle"></i> Indywidualne podejście do trudnych stanów prawnych</li>
                     </ul>
+                </div>
+            </div>
+
+            <div class="section-title" style="margin-top: 100px;">
+                <h2>Jak przebiega współpraca?</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="process-flow">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4>Kontakt</h4>
+                    <p>Wstępna rozmowa i ustalenie celu wyceny.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4>Wizja lokalna</h4>
+                    <p>Osobiste oględziny nieruchomości i dokumentacja zdjęciowa.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4>Analiza rynku</h4>
+                    <p>Badanie cen transakcyjnych i uwarunkowań prawnych.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h4>Gotowy Operat</h4>
+                    <p>Przekazanie dokumentu w wersji papierowej i elektronicznej.</p>
                 </div>
             </div>
         </div>
@@ -195,23 +337,61 @@
 
     <div id="uslugi" class="page">
         <div class="container">
-            <h2>Zakres Specjalizacji</h2>
+            <div class="section-title">
+                <h2>Specjalizacje Kancelarii</h2>
+                <div class="divider"></div>
+            </div>
             <div class="grid">
                 <div class="card">
-                    <h4>Cele Bankowe</h4>
-                    <p>Wyceny dla zabezpieczenia wierzytelności kredytodawcy (kredyty hipoteczne).</p>
+                    <i class="fas fa-home"></i>
+                    <h3>Lokale Mieszkalne</h3>
+                    <p>Wyceny mieszkań, domów jednorodzinnych oraz spółdzielczych praw do lokalu dla celów kredytowych.</p>
                 </div>
                 <div class="card">
-                    <h4>Sprawy Sądowe</h4>
-                    <p>Operaty do spraw o podział majątku, zniesienie współwłasności oraz zachowek.</p>
+                    <i class="fas fa-building"></i>
+                    <h3>Nieruchomości Komercyjne</h3>
+                    <p>Szacowanie wartości hal, magazynów, biurowców oraz lokali usługowych dla firm i funduszy.</p>
                 </div>
                 <div class="card">
-                    <h4>Skarbowo-Podatkowe</h4>
-                    <p>Wyceny dla Urzędu Skarbowego (podatek od spadków i darowizn, PCC).</p>
+                    <i class="fas fa-seedling"></i>
+                    <h3>Grunty i Rolnictwo</h3>
+                    <p>Wycena działek budowlanych, gruntów rolnych, leśnych oraz terenów inwestycyjnych.</p>
                 </div>
                 <div class="card">
-                    <h4>Doradztwo</h4>
-                    <p>Określanie wartości rynkowej dla potrzeb ofertowych i negocjacyjnych.</p>
+                    <i class="fas fa-gavel"></i>
+                    <h3>Sprawy Sądowe</h3>
+                    <p>Podziały majątku, darowizny, spadki oraz określanie wartości dla odszkodowań.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <h3>Służebności</h3>
+                    <p>Wycena służebności przesyłu, dróg koniecznych oraz bezumownego korzystania.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-chart-pie"></i>
+                    <h3>Analizy Deweloperskie</h3>
+                    <p>Badanie opłacalności inwestycji i określanie wartości nieruchomości przyszłej.</p>
+                </div>
+            </div>
+
+            <div class="doc-section">
+                <div class="section-title">
+                    <h2 style="color: white;">Wymagane Dokumenty</h2>
+                    <p style="color: rgba(255,255,255,0.7);">Aby sprawnie przygotować wycenę, zazwyczaj prosimy o przygotowanie:</p>
+                </div>
+                <div class="doc-grid">
+                    <div class="doc-item">
+                        <h4>Dla lokalu / domu</h4>
+                        <p>Numer Księgi Wieczystej, wypis z rejestru gruntów, zaświadczenie o przeznaczeniu w planie miejscowym.</p>
+                    </div>
+                    <div class="doc-item">
+                        <h4>Dla działki</h4>
+                        <p>Mapa zasadnicza lub ewidencyjna, decyzja o warunkach zabudowy (jeśli wydano).</p>
+                    </div>
+                    <div class="doc-item">
+                        <h4>Dla komercji</h4>
+                        <p>Dokumentacja techniczna budynku, wykaz kosztów utrzymania, umowy najmu.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -219,80 +399,188 @@
 
     <div id="cennik" class="page">
         <div class="container">
-            <h2>Indywidualna Wycena</h2>
-            <div class="price-info">
-                <p>Wynagrodzenie rzeczoznawcy wynika z nakładu pracy i stopnia skomplikowania zlecenia.</p>
-                <div class="price-box">
-                    <h3>Na koszt usługi wpływa m.in.:</h3>
-                    <ul style="text-align: left; display: inline-block;">
-                        <li>Rodzaj nieruchomości (lokal, dom, grunt, komercyjne)</li>
-                        <li>Cel wyceny i zakres opracowania</li>
-                        <li>Stan prawny oraz kompletność dokumentacji</li>
-                    </ul>
+            <div class="section-title">
+                <h2>Koszt Usługi</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="price-hero">
+                <h3>Indywidualna wycena każdego zlecenia</h3>
+                <p>Jako rzeczoznawca majątkowy, działam etycznie. Koszt operatu zależy wyłącznie od pracochłonności, a nie od wartości nieruchomości.</p>
+                
+                <div class="grid" style="margin-top: 40px; text-align: left;">
+                    <div class="card" style="border: 1px solid #eee;">
+                        <h4>Czynniki wpływające na cenę:</h4>
+                        <ul style="padding-left: 20px;">
+                            <li>Rodzaj i wielkość nieruchomości</li>
+                            <li>Cel wyceny (np. dla sądu wymagana jest większa szczegółowość)</li>
+                            <li>Położenie nieruchomości i dostępność danych</li>
+                            <li>Termin realizacji (standardowo 3-7 dni roboczych)</li>
+                        </ul>
+                    </div>
                 </div>
-                <p>Zapraszam do kontaktu telefonicznego – wycenę zlecenia podam Państwu w 2 minuty.</p>
-                <a href="tel:+48501564284" class="btn-gold">Zadzwoń: 501 564 284</a>
+
+                <div class="cta-box">
+                    <p>Zadzwoń teraz – zapytamy o 3 parametry nieruchomości i podamy wiążącą cenę przez telefon.</p>
+                    <a href="tel:+48501564284" class="btn-gold">Zadzwoń: 501 564 284</a>
+                </div>
             </div>
         </div>
     </div>
 
     <div id="pomoc" class="page">
         <div class="container">
-            <h2>Warto wiedzieć</h2>
-            <div class="faq-item">
-                <h4>Czym jest operat szacunkowy? <i class="fas fa-chevron-down"></i></h4>
-                <p>To autorska opinia rzeczoznawcy majątkowego o wartości nieruchomości, wydana w formie pisemnej dokumentacji o mocy dokumentu urzędowego.</p>
+            <div class="section-title">
+                <h2>Najczęstsze Pytania</h2>
+                <div class="divider"></div>
             </div>
-            <div class="faq-item">
-                <h4>Ile jest ważny operat? <i class="fas fa-chevron-down"></i></h4>
-                <p>Zgodnie z ustawą, operat szacunkowy może być wykorzystywany do celu, dla którego został sporządzony, przez okres 12 miesięcy od daty jego sporządzenia.</p>
-            </div>
-            <div class="faq-item">
-                <h4>Czy wizja lokalna jest konieczna? <i class="fas fa-chevron-down"></i></h4>
-                <p>Tak. Rzeczoznawca ma obowiązek osobiście dokonać oględzin nieruchomości, aby rzetelnie ocenić jej stan techniczno-użytkowy.</p>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-header">Czy bank zaakceptuje operat rzeczoznawcy zewnętrznego? <i class="fas fa-plus"></i></div>
+                    <div class="faq-content">Tak, rzeczoznawca majątkowy posiada uprawnienia ustawowe. Większość banków akceptuje operaty rzeczoznawców z listy bankowej lub ogólnej, o ile spełniają standardy KSWS.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-header">Jak długo trwa przygotowanie operatu szacunkowego? <i class="fas fa-plus"></i></div>
+                    <div class="faq-content">Standardowy czas to 5 dni roboczych od wizji lokalnej i dostarczenia kompletu dokumentów. W sytuacjach pilnych oferujemy ścieżkę ekspresową.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-header">Co rzeczoznawca sprawdza podczas wizyty? <i class="fas fa-plus"></i></div>
+                    <div class="faq-content">Sprawdzany jest stan techniczny, standard wykończenia, instalacje, otoczenie budynku oraz ewentualne wady lub atuty wpływające na wartość rynkową.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-header">Jaka jest różnica między ceną a wartością? <i class="fas fa-plus"></i></div>
+                    <div class="faq-content">Cena to kwota zapłacona w konkretnej transakcji. Wartość rynkowa to szacunkowa kwota, jaką można uzyskać na rynku, określona metodami analitycznymi przez eksperta.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-header">Gdzie działamy? <i class="fas fa-plus"></i></div>
+                    <div class="faq-content">Naszym głównym obszarem działania jest Gałków Duży, gmina Koluszki, Łódź oraz powiat łódzki wschodni, brzeziński i tomaszowski.</div>
+                </div>
             </div>
         </div>
     </div>
 
     <div id="kontakt" class="page">
         <div class="container">
-            <h2>Kontakt z Kancelarią</h2>
-            <div class="contact-grid">
-                <div>
-                    <h3>Dane Kancelarii DNP</h3>
-                    <p><i class="fas fa-map-marker-alt" style="color:var(--gold)"></i> ul. Główna 48, 95-041 Gałków Duży</p>
-                    <p><i class="fas fa-phone" style="color:var(--gold)"></i> <a href="tel:+48501564284" style="color:inherit; text-decoration:none;">501 564 284</a></p>
-                    <p><i class="fas fa-envelope" style="color:var(--gold)"></i> <a href="mailto:wycena@nieruchomosci-dnp.pl" style="color:inherit; text-decoration:none;">wycena@nieruchomosci-dnp.pl</a></p>
-                    <p><i class="fas fa-clock" style="color:var(--gold)"></i> Poniedziałek - Piątek: 09:00 - 17:00</p>
+            <div class="section-title">
+                <h2>Porozmawiajmy o wycenie</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="contact-wrapper">
+                <div class="info-card">
+                    <h3>Dane Kancelarii</h3>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Adres:</strong><br>
+                            ul. Główna 48<br>95-041 Gałków Duży
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <strong>Telefon:</strong><br>
+                            <a href="tel:+48501564284" style="color:white; text-decoration:none;">501 564 284</a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>E-mail:</strong><br>
+                            <a href="mailto:wycena@nieruchomosci-dnp.pl" style="color:white; text-decoration:none;">wycena@nieruchomosci-dnp.pl</a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-id-card"></i>
+                        <div>
+                            <strong>NIP:</strong><br>
+                            (Wypełnij dane firmy)
+                        </div>
+                    </div>
                 </div>
-                <form class="contact-form" onsubmit="event.preventDefault(); alert('Wersja DEMO - Formularz nie wysyła maili.');">
-                    <input type="text" placeholder="Imię i Nazwisko" required>
-                    <input type="email" placeholder="Adres E-mail" required>
-                    <input type="text" placeholder="Lokalizacja nieruchomości">
-                    <textarea rows="5" placeholder="W czym możemy pomóc?"></textarea>
-                    <button type="submit" class="btn-gold">Wyślij wiadomość</button>
-                </form>
+
+                <div class="contact-form">
+                    <h3>Wyślij zapytanie</h3>
+                    <p>Oddzwonimy w ciągu 2 godzin z wyceną usługi.</p>
+                    <form onsubmit="event.preventDefault(); alert('Dziękujemy! Formularz działa w wersji DEMO.');">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Imię i Nazwisko" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Twój E-mail" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Numer telefonu" required>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control">
+                                <option>Rodzaj nieruchomości</option>
+                                <option>Mieszkanie</option>
+                                <option>Dom</option>
+                                <option>Działka</option>
+                                <option>Komercyjna</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="5" placeholder="Cel wyceny (np. kredyt, spadki) oraz krótki opis nieruchomości..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-gold" style="width: 100%;">Wyślij zapytanie</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Kancelaria Rzeczoznawcy Majątkowego Nieruchomości DNP. Siedziba: Gałków Duży.</p>
+        <span class="footer-logo brand-name">KANCELARIA <span>DNP</span></span>
+        <p>Rzeczoznawca Majątkowy – Gałków Duży, ul. Główna 48</p>
+        <div style="margin: 20px 0; font-size: 20px;">
+            <a href="#" style="color: white; margin: 0 10px;"><i class="fab fa-facebook"></i></a>
+            <a href="#" style="color: white; margin: 0 10px;"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p style="opacity: 0.6; font-size: 12px;">© 2026 Kancelaria Nieruchomości DNP. Projekt i wdrożenie: Damian Kuboń.</p>
     </footer>
 
     <script>
         function showPage(pageId) {
-            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
             document.getElementById(pageId).classList.add('active');
-            window.scrollTo(0, 0);
+            window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
-        document.querySelectorAll('.faq-item').forEach(item => {
-            item.addEventListener('click', () => {
-                const p = item.querySelector('p');
-                const isVisible = p.style.display === 'block';
-                p.style.display = isVisible ? 'none' : 'block';
+        // Accordion dla FAQ
+        document.querySelectorAll('.faq-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const icon = header.querySelector('i');
+                
+                const isOpen = content.style.display === 'block';
+                
+                // Zamknij wszystkie
+                document.querySelectorAll('.faq-content').forEach(c => c.style.display = 'none');
+                document.querySelectorAll('.faq-header i').forEach(i => {
+                    i.classList.remove('fa-minus');
+                    i.classList.add('fa-plus');
+                });
+
+                if (!isOpen) {
+                    content.style.display = 'block';
+                    icon.classList.remove('fa-plus');
+                    icon.classList.add('fa-minus');
+                }
             });
+        });
+
+        // Efekt scroll dla nawigacji
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.padding = '10px 0';
+                nav.style.background = 'rgba(15, 23, 42, 0.98)';
+            } else {
+                nav.style.padding = '15px 0';
+                nav.style.background = 'var(--navy)';
+            }
         });
     </script>
 </body>
