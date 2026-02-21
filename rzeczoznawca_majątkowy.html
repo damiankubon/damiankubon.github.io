@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DNP – Kancelaria Rzeczoznawcy Majątkowego | Wycena Nieruchomości</title>
-    <meta name="description" content="Profesjonalna wycena nieruchomości. Operaty szacunkowe dla banków, sądów i urzędów. Kancelaria DNP - precyzja i bezpieczeństwo transakcji.">
+    <title>DNP – Kancelaria Rzeczoznawcy Majątkowego | Wycena Nieruchomości Gałków Duży</title>
+    <meta name="description" content="Profesjonalna wycena nieruchomości w Gałkowie Dużym i okolicach. Operaty szacunkowe dla banków, sądów i urzędów. Kancelaria DNP – precyzja i bezpieczeństwo.">
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -55,7 +55,7 @@
         .nav-links a { 
             color: var(--white); 
             text-decoration: none; 
-            font-size: 14px; 
+            font-size: 13px; 
             text-transform: uppercase; 
             letter-spacing: 1px;
             font-weight: 600;
@@ -63,7 +63,7 @@
         .nav-links a:hover { color: var(--gold); }
 
         /* Mechanizm Podstron */
-        .page { display: none; padding-top: 120px; min-height: 100vh; animation: fadeIn 0.5s ease; }
+        .page { display: none; padding-top: 100px; min-height: 100vh; animation: fadeIn 0.5s ease; }
         .page.active { display: block; }
         
         @keyframes fadeIn {
@@ -73,29 +73,26 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
-                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070') center/cover;
-            height: 80vh;
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), 
+                        url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973') center/cover;
+            height: 70vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: var(--white);
-            margin-bottom: 50px;
         }
-        .hero-content h1 { font-size: 56px; margin-bottom: 20px; }
-        .hero-content p { font-size: 20px; font-weight: 300; max-width: 800px; margin: 0 auto 30px; }
+        .hero-content h1 { font-size: 48px; margin-bottom: 20px; }
+        .hero-content p { font-size: 18px; font-weight: 300; max-width: 800px; margin: 0 auto 30px; }
 
-        /* Wspólne style sekcji */
         .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
-        h2 { font-size: 42px; text-align: center; color: var(--navy); margin-bottom: 50px; }
+        h2 { font-size: 36px; text-align: center; color: var(--navy); margin-bottom: 40px; }
         h2::after { content: ''; display: block; width: 60px; height: 3px; background: var(--gold); margin: 20px auto; }
 
-        /* Karty Usług */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .card { 
             background: var(--white); 
-            padding: 40px; 
+            padding: 30px; 
             border-radius: 5px; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
             border-top: 4px solid var(--gold);
@@ -103,46 +100,31 @@
         }
         .card i { font-size: 40px; color: var(--gold); margin-bottom: 20px; }
 
-        /* Sekcja Cennik - Wyjaśnienie */
-        .price-info {
-            background: var(--navy);
-            color: var(--white);
-            padding: 60px;
-            border-radius: 15px;
-            text-align: center;
-        }
-        .price-box {
-            background: rgba(255,255,255,0.1);
-            padding: 30px;
-            margin: 20px 0;
-            border: 1px dashed var(--gold);
-        }
+        .price-info { background: var(--navy); color: var(--white); padding: 50px; border-radius: 15px; text-align: center; }
+        .price-box { background: rgba(255,255,255,0.05); padding: 25px; margin: 20px 0; border: 1px dashed var(--gold); }
 
-        /* O Mnie */
         .about-flex { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
-        .about-img { flex: 1; min-width: 300px; border-radius: 10px; box-shadow: 20px 20px 0 var(--gold); }
+        .about-img { flex: 1; min-width: 300px; border-radius: 5px; box-shadow: 15px 15px 0 var(--gold); }
         .about-text { flex: 1; min-width: 300px; }
 
-        /* Pomoc / FAQ */
         .faq-item { background: var(--white); margin-bottom: 15px; padding: 20px; border-radius: 8px; cursor: pointer; }
-        .faq-item h4 { margin: 0; color: var(--navy); display: flex; justify-content: space-between; }
+        .faq-item p { display: none; margin-top: 15px; border-top: 1px solid #eee; padding-top: 10px; }
 
-        /* Kontakt */
         .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
         .contact-form input, .contact-form textarea {
-            width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px;
+            width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; font-family: inherit;
         }
         .btn-gold { 
             background: var(--gold); color: white; border: none; padding: 15px 40px; 
-            font-weight: 700; cursor: pointer; text-transform: uppercase; border-radius: 5px;
+            font-weight: 700; cursor: pointer; text-transform: uppercase; border-radius: 5px; text-decoration: none; display: inline-block;
         }
-        .btn-gold:hover { background: #b08d4a; transform: scale(1.05); }
+        .btn-gold:hover { background: #b08d4a; transform: translateY(-3px); }
 
-        footer { background: var(--navy); color: white; text-align: center; padding: 40px; margin-top: 50px; }
+        footer { background: var(--navy); color: white; text-align: center; padding: 30px; font-size: 14px; }
 
         @media (max-width: 768px) {
-            .hero-content h1 { font-size: 36px; }
-            .nav-links { display: none; } /* Uproszczenie dla mobilnych */
+            .hero-content h1 { font-size: 32px; }
+            .nav-links { display: none; }
             .contact-grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -154,7 +136,7 @@
             <a href="#" class="brand-name" onclick="showPage('home')">KANCELARIA <span>DNP</span></a>
             <div class="nav-links">
                 <a href="javascript:void(0)" onclick="showPage('home')">Start</a>
-                <a href="javascript:void(0)" onclick="showPage('onas')">O mnie</a>
+                <a href="javascript:void(0)" onclick="showPage('onas')">O Kancelarii</a>
                 <a href="javascript:void(0)" onclick="showPage('uslugi')">Usługi</a>
                 <a href="javascript:void(0)" onclick="showPage('cennik')">Cennik</a>
                 <a href="javascript:void(0)" onclick="showPage('pomoc')">Pomoc</a>
@@ -166,27 +148,27 @@
     <div id="home" class="page active">
         <section class="hero">
             <div class="hero-content">
-                <h1>Wycena Nieruchomości z Gwarancją Prawną</h1>
-                <p>Niezależny Rzeczoznawca Majątkowy. Tworzymy operaty szacunkowe, które stanowią solidny fundament Twoich decyzji finansowych.</p>
-                <button class="btn-gold" onclick="showPage('uslugi')">Poznaj ofertę</button>
+                <h1>Rzetelna Wycena Nieruchomości</h1>
+                <p>Kancelaria Rzeczoznawcy Majątkowego DNP w Gałkowie Dużym. Profesjonalne operaty szacunkowe dla klientów indywidualnych, banków i sądów.</p>
+                <button class="btn-gold" onclick="showPage('uslugi')">Sprawdź zakres usług</button>
             </div>
         </section>
         <div class="container">
             <div class="grid">
                 <div class="card">
-                    <i class="fas fa-file-invoice-dollar"></i>
-                    <h3>Operaty Szacunkowe</h3>
-                    <p>Pełna dokumentacja honorowana przez banki (kredyty hipoteczne) oraz urzędy skarbowe.</p>
+                    <i class="fas fa-balance-scale"></i>
+                    <h3>Zaufanie i Prawo</h3>
+                    <p>Wyceny przygotowywane zgodnie z przepisami prawa i standardami zawodowymi rzeczoznawców majątkowych.</p>
                 </div>
                 <div class="card">
-                    <i class="fas fa-gavel"></i>
-                    <h3>Wyceny Sądowe</h3>
-                    <p>Specjalistyczne opinie do spraw o podział majątku, spadki oraz odszkodowania.</p>
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Lokalna Wiedza</h3>
+                    <p>Głęboka znajomość rynku nieruchomości w Gałkowie Dużym, Łodzi i powiatach ościennych.</p>
                 </div>
                 <div class="card">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Analiza Rynku</h3>
-                    <p>Doradztwo przy zakupie i sprzedaży nieruchomości w celu optymalizacji zysku.</p>
+                    <i class="fas fa-clock"></i>
+                    <h3>Terminowość</h3>
+                    <p>Szanujemy czas naszych klientów. Gwarantujemy sprawne przygotowanie dokumentacji bez zbędnej zwłoki.</p>
                 </div>
             </div>
         </div>
@@ -196,15 +178,15 @@
         <div class="container">
             <h2>O Kancelarii DNP</h2>
             <div class="about-flex">
-                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800" alt="Rzeczoznawca" class="about-img">
+                <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=800" alt="Dokumentacja prawna" class="about-img">
                 <div class="about-text">
-                    <h3>Profesjonalizm poparty uprawnieniami</h3>
-                    <p>Kancelaria DNP prowadzona jest przez licencjonowanego rzeczoznawcę majątkowego wpisanego do Centralnego Rejestru Rzeczoznawców. Moja praca to połączenie analizy danych rynkowych z głęboką znajomością prawa nieruchomości.</p>
-                    <p>Wyróżnia nas terminowość i rzetelność. Każda nieruchomość jest przez nas badana osobiście, co gwarantuje najwyższą jakość operatu szacunkowego.</p>
+                    <h3>Ekspert w dziedzinie nieruchomości</h3>
+                    <p>Kancelaria Rzeczoznawcy Majątkowego Nieruchomości DNP to miejsce, gdzie precyzja spotyka się z profesjonalnym doradztwem. Posiadamy wymagane uprawnienia państwowe do określania wartości nieruchomości.</p>
+                    <p>Specjalizujemy się w sporządzaniu operatów szacunkowych, które są niezbędne w procesach kredytowych, spadkowych czy przy transakcjach kupna-sprzedaży.</p>
                     <ul style="list-style: none; padding: 0;">
-                        <li><i class="fas fa-check text-gold"></i> Członek stowarzyszenia rzeczoznawców</li>
-                        <li><i class="fas fa-check text-gold"></i> Obowiązkowe ubezpieczenie OC</li>
-                        <li><i class="fas fa-check text-gold"></i> Ponad 1000 wycenionych obiektów</li>
+                        <li><i class="fas fa-check" style="color:var(--gold)"></i> Uprawnienia Ministra Rozwoju i Technologii</li>
+                        <li><i class="fas fa-check" style="color:var(--gold)"></i> Pełne ubezpieczenie odpowiedzialności cywilnej</li>
+                        <li><i class="fas fa-check" style="color:var(--gold)"></i> Najwyższa staranność i obiektywizm</li>
                     </ul>
                 </div>
             </div>
@@ -216,20 +198,20 @@
             <h2>Zakres Specjalizacji</h2>
             <div class="grid">
                 <div class="card">
-                    <h4>Nieruchomości Mieszkalne</h4>
-                    <p>Domy, mieszkania, apartamenty premium, spółdzielcze własnościowe prawo do lokalu.</p>
+                    <h4>Cele Bankowe</h4>
+                    <p>Wyceny dla zabezpieczenia wierzytelności kredytodawcy (kredyty hipoteczne).</p>
                 </div>
                 <div class="card">
-                    <h4>Nieruchomości Komercyjne</h4>
-                    <p>Biurowce, hale magazynowe, lokale użytkowe, hotele i pensjonaty.</p>
+                    <h4>Sprawy Sądowe</h4>
+                    <p>Operaty do spraw o podział majątku, zniesienie współwłasności oraz zachowek.</p>
                 </div>
                 <div class="card">
-                    <h4>Nieruchomości Gruntowe</h4>
-                    <p>Działki budowlane, rolne, leśne oraz tereny inwestycyjne pod deweloperkę.</p>
+                    <h4>Skarbowo-Podatkowe</h4>
+                    <p>Wyceny dla Urzędu Skarbowego (podatek od spadków i darowizn, PCC).</p>
                 </div>
                 <div class="card">
-                    <h4>Służebności i Odszkodowania</h4>
-                    <p>Wycena bezumownego korzystania z nieruchomości oraz służebności przesyłu.</p>
+                    <h4>Doradztwo</h4>
+                    <p>Określanie wartości rynkowej dla potrzeb ofertowych i negocjacyjnych.</p>
                 </div>
             </div>
         </div>
@@ -237,88 +219,81 @@
 
     <div id="cennik" class="page">
         <div class="container">
-            <h2>Indywidualna Wycena Usługi</h2>
+            <h2>Indywidualna Wycena</h2>
             <div class="price-info">
-                <p class="lead">Zgodnie z Kodeksem Etyki Zawodowej, koszt przygotowania operatu szacunkowego nie może być uzależniony od wartości nieruchomości.</p>
+                <p>Wynagrodzenie rzeczoznawcy wynika z nakładu pracy i stopnia skomplikowania zlecenia.</p>
                 <div class="price-box">
-                    <h3>Dlaczego nie mamy sztywnego cennika?</h3>
-                    <p>Koszt usługi zależy od nakładu pracy, który wynika z:</p>
+                    <h3>Na koszt usługi wpływa m.in.:</h3>
                     <ul style="text-align: left; display: inline-block;">
-                        <li>Rodzaju nieruchomości (mieszkanie vs. hala przemysłowa)</li>
-                        <li>Cel wyceny (inny stopień skomplikowania dla sądu, inny dla banku)</li>
-                        <li>Stanu prawnego (nieruchomości z obciążeniami wymagają głębszej analizy)</li>
-                        <li>Lokalizacji i dostępności danych rynkowych</li>
+                        <li>Rodzaj nieruchomości (lokal, dom, grunt, komercyjne)</li>
+                        <li>Cel wyceny i zakres opracowania</li>
+                        <li>Stan prawny oraz kompletność dokumentacji</li>
                     </ul>
                 </div>
-                <p><strong>Zadzwoń do nas – po krótkiej rozmowie przedstawimy wiążącą ofertę cenową.</strong></p>
-                <a href="tel:506350590" class="btn-gold" style="text-decoration:none">Poproś o wycenę: 506 350 590</a>
+                <p>Zapraszam do kontaktu telefonicznego – wycenę zlecenia podam Państwu w 2 minuty.</p>
+                <a href="tel:+48501564284" class="btn-gold">Zadzwoń: 501 564 284</a>
             </div>
         </div>
     </div>
 
     <div id="pomoc" class="page">
         <div class="container">
-            <h2>Warto wiedzieć (Pomoc)</h2>
+            <h2>Warto wiedzieć</h2>
             <div class="faq-item">
-                <h4>Co to jest operat szacunkowy? <i class="fas fa-plus"></i></h4>
-                <p>To dokument urzędowy sporządzony w formie pisemnej przez rzeczoznawcę, określający wartość nieruchomości. Ma moc prawną przez 12 miesięcy.</p>
+                <h4>Czym jest operat szacunkowy? <i class="fas fa-chevron-down"></i></h4>
+                <p>To autorska opinia rzeczoznawcy majątkowego o wartości nieruchomości, wydana w formie pisemnej dokumentacji o mocy dokumentu urzędowego.</p>
             </div>
             <div class="faq-item">
-                <h4>Jakie dokumenty przygotować? <i class="fas fa-plus"></i></h4>
-                <p>Zazwyczaj potrzebujemy: numeru księgi wieczystej, wypisu z rejestru gruntów oraz dokumentów technicznych budynku.</p>
+                <h4>Ile jest ważny operat? <i class="fas fa-chevron-down"></i></h4>
+                <p>Zgodnie z ustawą, operat szacunkowy może być wykorzystywany do celu, dla którego został sporządzony, przez okres 12 miesięcy od daty jego sporządzenia.</p>
             </div>
             <div class="faq-item">
-                <h4>Czy wycena jest konieczna do kredytu? <i class="fas fa-plus"></i></h4>
-                <p>Tak, bank musi mieć pewność, że nieruchomość stanowi odpowiednie zabezpieczenie kwoty kredytu.</p>
+                <h4>Czy wizja lokalna jest konieczna? <i class="fas fa-chevron-down"></i></h4>
+                <p>Tak. Rzeczoznawca ma obowiązek osobiście dokonać oględzin nieruchomości, aby rzetelnie ocenić jej stan techniczno-użytkowy.</p>
             </div>
         </div>
     </div>
 
     <div id="kontakt" class="page">
         <div class="container">
-            <h2>Skonsultuj się z Ekspertem</h2>
+            <h2>Kontakt z Kancelarią</h2>
             <div class="contact-grid">
                 <div>
-                    <h3>Dane Kancelarii</h3>
-                    <p><i class="fas fa-map-marker-alt text-gold"></i> ul. Profesjonalna 1, 00-001 Warszawa</p>
-                    <p><i class="fas fa-phone text-gold"></i> +48 506 350 590</p>
-                    <p><i class="fas fa-envelope text-gold"></i> kancelaria@dnp-wyceny.pl</p>
-                    <p><i class="fas fa-clock text-gold"></i> Pon - Pt: 08:00 - 18:00</p>
+                    <h3>Dane Kancelarii DNP</h3>
+                    <p><i class="fas fa-map-marker-alt" style="color:var(--gold)"></i> ul. Główna 48, 95-041 Gałków Duży</p>
+                    <p><i class="fas fa-phone" style="color:var(--gold)"></i> <a href="tel:+48501564284" style="color:inherit; text-decoration:none;">501 564 284</a></p>
+                    <p><i class="fas fa-envelope" style="color:var(--gold)"></i> <a href="mailto:wycena@nieruchomosci-dnp.pl" style="color:inherit; text-decoration:none;">wycena@nieruchomosci-dnp.pl</a></p>
+                    <p><i class="fas fa-clock" style="color:var(--gold)"></i> Poniedziałek - Piątek: 09:00 - 17:00</p>
                 </div>
-                <form class="contact-form">
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('Wersja DEMO - Formularz nie wysyła maili.');">
                     <input type="text" placeholder="Imię i Nazwisko" required>
                     <input type="email" placeholder="Adres E-mail" required>
-                    <input type="text" placeholder="Rodzaj nieruchomości (np. dom w Piasecznie)">
-                    <textarea rows="5" placeholder="Twoje pytanie..."></textarea>
-                    <button type="submit" class="btn-gold">Wyślij zapytanie</button>
+                    <input type="text" placeholder="Lokalizacja nieruchomości">
+                    <textarea rows="5" placeholder="W czym możemy pomóc?"></textarea>
+                    <button type="submit" class="btn-gold">Wyślij wiadomość</button>
                 </form>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>© 2026 Kancelaria Rzeczoznawcy Majątkowego DNP. Wszystkie prawa zastrzeżone.</p>
+        <p>&copy; 2026 Kancelaria Rzeczoznawcy Majątkowego Nieruchomości DNP. Siedziba: Gałków Duży.</p>
     </footer>
 
     <script>
         function showPage(pageId) {
-            // Ukryj wszystkie strony
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
-            // Pokaż wybraną
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
-            // Przewiń na górę
             window.scrollTo(0, 0);
         }
 
-        // Prosty mechanizm FAQ
         document.querySelectorAll('.faq-item').forEach(item => {
             item.addEventListener('click', () => {
                 const p = item.querySelector('p');
-                p.style.display = p.style.display === 'block' ? 'none' : 'block';
+                const isVisible = p.style.display === 'block';
+                p.style.display = isVisible ? 'none' : 'block';
             });
         });
     </script>
 </body>
-</html>
+</html> 
